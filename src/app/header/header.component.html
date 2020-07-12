@@ -1,0 +1,79 @@
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark ">
+
+      <a class="navbar-brand"
+          routerLink="">
+        <img src="https://freesvg.org/img/logo_school.png" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+      </a>
+
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarMenu"
+              aria-controls="navbarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown ml-5">
+            <a class="nav-link dropdown-toggle"
+               id="navbarDropdownMenu"
+               role="button"
+               data-toggle="dropdown">School</a>
+            <div class="dropdown-menu bg-dark text-secondary" aria-labelledby="navbarDropdownMenu">
+              <a class="dropdown-item">Students</a>
+              <a class="dropdown-item">Groups</a>
+              <a class="dropdown-item">Teaching staff</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item" *ngIf="!isAuth">
+            <a class="nav-link"
+               style="cursor: pointer"
+               routerLinkActive="active"
+               routerLink="/logIn"
+            >Log in</a>
+          </li>
+          <li class="nav-item" *ngIf="!isAuth">
+            <a class="nav-link"
+               style="cursor: pointer"
+               routerLinkActive="active"
+               routerLink="/signIn"
+            >Sign in</a>
+          </li>
+
+          <li class="nav-item dropdown mr-4" *ngIf="isAuth">
+            <a class="nav-link dropdown-toggle"
+               id="navbarDropdownProfileMenu"
+               role="button"
+               data-toggle="dropdown">
+              <img [src]="profilePhotoUrl" alt="Profile"
+                   class="rounded-circle" width="30"
+                   height="30"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right bg-dark text-secondary "
+                 aria-labelledby="navbarDropdownProfileMenu">
+              <a class="dropdown-item"
+                 outerLink="/yourProfile">Your profile</a>
+              <a class="dropdown-item" (click)="auth.signOut()">Logout</a>
+            </div>
+          </li>
+
+
+
+
+        </ul>
+
+
+
+    </div>
+
+
+  </nav>
+</header>
