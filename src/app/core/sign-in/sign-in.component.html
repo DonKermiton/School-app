@@ -13,7 +13,7 @@
                    class="form-control"
                    id="DisplayName"
                    placeholder="Carl Johnson"
-                   formControlName="full-name"
+                   formControlName="fullName"
             >
           </div>
         </div>
@@ -55,6 +55,7 @@
                    class="form-control"
                    id="password"
                    formControlName="password"
+                   required
                   >
           </div>
         </div>
@@ -67,16 +68,17 @@
                    class="form-control"
                    id="RetypePassword"
                    formControlName="Retype"
+                   required
                   >
           </div>
         </div>
       </div>
 
       <div class="row mt-2">
-          <button class="btn btn-outline-success shadow col-12" type="submit">Sign in</button>
+          <button class="btn btn-outline-success shadow col-12" type="submit" [disabled]="!SignInForm.valid && !SignInForm.touched" (click)="SignInViaEmail()">Sign in</button>
       </div>
       <div class="row mt-2">
-          <button class="btn btn-outline-danger shadow col-12" type="button">Sign in with Google</button>
+          <button class="btn btn-outline-danger shadow col-12" type="button" >Sign in with Google</button>
       </div>
 
 

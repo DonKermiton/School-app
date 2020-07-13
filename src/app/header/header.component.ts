@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../auth/auth.service";
+import {take} from "rxjs/operators";
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ export class HeaderComponent implements OnInit {
   profilePhotoUrl: string;
 
   constructor(public auth: AuthService) {
+
   }
 
   ngOnInit(): void {
@@ -18,10 +20,12 @@ export class HeaderComponent implements OnInit {
       this.isAuth = !!user;
 
     });
-    this.auth.user$.subscribe(e => {
-      this.profilePhotoUrl = e.photoURL;
-      console.log('zmiana zdjęcia');
-    });
+
+    this.auth.imgSource.subscribe(value => {
+      this.profilePhotoUrl = value;
+      console.log('zmiana ', value );
+    })
+
 
 
   }

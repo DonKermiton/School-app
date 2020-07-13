@@ -25,7 +25,7 @@
                role="button"
                data-toggle="dropdown">School</a>
             <div class="dropdown-menu bg-dark text-secondary" aria-labelledby="navbarDropdownMenu">
-              <a class="dropdown-item">Students</a>
+              <a class="dropdown-item" routerLink="/testpage">Students</a>
               <a class="dropdown-item">Groups</a>
               <a class="dropdown-item">Teaching staff</a>
             </div>
@@ -60,7 +60,7 @@
             <div class="dropdown-menu dropdown-menu-right bg-dark text-secondary "
                  aria-labelledby="navbarDropdownProfileMenu">
               <a class="dropdown-item"
-                 outerLink="/yourProfile">Your profile</a>
+                 routerLink="/profile">Your profile</a>
               <a class="dropdown-item" (click)="auth.signOut()">Logout</a>
             </div>
           </li>

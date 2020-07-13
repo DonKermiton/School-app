@@ -14,14 +14,21 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SignInComponent } from './core/sign-in/sign-in.component';
 import { LogInComponent } from './core/log-in/log-in.component';
 import { YourProfileComponent } from './core/your-profile/your-profile.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { SubPageComponent } from './auth/sub-page/sub-page.component';
+import {canActivate} from "@angular/fire/auth-guard";
+import {AdminGuard} from "./core/admin.guard";
+import {CanReadGuard} from "./core/can-read.guard";
 
 
 
 const appRoute: Routes = [
-  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
+
   {path: 'welcome', component: WelcomePageComponent},
   {path: 'logIn', component: LogInComponent},
-  {path: 'signIn', component: SignInComponent}
+  {path: 'signIn', component: SignInComponent},
+  {path: 'profile', component: YourProfileComponent, canActivate:[CanReadGuard]},
+  {path: 'testpage', component: SubPageComponent, canActivate: [AdminGuard]}
 
 ]
 
@@ -34,15 +41,17 @@ const appRoute: Routes = [
     SignInComponent,
     LogInComponent,
     YourProfileComponent,
+    SubPageComponent,
 
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     BrowserModule,
-    RouterModule.forRoot(appRoute),
+    RouterModule.forRoot(appRoute, {useHash : true}),
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
