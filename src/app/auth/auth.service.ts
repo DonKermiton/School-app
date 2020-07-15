@@ -144,9 +144,6 @@ export class AuthService {
       };
     this.router.navigate(['/profile']);
     return userRef.set(user, { merge: true });
-
-
-
   }
 
 

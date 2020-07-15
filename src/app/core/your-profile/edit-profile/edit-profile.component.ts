@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthService, User} from "../../../auth/auth.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit-profile',
@@ -11,7 +12,9 @@ export class EditProfileComponent implements OnInit {
   EditProfileForm: FormGroup;
   userInfo: User;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.auth.profileInfo.subscribe(user => {
@@ -31,5 +34,9 @@ export class EditProfileComponent implements OnInit {
     this.auth.profileInfo.next(this.userInfo);
     this.auth.updateUserData(this.userInfo);
 
+  }
+
+  cancelChanges() {
+    this.router.navigate(['../'], {relativeTo: this.route})
   }
 }

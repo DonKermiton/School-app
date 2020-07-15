@@ -12,22 +12,15 @@
   <component name="ChangeListManager">
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RecipeApp/opt-mod-06-finished/opt-mod-06-finished" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -107,7 +100,7 @@
       <workItem from="1594677094187" duration="10152000" />
       <workItem from="1594731182735" duration="3083000" />
       <workItem from="1594747642935" duration="11783000" />
-      <workItem from="1594805278966" duration="4914000" />
+      <workItem from="1594805278966" duration="8715000" />
     </task>
     <servers />
   </component>
@@ -136,10 +129,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594489283720" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1594747443724">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1594830156226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594747443724" />
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594830156226" />
     <state x="1930" y="-18" width="1518" height="777" maximized="true" key="dock-window-1" timestamp="1594754883474">
       <screen x="1920" y="0" width="1536" height="832" />
     </state>
@@ -149,9 +142,9 @@
     </state>
     <state x="493" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594805981230" />
     <state x="616" y="240" key="run.anything.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594680577881" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594663198684">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594826991735">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594663198684" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594826991735" />
   </component>
 </project>

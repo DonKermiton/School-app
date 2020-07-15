@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../auth/auth.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-sign-in',
@@ -14,10 +15,9 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.SignInForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required]),
+      'email': new FormControl(null, [Validators.required, Validators.email] ),
       'password': new FormControl(null, [Validators.required]),
-      'Retype': new FormControl(null, [Validators.required]),
-    })
+    });
   }
 
   SignInUser() {
@@ -28,4 +28,9 @@ export class SignInComponent implements OnInit {
   SignInViaEmail() {
     this.authService.createUserViaEmail(this.SignInForm.value.email, this.SignInForm.value.password);
   }
+
+
+
+
+
 }

@@ -29,7 +29,7 @@
           </tbody>
 
         </table>
-      <button class="btn btn-primary" routerLink="edit">Edit Profile Info</button>
+      <button class="btn btn-primary" routerLink="edit" *ngIf="!isInEditMode">Edit Profile Info</button>
 
       </div>
     </div>
