@@ -1,3 +1,17 @@
+.wrapper{
+  background: #343a40;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.bg-photo-img{
+  height: 30vh;
+  background-image: url("https://cdn.pixabay.com/photo/2019/09/23/16/18/sunset-4499023_1280.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 img {
   max-width: 100%;
 }

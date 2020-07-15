@@ -48,12 +48,13 @@
             >Sign in</a>
           </li>
 
-          <li class="nav-item dropdown mr-4" *ngIf="isAuth">
-            <a class="nav-link dropdown-toggle"
+          <li class="nav-item dropdown " *ngIf="isAuth">
+            <a class="nav-link dropdown-toggle img-profile"
                id="navbarDropdownProfileMenu"
                role="button"
-               data-toggle="dropdown">
-              <img [src]="profilePhotoUrl" alt="Profile"
+               data-toggle="dropdown"
+               >
+              <img [src]="profile.photoURL" [alt]="profile.displayName"
                    class="rounded-circle" width="30"
                    height="30"/>
             </a>

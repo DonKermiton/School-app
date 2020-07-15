@@ -9,11 +9,16 @@
     Delete Post
   </button>
 
+
   <button class="button is-warning"
           (click)="editPost()"
           *ngIf="auth.canEdit(user)">
 
     Edit Post
   </button>
+  <br>
+  <div>
+    <p>{{typeInfo}}</p>
+  </div>
 
 </div>

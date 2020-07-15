@@ -1,17 +1,68 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 border shadow">
-      <!--<img src="https://cdn.pixabay.com/photo/2020/03/03/01/59/dog-4897327_1280.jpg" alt="">-->
+<div class="wrapper">
+  <div class="bg-photo-img"></div>
+
+  <div class="container rounded shadow border-light bg-light">
+    <div class="row p-3" style="margin-top: -6vw">
+      <div class="col-xs-12 col-md-4 col-lg-4 justify-content-center text-center align-items-center">
+        <img [src]="profile.photoURL" alt="Your Photo" class="rounded-circle mb-4 border-light shadow" height="250"
+             width="250" >
+      </div>
+      <div class="col-xs-12 offset-md-1 col-md-6 text-center">
+        <h3 class="text-center">{{profile.displayName}}</h3>
+        <h4 class="lead">{{profile.email}}</h4>
+
+        <table class="table mt-5">
+          <thead class="thead-light">
+
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Type</th>
+            <td *ngIf="profile.roles.admin">Admin</td>
+            <td *ngIf="profile.roles.editor">Teacher</td>
+            <td *ngIf="profile.roles.sub">Student</td>
+          </tr>
+          <tr>
+            <th scope="row">UID</th>
+            <td>{{profile.uid}}</td>
+          </tr>
+          </tbody>
+
+        </table>
+      <button class="btn btn-primary" routerLink="edit">Edit Profile Info</button>
+
+      </div>
     </div>
+    <router-outlet></router-outlet>
   </div>
-    <div class="col-xs-12 border">
-      <h3>Name</h3>
-      <h3>email</h3>
-      <h3>type</h3>
-
-    </div>
-
-
-
-
 </div>
+
+
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-xs-12 border shadow">-->
+<!--      &lt;!&ndash;<img src="https://cdn.pixabay.com/photo/2020/03/03/01/59/dog-4897327_1280.jpg" alt="">&ndash;&gt;-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col-xs-12 col-3 border">-->
+<!--    <img [src]="profile.photoURL" class="rounded-circle" alt="">-->
+<!--  </div>-->
+<!--  <div class="col-xs-12 col-9 border">-->
+<!--    <div class="card">-->
+<!--      <div class="card-header">-->
+<!--        Personal Data-->
+<!--      </div>-->
+<!--      <ul class="list-group list-group-flush">-->
+<!--        <li class="list-group-item">{{profile.displayName}}</li>-->
+<!--        <li class="list-group-item">{{profile.email}}</li>-->
+<!--        <li class="list-group-item" *ngIf="profile.roles.admin">Admin</li>-->
+<!--        <li class="list-group-item" *ngIf="profile.roles.editor">Teacher</li>-->
+<!--        <li class="list-group-item" *ngIf="profile.roles.sub">Student</li>-->
+<!--      </ul>-->
+
+<!--    </div>-->
+<!--  </div>-->
+
+
+<!--</div>-->
+<!--&ndash;&gt;-->

@@ -11,20 +11,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/src/figma.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +64,7 @@
   <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Tests (Student-app)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
       <working-directory value="$PROJECT_DIR$" />
       <node-interpreter value="project" />
       <envs />
@@ -99,7 +103,11 @@
       <option name="presentableId" value="Default" />
       <updated>1594481100701</updated>
       <workItem from="1594481103338" duration="10186000" />
-      <workItem from="1594631888077" duration="6365000" />
+      <workItem from="1594631888077" duration="23548000" />
+      <workItem from="1594677094187" duration="10152000" />
+      <workItem from="1594731182735" duration="3083000" />
+      <workItem from="1594747642935" duration="11783000" />
+      <workItem from="1594805278966" duration="4914000" />
     </task>
     <servers />
   </component>
@@ -119,9 +127,31 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser" timestamp="1594731758635">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1594731758635" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594686612184" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594489283720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594489283720" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1594747443724">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594747443724" />
+    <state x="1930" y="-18" width="1518" height="777" maximized="true" key="dock-window-1" timestamp="1594754883474">
+      <screen x="1920" y="0" width="1536" height="832" />
+    </state>
+    <state x="1930" y="-18" width="1518" height="777" maximized="true" key="dock-window-1/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594754883474" />
+    <state x="493" y="190" key="run.anything.popup" timestamp="1594805981230">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="493" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594805981230" />
+    <state x="616" y="240" key="run.anything.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594680577881" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594663198684">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594663198684" />
   </component>
 </project>

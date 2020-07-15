@@ -1,0 +1,29 @@
+<form [formGroup]="EditProfileForm" (ngSubmit)="EditProfile()">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="DisplayName">Name</label>
+        <input type="text"
+               class="form-control"
+               id="DisplayName"
+               formControlName="displayName">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="PhotoUrl">PhotoUrl</label>
+        <input type="text"
+               class="form-control"
+               id="PhotoUrl"
+               formControlName="photoURL">
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-end mt-4">
+    <button class="btn btn-success" type="submit">Save</button>
+    <button class="btn btn-danger" type="button">Cancel</button>
+  </div>
+</form>

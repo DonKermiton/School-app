@@ -19,16 +19,19 @@ import { SubPageComponent } from './auth/sub-page/sub-page.component';
 import {canActivate} from "@angular/fire/auth-guard";
 import {AdminGuard} from "./core/admin.guard";
 import {CanReadGuard} from "./core/can-read.guard";
+import { EditProfileComponent } from './core/your-profile/edit-profile/edit-profile.component';
 
 
 
 const appRoute: Routes = [
-
   {path: 'welcome', component: WelcomePageComponent},
+
+  {path: 'testpage', component: SubPageComponent, canActivate: [CanReadGuard]},
   {path: 'logIn', component: LogInComponent},
   {path: 'signIn', component: SignInComponent},
-  {path: 'profile', component: YourProfileComponent, canActivate:[CanReadGuard]},
-  {path: 'testpage', component: SubPageComponent, canActivate: [AdminGuard]}
+  {path: 'profile', component: YourProfileComponent, canActivate: [CanReadGuard], children: [
+      {path: 'edit', component: EditProfileComponent, canActivate: [CanReadGuard]}
+    ]},
 
 ]
 
@@ -42,6 +45,7 @@ const appRoute: Routes = [
     LogInComponent,
     YourProfileComponent,
     SubPageComponent,
+    EditProfileComponent,
 
   ],
   imports: [

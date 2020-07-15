@@ -28,7 +28,6 @@ export class LogInComponent implements OnInit {
 
   LoginUser() {
     this.auth.logViaEmail(this.LoginForm.value.email, this.LoginForm.value.password)
-    console.log(this.LoginForm.value.email, this.LoginForm.value.password);
   }
 
   viaGoogle() {

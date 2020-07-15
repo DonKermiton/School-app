@@ -8,20 +8,6 @@
       <div class="row">
         <div class="col-xs-12  col-lg-12">
           <div class="form-group">
-            <label for="DisplayName">Display Name*</label>
-            <input type="email"
-                   class="form-control"
-                   id="DisplayName"
-                   placeholder="Carl Johnson"
-                   formControlName="fullName"
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12  col-lg-12">
-          <div class="form-group">
             <label for="Email">Email address*</label>
             <input type="email"
                    class="form-control"
@@ -29,19 +15,7 @@
                    placeholder="name@example.com"
                    formControlName="email"
                    email
-            >
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-xs-12  col-lg-12">
-          <div class="form-group">
-            <label for="PhotoUrl">Photo Url</label>
-            <input type="email"
-                   class="form-control"
-                   id="PhotoUrl"
-                   formControlName="photoUrl"
             >
           </div>
         </div>
@@ -55,7 +29,7 @@
                    class="form-control"
                    id="password"
                    formControlName="password"
-                   required
+
                   >
           </div>
         </div>
@@ -68,35 +42,18 @@
                    class="form-control"
                    id="RetypePassword"
                    formControlName="Retype"
-                   required
+
                   >
           </div>
         </div>
       </div>
 
       <div class="row mt-2">
-          <button class="btn btn-outline-success shadow col-12" type="submit" [disabled]="!SignInForm.valid && !SignInForm.touched" (click)="SignInViaEmail()">Sign in</button>
+          <button class="btn btn-success shadow col-12" type="submit" [disabled]="!SignInForm.valid" (click)="SignInViaEmail()">Sign in</button>
       </div>
       <div class="row mt-2">
-          <button class="btn btn-outline-danger shadow col-12" type="button" >Sign in with Google</button>
+<!--          <button class="btn btn-outline-danger shadow col-12" type="button" >Sign in with Google</button>-->
       </div>
-
-
-        <!-- <div *ngIf="auth.user$ | async as user; else login">
-           <h3>{{user.email }}</h3>
-           <h3>{{user.type}}</h3>
-
-           <img [src]="user.photoURL" alt="">
-
-
-
-         </div>
-
-         <ng-template #login>
-           <button class="btn btn-outline-success shadow" type="submit" (click)="auth.signOut()">Log Out</button>
-         </ng-template>-->
-
-
 
       <div class="mb-4"></div>
 

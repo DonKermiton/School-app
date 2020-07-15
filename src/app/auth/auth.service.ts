@@ -1,10 +1,12 @@
 import {Injectable} from "@angular/core";
-import {Observable, of, Subject} from "rxjs";
+import {BehaviorSubject, Observable, of, Subject} from "rxjs";
 import {AngularFireAuth} from "@angular/fire/auth";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 import {auth} from 'firebase/app';
+import * as firebase from "firebase";
+import set = Reflect.set;
 
 
 
@@ -17,7 +19,7 @@ export interface Roles {
 export interface User {
   uid: string;
   email: string;
-  roles: Roles;
+  roles?: Roles;
   photoURL?: string;
   displayName?: string;
 }
@@ -26,9 +28,10 @@ export interface User {
   providedIn: 'root',
 })
 export class AuthService {
-
-  imgSource = new Subject<string>();
+  profileInfo = new BehaviorSubject<User>(null);
   user$: Observable<any>;
+  error: string;
+
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -45,31 +48,35 @@ export class AuthService {
         }
       })
     );
-    this.signOut();
   }
 
-  async createUserViaEmail(email: string, password: string,
-                           photoUrl: string,
-                           displayName: string) {
-        const credential =  this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then(value => {
-        return this.updateUserData(credential.user);
-      }).catch(error => {
-        console.log('some error occurred', error);
-      })
+   AutoLogin(){
+
+        this.afAuth.authState.subscribe(value => {
+          if(value !== null) {
+            this.getPersonalData(value);
+          }
+        });
+   }
+
+  async createUserViaEmail(email: string, password: string) {
+   await this.afAuth.createUserWithEmailAndPassword(email, password)
+     .then(user => {
+       this.getPersonalData(user.user);
+       this.setDeaultUserData(user.user);
+     })
+     .catch(console.log);
+
   }
 
    logViaEmail(email: string, password: string) {
      this.afAuth.signInWithEmailAndPassword(email, password)
       .then(e => {
-        const uidValue = e.user;
-        this.updateUserData(uidValue);
-        this.imgSource.next(uidValue.photoURL);
+        this.getPersonalData(e.user);
+          // this.handleAuth(e.credential,);
       }).catch(error=> {
-        console.log(error);
-    }).finally(()=>{
-      console.log('success')
-    });
+        this.error = error.message;
+    })
 
   }
 
@@ -77,32 +84,69 @@ export class AuthService {
   async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
-    return this.updateUserData(credential.user);
+
+    await this.updateUserData(credential.user);
+    return this.getPersonalData(credential.user);
+
   }
 
 
   async signOut() {
     await this.afAuth.signOut();
     return this.router.navigate(['/']);
+
+
   }
 
-
-  private updateUserData(user) {
-    // Sets user data to firestore on login
+  getPersonalData(user){
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
-    const data = {
-      uid: user.uid,
-      email: user.email,
-      roles: {
-        sub: true,
-      }
-    };
+    const profile = userRef.valueChanges();
+
+    profile.subscribe(value => {
+      this.profileInfo.next(value);
+    })
+    this.router.navigate(['/profile']);
+  }
+
+    setDeaultUserData(user,){
+      const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+      user = {
+        uid: user.uid,
+        email: user.email,
+        displayName: '',
+        photoURL: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
+        roles: {
+          admin: false,
+          editor: false,
+          sub: true,
+        }
+      };
+      this.router.navigate(['/profile']);
+      return userRef.set(user, { merge: true });
+    }
+
+
+   updateUserData(user) {
+    // Sets user data to firestore on login
+
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    let e = this.afs.collection('users').doc(`${user.uid}`).valueChanges();
+    e.subscribe(value => {
+      user = value;
+    }, error => console.log(error));
+
+      user = {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        edit: true,
+      };
+    this.router.navigate(['/profile']);
+    return userRef.set(user, { merge: true });
 
 
 
-    // console.log(this.afs.doc(`users/${user.uid/user.uid.photoURL}`));
-    // console.log(this.user$);
-    return userRef.set(data, {merge: true});
   }
 
 
@@ -117,8 +161,6 @@ export class AuthService {
       }
       return false
     }
-
-
   }
 
 
