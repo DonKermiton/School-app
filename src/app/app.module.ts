@@ -20,6 +20,13 @@ import {canActivate} from "@angular/fire/auth-guard";
 import {AdminGuard} from "./core/admin.guard";
 import {CanReadGuard} from "./core/can-read.guard";
 import { EditProfileComponent } from './core/your-profile/edit-profile/edit-profile.component';
+import { ForgotPasswordComponent } from './core/log-in/forgot-password/forgot-password.component';
+import { AlertComponent } from './shared/alert/alert.component';
+import { ViewUsersComponent } from './core/your-profile/view-users/view-users.component';
+import { StudentsComponent } from './students/students.component';
+import { StudentsListComponent } from './students/students-list/students-list.component';
+import { StudentViewComponent } from './students/student-view/student-view.component';
+import { EditStudentMarksComponent } from './students/student-view/edit-student-marks/edit-student-marks.component';
 
 
 
@@ -27,11 +34,18 @@ const appRoute: Routes = [
   {path: 'welcome', component: WelcomePageComponent},
 
   {path: 'testpage', component: SubPageComponent, canActivate: [CanReadGuard]},
+  {path: 'recoverPassword', component: ForgotPasswordComponent},
   {path: 'logIn', component: LogInComponent},
   {path: 'signIn', component: SignInComponent},
   {path: 'profile', component: YourProfileComponent, canActivate: [CanReadGuard], children: [
-      {path: 'edit', component: EditProfileComponent, canActivate: [CanReadGuard]}
+      {path: 'edit', component: EditProfileComponent, canActivate: [CanReadGuard]},
     ]},
+  {path: 'profile/:uid', component: ViewUsersComponent},
+  {path: 'students', component: StudentsComponent, children: [
+      {path: ':edit', component: StudentViewComponent, canActivate: [CanReadGuard]},
+      {path: ':edit/show', component: EditStudentMarksComponent, canActivate: [AdminGuard]},
+    ]},
+
 
 ]
 
@@ -46,6 +60,14 @@ const appRoute: Routes = [
     YourProfileComponent,
     SubPageComponent,
     EditProfileComponent,
+    ForgotPasswordComponent,
+    AlertComponent,
+    ViewUsersComponent,
+    StudentsComponent,
+    StudentsListComponent,
+    StudentViewComponent,
+    EditStudentMarksComponent,
+
 
   ],
   imports: [

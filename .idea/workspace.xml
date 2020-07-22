@@ -11,16 +11,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/student.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/user.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/students/students.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/__ngcc_entry_points__.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/__ngcc_entry_points__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +51,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RecipeApp/opt-mod-06-finished/opt-mod-06-finished" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -46,6 +60,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Angular\Student-app\Student-app\node_modules\typescript\lib" />
   </component>
@@ -66,6 +81,7 @@
     <configuration name="E2E Tests (Student-app)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
       <protractor-options value="" />
       <envs />
       <scope-kind value="ALL" />
@@ -100,7 +116,15 @@
       <workItem from="1594677094187" duration="10152000" />
       <workItem from="1594731182735" duration="3083000" />
       <workItem from="1594747642935" duration="11783000" />
-      <workItem from="1594805278966" duration="8715000" />
+      <workItem from="1594805278966" duration="18655000" />
+      <workItem from="1594893950484" duration="15735000" />
+      <workItem from="1594969656216" duration="27424000" />
+      <workItem from="1595088705685" duration="6310000" />
+      <workItem from="1595177779666" duration="605000" />
+      <workItem from="1595194029217" duration="5167000" />
+      <workItem from="1595236870169" duration="21247000" />
+      <workItem from="1595325174845" duration="14456000" />
+      <workItem from="1595412242680" duration="1488000" />
     </task>
     <servers />
   </component>
@@ -120,31 +144,44 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser" timestamp="1594731758635">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1595334247208">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1594731758635" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594686612184" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595334247208" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594489283720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594489283720" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1594830156226">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1595331989146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594830156226" />
-    <state x="1930" y="-18" width="1518" height="777" maximized="true" key="dock-window-1" timestamp="1594754883474">
+    <state x="592" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594995265486" />
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595331989146" />
+    <state x="609" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595198949138">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="609" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595198949138" />
+    <state x="767" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594845627929">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="767" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594845627929" />
+    <state x="1920" y="0" width="1550" height="841" key="dock-window-1" timestamp="1595240789874">
       <screen x="1920" y="0" width="1536" height="832" />
     </state>
-    <state x="1930" y="-18" width="1518" height="777" maximized="true" key="dock-window-1/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594754883474" />
+    <state x="1920" y="0" width="1550" height="841" key="dock-window-1/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595240789874" />
+    <state x="2324" y="-12" width="1550" height="858" maximized="true" key="dock-window-2" timestamp="1595009627838">
+      <screen x="1920" y="0" width="1536" height="832" />
+    </state>
+    <state x="2324" y="-12" width="1550" height="858" maximized="true" key="dock-window-2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595009627838" />
     <state x="493" y="190" key="run.anything.popup" timestamp="1594805981230">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="493" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594805981230" />
     <state x="616" y="240" key="run.anything.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594680577881" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594826991735">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595253008673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594826991735" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595253008673" />
   </component>
 </project>

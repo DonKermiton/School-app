@@ -1,0 +1,23 @@
+<div class="row shadow">
+  <form *ngIf="marksForm" [formGroup]="marksForm" (ngSubmit)="onSubmit()">
+  <div class="col-xs-12" formArrayName="marks">
+      <div class="row" *ngFor="let mark of controls; let i = index" [formGroupName]="i">
+        <div class="col-2">
+          <input type="text" class="form-control" formControlName="value">
+        </div>
+        <div class="col-8">
+          <input type="text" class="form-control" formControlName="desc">
+        </div>
+        <div class="col-2">
+          <button class="btn btn-outline-danger" type="button" (click)="deleteMark(i)">X</button>
+        </div>
+      </div>
+
+      <button class="btn btn-outline-success" type="button" (click)="addMarkField()">Add</button>
+
+      <button class="btn btn-outline-success" type="submit">Save</button>
+
+
+  </div>
+  </form>
+</div>

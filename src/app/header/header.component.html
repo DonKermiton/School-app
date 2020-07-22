@@ -25,11 +25,13 @@
                role="button"
                data-toggle="dropdown">School</a>
             <div class="dropdown-menu bg-dark text-secondary" aria-labelledby="navbarDropdownMenu">
-              <a class="dropdown-item" routerLink="/testpage">Students</a>
+              <a class="dropdown-item" routerLink="/students">Students</a>
               <a class="dropdown-item">Groups</a>
               <a class="dropdown-item">Teaching staff</a>
             </div>
           </li>
+
+
         </ul>
         <ul class="navbar-nav ml-auto">
 
@@ -48,7 +50,8 @@
             >Sign in</a>
           </li>
 
-          <li class="nav-item dropdown " *ngIf="isAuth">
+
+          <li class="nav-item dropdown " *ngIf="isAuth && profile">
             <a class="nav-link dropdown-toggle img-profile"
                id="navbarDropdownProfileMenu"
                role="button"
@@ -60,8 +63,11 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right bg-dark text-secondary "
                  aria-labelledby="navbarDropdownProfileMenu">
-              <a class="dropdown-item"
-                 routerLink="/profile">Your profile</a>
+              <a class="dropdown-item text-secondary"
+                 routerLink="/profile"
+                routerLinkActive="active">Your profile</a>
+              <a class="dropdown-item text-secondary"
+                 *ngIf="auth.canDelete(profile)">Admin Panel</a>
               <a class="dropdown-item" (click)="auth.signOut()">Logout</a>
             </div>
           </li>

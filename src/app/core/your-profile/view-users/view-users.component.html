@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="bg-photo-img"></div>
+
+  <div class="container rounded shadow border-light bg-light">
+    <div class="row p-3" style="margin-top: -6vw">
+      <div class="col-xs-12 col-md-4 col-lg-4 justify-content-center text-center align-items-center">
+        <img *ngIf="userProfile" [src]="userProfile.photoURL " [alt]="userProfile.displayName" class="rounded-circle mb-4 border-light shadow" height="250"
+             width="250" >
+      </div>
+      <div class="col-xs-12 offset-md-1 col-md-6 text-center">
+        <h3 class="text-center">{{userProfile.displayName}}</h3>
+        <h4 class="lead">{{userProfile.email}}</h4>
+
+        <table class="table mt-5">
+          <thead class="thead-light">
+
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Type</th>
+            <td *ngIf="userProfile.roles.admin">Admin</td>
+            <td *ngIf="userProfile.roles.editor">Teacher</td>
+            <td *ngIf="userProfile.roles.sub">Student</td>
+          </tr>
+          <tr>
+            <th scope="row">UID</th>
+            <td>{{userProfile.uid}}</td>
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

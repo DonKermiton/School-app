@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService, User} from "../../auth/auth.service";
+import {AuthService} from "../../auth/auth.service";
 import {ActivatedRoute, Params} from "@angular/router";
+
+import {User} from "../../shared/user.model";
 
 @Component({
   selector: 'app-your-profile',
@@ -11,7 +13,7 @@ export class YourProfileComponent implements OnInit {
   profile: User;
   isInEditMode= false;
 
-  constructor(private auth: AuthService,
+  constructor(public auth: AuthService,
               private actvRoute: ActivatedRoute) {
   }
 
@@ -26,5 +28,8 @@ export class YourProfileComponent implements OnInit {
   }
 
 
+  deleteUser() {
+      this.auth.deleteUser(this.profile.uid);
 
+  }
 }

@@ -2,10 +2,10 @@
   <div class="bg-photo-img"></div>
 
   <div class="container rounded shadow border-light bg-light">
-    <div class="row p-3" style="margin-top: -6vw">
-      <div class="col-xs-12 col-md-4 col-lg-4 justify-content-center text-center align-items-center">
+    <div class="row p-3" style="margin-top: -6vw" *ngIf="profile">
+      <div class="col-xs-12 col-md-4 col-lg-4 justify-content-center text-center align-items-center" >
         <img [src]="profile.photoURL" alt="Your Photo" class="rounded-circle mb-4 border-light shadow" height="250"
-             width="250" >
+             width="250">
       </div>
       <div class="col-xs-12 offset-md-1 col-md-6 text-center">
         <h3 class="text-center">{{profile.displayName}}</h3>
@@ -29,40 +29,26 @@
           </tbody>
 
         </table>
-      <button class="btn btn-primary" routerLink="edit" *ngIf="!isInEditMode">Edit Profile Info</button>
-
+        <div class="row justify-content-end">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+              User Action
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="edit">Edit Profile Info</a>
+              <a class="dropdown-item" (click)="auth.resetPassword(profile.email)" style="cursor: pointer">Change
+                password</a>
+              <a class="dropdown-item" (click)="auth.changeEmail(profile.email)" style="cursor: pointer">Change
+                email</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" (click)="deleteUser()"> Delete User</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <router-outlet></router-outlet>
   </div>
 </div>
 
-
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-xs-12 border shadow">-->
-<!--      &lt;!&ndash;<img src="https://cdn.pixabay.com/photo/2020/03/03/01/59/dog-4897327_1280.jpg" alt="">&ndash;&gt;-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="col-xs-12 col-3 border">-->
-<!--    <img [src]="profile.photoURL" class="rounded-circle" alt="">-->
-<!--  </div>-->
-<!--  <div class="col-xs-12 col-9 border">-->
-<!--    <div class="card">-->
-<!--      <div class="card-header">-->
-<!--        Personal Data-->
-<!--      </div>-->
-<!--      <ul class="list-group list-group-flush">-->
-<!--        <li class="list-group-item">{{profile.displayName}}</li>-->
-<!--        <li class="list-group-item">{{profile.email}}</li>-->
-<!--        <li class="list-group-item" *ngIf="profile.roles.admin">Admin</li>-->
-<!--        <li class="list-group-item" *ngIf="profile.roles.editor">Teacher</li>-->
-<!--        <li class="list-group-item" *ngIf="profile.roles.sub">Student</li>-->
-<!--      </ul>-->
-
-<!--    </div>-->
-<!--  </div>-->
-
-
-<!--</div>-->
-<!--&ndash;&gt;-->

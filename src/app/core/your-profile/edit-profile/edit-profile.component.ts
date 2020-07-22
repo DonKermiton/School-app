@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {AuthService, User} from "../../../auth/auth.service";
+import {AuthService} from "../../../auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../../../shared/user.model";
 
 @Component({
   selector: 'app-edit-profile',

@@ -1,15 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {Observable} from "rxjs";
-import {AuthService, User} from "../auth.service";
+import {AuthService} from "../auth.service";
+import {User} from "../../shared/user.model";
+import {studentsService} from "../../students/students.service";
 
-export interface studentModel {
-  id:  {
-    country: string,
-    name: string,
-    secondName: string,
-  }
-}
 
 
 @Component({
@@ -19,28 +14,56 @@ export interface studentModel {
 })
 
 
-
 export class SubPageComponent implements OnInit {
 
   postRef: AngularFirestoreDocument<any>;
   post$: Observable<any>;
-  typeInfo: studentModel;
+
   user: User;
+
+  group: object = [];
 
 
   constructor(private afs: AngularFirestore,
-              public auth: AuthService) {
+              public auth: AuthService,
+              private studentService: studentsService) {
 
   }
 
   ngOnInit(): void {
-    this.postRef = this.afs.doc('students/410');
+    /*const x  = this.afs.collection('students');
+    const e = x.snapshotChanges().pipe(
+      map(doc => {
+        return doc.map( e => {
+          const data = e.payload.doc.data() as studentModel;
+          const id = e.payload.doc.id;
 
+          return { id, ...data };
+        })
+      })
+    )
+    e.subscribe(
+      console.log(this.group)
+    })*/
+
+    this.studentService.getGroupIDS().subscribe(value => {
+      console.log(value);
+      for (const e of value) {
+        this.group = value;
+      }
+      console.log(this.group)
+    });
+
+    this.postRef = this.afs.doc('students/410');
     this.post$ = this.postRef.valueChanges();
     this.auth.user$.subscribe(user => {
-      this.user = user
+      this.user = user;
+
     })
+
+
   }
+
   editPost() {
     if (this.auth.canEdit(this.user)) {
       this.postRef.set({
@@ -52,10 +75,10 @@ export class SubPageComponent implements OnInit {
 
       })
       this.post$.subscribe(profile => {
-          this.typeInfo = profile;
-          console.log(this.typeInfo);
-          console.log(this.typeInfo.id.country);
-        });
+      /*  this.typeInfo = profile;
+        console.log(this.typeInfo);
+        console.log(this.typeInfo.id.country);*/
+      });
 
 
     }
@@ -64,8 +87,11 @@ export class SubPageComponent implements OnInit {
   }
 
 
-
   deletePost() {
-      this.afs.collection('students').doc('410').set({name: 'test'});
+    this.afs.collection('students').doc('410').set({name: 'test'});
+  }
+
+  checkGroup(i: string) {
+    console.log(i);
   }
 }

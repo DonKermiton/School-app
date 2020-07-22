@@ -4,6 +4,7 @@ import {AuthService} from "../../auth/auth.service";
 import {catchError, tap} from "rxjs/operators";
 import {HttpErrorResponse} from "@angular/common/http";
 import {throwError} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-log-in',
@@ -13,7 +14,8 @@ import {throwError} from "rxjs";
 export class LogInComponent implements OnInit {
   LoginForm: FormGroup;
 
-  constructor(public auth: AuthService) {
+  constructor(public auth: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -34,8 +36,12 @@ export class LogInComponent implements OnInit {
     this.auth.googleSignin();
   }
 
+  onHandleError() {
+    this.auth.error = null;
+  }
 
 
-
-
+  forgotPassword() {
+    this.router.navigate(['/recoverPassword'] )
+  }
 }

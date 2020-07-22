@@ -3,7 +3,9 @@
   <div class="offset-3 col-6">
     <hr>
   </div>
+
   <div class="col-xs-12 offset-md-1 col-md-10 offset-md-1">
+    <app-alert [message]="authService.error" *ngIf="authService.error" (closeVar)="this.onHandleError()"></app-alert>
     <form [formGroup]="SignInForm" (ngSubmit)="SignInUser()">
       <div class="row">
         <div class="col-xs-12  col-lg-12">
@@ -14,8 +16,6 @@
                    id="Email"
                    placeholder="name@example.com"
                    formControlName="email"
-                   email
-
             >
           </div>
         </div>
@@ -29,12 +29,22 @@
                    class="form-control"
                    id="password"
                    formControlName="password"
-
                   >
           </div>
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-xs-12 col-lg-12">
+        <div class="form-group">
+          <label for="Group">Group</label>
+          <select id="Group" class="form-control" formControlName="group">
+            <option value="401">401</option>
+            <option value="410">410</option>
+          </select>
+          </div>
+        </div>
+      </div>
 
       <div class="row mt-2">
           <button class="btn btn-success shadow col-12" type="submit" [disabled]="!SignInForm.valid" (click)="SignInViaEmail()">Sign in</button>

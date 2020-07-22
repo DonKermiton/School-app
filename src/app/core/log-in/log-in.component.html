@@ -5,9 +5,10 @@
     <hr>
   </div>
 
-  <div class="row text-danger  justify-content-center" *ngIf="auth.error">
+<!--  <div class="row text-danger  justify-content-center" *ngIf="auth.error">
     <h5 class="text-center">{{auth.error}}</h5>
-  </div>
+  </div>-->
+  <app-alert [message]="auth.error" *ngIf="auth.error" (closeVar)="this.onHandleError()"></app-alert>
 
   <div class="col-xs-12 offset-md-1 col-md-10 offset-md-1">
     <form [formGroup]="LoginForm" (ngSubmit)="LoginUser()">
@@ -45,27 +46,14 @@
         </div>
         <div class="col-6">
           <p class="text-right center text-primary mt-1">
-            <a routerLink=''>Forgot Password ?</a>
+            <a (click)="forgotPassword()" style="cursor: pointer;">Forgot Password ?</a>
           </p>
         </div>
-        <!-- <div *ngIf="auth.user$ | async as user; else login">
-           <h3>{{user.email }}</h3>
-           <h3>{{user.type}}</h3>
-
-           <img [src]="user.photoURL" alt="">
-
-
-
-         </div>
-
-         <ng-template #login>
-           <button class="btn btn-outline-success shadow" type="submit" (click)="auth.signOut()">Log Out</button>
-         </ng-template>-->
-
       </div>
 
       <div class="mb-3"></div>
 
     </form>
+
   </div>
 </div>

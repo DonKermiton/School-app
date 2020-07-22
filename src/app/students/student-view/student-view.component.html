@@ -1,0 +1,37 @@
+<div *ngIf="student">
+  <div class="shadow rounded">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-4">
+        <img [src]="student.photoURL" [alt]="student.displayName" height="100">
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <h5>{{student.email}}</h5>
+        <span class="lead">{{student.displayName}}</span>
+
+      </div>
+    </div>
+    <hr>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Mark</th>
+        <th scope="col">Desc</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let e of marks; let i = index" (click)="deleteMark(i)">
+        <td>{{e.value}}</td>
+        <td>{{e.desc}}</td>
+
+      </tr>
+
+      </tbody>
+
+    </table>
+    <div class="row justify-content-end mr-3">
+      <button class="btn btn-outline-success" (click)="editMarks()">Add</button>
+    </div>
+  </div>
+
+
+</div>

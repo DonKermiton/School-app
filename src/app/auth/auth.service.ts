@@ -6,23 +6,11 @@ import {Router} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 import {auth} from 'firebase/app';
 import * as firebase from "firebase";
-import set = Reflect.set;
+import {User} from "../shared/user.model";
+import {studentsService} from "../students/students.service";
+import {studentModel} from "../shared/student.model";
 
 
-
-export interface Roles {
-  admin?:boolean;
-  editor?:boolean;
-  sub?: boolean;
-}
-
-export interface User {
-  uid: string;
-  email: string;
-  roles?: Roles;
-  photoURL?: string;
-  displayName?: string;
-}
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +25,7 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
-
+    private studentService: studentsService,
   ) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -50,32 +38,35 @@ export class AuthService {
     );
   }
 
-   AutoLogin(){
+  AutoLogin() {
 
-        this.afAuth.authState.subscribe(value => {
-          if(value !== null) {
-            this.getPersonalData(value);
-          }
-        });
-   }
+    this.afAuth.authState.subscribe(value => {
+      if (value !== null) {
+        this.getPersonalData(value);
+      }
+    });
+  }
 
-  async createUserViaEmail(email: string, password: string) {
-   await this.afAuth.createUserWithEmailAndPassword(email, password)
-     .then(user => {
-       this.getPersonalData(user.user);
-       this.setDeaultUserData(user.user);
-     })
-     .catch(console.log);
+  createUserViaEmail(email: string, password: string) {
+    this.afAuth.createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        this.getPersonalData(user.user);
+        this.setDeaultUserData(user.user);
+        this.studentService.createStudentData(user.user.uid);
+      })
+      .catch(error => this.error = error);
 
   }
 
-   logViaEmail(email: string, password: string) {
-     this.afAuth.signInWithEmailAndPassword(email, password)
+  logViaEmail(email: string, password: string) {
+    this.afAuth.signInWithEmailAndPassword(email, password)
       .then(e => {
         this.getPersonalData(e.user);
-          // this.handleAuth(e.credential,);
-      }).catch(error=> {
-        this.error = error.message;
+
+        // console.log(e.additionalUserInfo); // nie usuwaj
+        // this.handleAuth(e.credential,);
+      }).catch(error => {
+      this.error = error.message;
     })
 
   }
@@ -94,9 +85,8 @@ export class AuthService {
   async signOut() {
     await this.afAuth.signOut();
     return this.router.navigate(['/']);
-
-
   }
+
 
   getPersonalData(user){
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
@@ -105,7 +95,7 @@ export class AuthService {
     profile.subscribe(value => {
       this.profileInfo.next(value);
     })
-    this.router.navigate(['/profile']);
+
   }
 
     setDeaultUserData(user,){
@@ -140,12 +130,31 @@ export class AuthService {
         email: user.email,
         displayName: user.displayName,
         photoURL: user.photoURL,
-        edit: true,
       };
     this.router.navigate(['/profile']);
     return userRef.set(user, { merge: true });
   }
 
+  resetPassword(email){
+    this.afAuth.sendPasswordResetEmail(email).then().catch(error => this.error =error);
+
+  }
+
+  deleteUser(userUID){
+    console.log(userUID)
+   this.afs.collection('users').doc(userUID)
+     .delete()
+     .then(e => {
+       firebase.auth().currentUser.delete();
+
+       this.signOut();
+     }
+  );}
+
+  changeEmail(email){
+    // firebase.auth().currentUser.updateEmail('pietrucha2112221@gmail.com').catch(console.log);
+    return;
+  }
 
   private checkAuth(user: User, allowedRoles: string[]): boolean{
     if(!user){
@@ -161,6 +170,8 @@ export class AuthService {
   }
 
 
+
+
   canRead(user: User): boolean{
     const allowed = ['admin', 'sub', 'editor'];
     return this.checkAuth(user, allowed);
@@ -173,5 +184,7 @@ export class AuthService {
     const allowed = ['admin'];
     return this.checkAuth(user, allowed);
   }
+
+
 }
 
