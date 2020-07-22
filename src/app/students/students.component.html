@@ -4,7 +4,7 @@
       <div class="form-group text-center">
         <label for="Status">Group</label>
         <select id="Status" class="form-control" (change)="changeGroup($event)">
-          <option value="" selected disabled hidden>Choose</option>
+          <option selected disabled hidden>Choose</option>
           <option [value]="group" *ngFor="let group of groupList" >{{group}}</option>
         </select>
       </div>

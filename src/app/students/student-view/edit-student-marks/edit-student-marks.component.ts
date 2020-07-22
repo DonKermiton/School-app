@@ -36,11 +36,9 @@ export class EditStudentMarksComponent implements OnInit {
      this.studentService.getMarks(this.userUID).subscribe((value: any) => {
        for(const mark of value.marks){
          this.userMarks.push(mark);
-
        }
-
        for(const mark of this.userMarks){
-         console.log(mark);
+
          marksArray.push(
            new FormGroup({
              value: new FormControl(mark.value,[Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
@@ -52,7 +50,7 @@ export class EditStudentMarksComponent implements OnInit {
          marks: marksArray,
        })
     });
-     console.log(this.userMarks);
+
 
 
 
@@ -61,7 +59,7 @@ export class EditStudentMarksComponent implements OnInit {
 
   onSubmit() {
     this.studentService.saveMarksToDatabase(this.userUID, this.marksForm);
-    this.userMarks = null
+    this.userMarks.length = 0;
     this.router.navigate(['../'], {relativeTo: this.activatedRoute})
   }
 

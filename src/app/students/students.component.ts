@@ -3,6 +3,7 @@ import {studentsService} from "./students.service";
 import {Params, Router} from "@angular/router";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {User} from "../shared/user.model";
+import {pipe} from "rxjs";
 
 @Component({
   selector: 'app-students',
@@ -11,13 +12,13 @@ import {User} from "../shared/user.model";
 })
 export class StudentsComponent implements OnInit {
 
-  users: any = [];
+  users= [];
   groupList= [
     '401',
     '402',
     '410',
   ]
-  selected = '401';
+  selected = '410';
 
 
   constructor(private studentService: studentsService,
@@ -28,37 +29,28 @@ export class StudentsComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    console.log(this.users);
     this.studentService.selectedGroup.subscribe(e => {
-      this.users.length =0;
       this.studentService.getStudents().subscribe(value => {
+        console.log(value);
         value.map((doc: any) => {
           if (doc.marks.group === e) {
+            console.log(doc)
              this.afs.collection('users').doc(doc.id).valueChanges().subscribe(value => {
-              this.studentService.userProfile.next(value);
+              this.users.push(value);
 
             })
           }
         });
       })
     })
-    this.studentService.selectedGroup.subscribe(value => {
+   /* this.studentService.selectedGroup.subscribe(value => {
       this.selected = value
-    })
+    })*/
 
-    this.studentService.userProfile.subscribe((value:User) => {
-      if(value !== null) {
-          this.users.push(value);
-          console.log(this.users);
-
-      }
-
-    });
   }
 
   changeGroup(group: Event) {
-
+    this.users.length =0;
     const id = (<HTMLInputElement>group.target).value;
     this.studentService.selectedGroup.next(id);
 

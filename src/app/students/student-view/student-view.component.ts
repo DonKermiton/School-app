@@ -27,7 +27,6 @@ export class StudentViewComponent implements OnInit {
     this.activatedRoute.params.subscribe((param: Params) => {
       this.studentService.studentProfile.subscribe((value: User) => {
         this.studentService.getMarks(param.edit).subscribe((marks: any)=> {
-          console.log(marks.marks);
           this.marks = (marks.marks);
         })
         if(value === null){
@@ -52,7 +51,6 @@ export class StudentViewComponent implements OnInit {
   }
 
   editMarks() {
-    console.log(new Date().getDate())
     this.router.navigate(['show'], {relativeTo: this.activatedRoute})
   }
 }

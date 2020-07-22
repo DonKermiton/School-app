@@ -66,9 +66,7 @@ export class studentsService {
   }
 
   saveMarksToDatabase(uid, marks){
-
-
-       this.afs.collection('marks').doc(uid).update(marks.value).catch(console.log);
+      return this.afs.collection('marks').doc(uid).update(marks.value).catch(console.log);
 
 
   }
