@@ -1,9 +1,8 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {User} from "../../shared/user.model";
 import {studentsService} from "../students.service";
-import {studentModel} from "../../shared/student.model";
-import {Observable, of, Subscription} from "rxjs";
+import {async} from "@angular/core/testing";
 
 @Component({
   selector: 'app-student-view',
@@ -12,33 +11,57 @@ import {Observable, of, Subscription} from "rxjs";
 })
 export class StudentViewComponent implements OnInit {
   student: User;
-  marks: studentModel;
+  marks
   uid: string;
 
-
-  @Output() user: User
+  selectedGroup: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private studentService: studentsService,
-              private router:Router) {
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((param: Params) => {
-      this.studentService.studentProfile.subscribe((value: User) => {
-        this.studentService.getMarks(param.edit).subscribe((marks: any)=> {
-          this.marks = (marks.marks);
-        })
-        if(value === null){
-          this.studentService.getStudentByUID(param.edit).subscribe((user: User)=> {
-            this.student = user;
-          })
-        }else{
-          this.student = value;
-        }
-      })
+    this.activatedRoute.params.subscribe((params: Params)=> {
+      this.uid = params['edit'];
     })
+
+    this.activatedRoute.queryParams.subscribe((param: Params) => {
+      this.selectedGroup = param.group;
+    });
+
+    const student = this.getStudent();
+
+    student.then(() => {
+      if(!this.student) {
+        this.studentService.getUsers(this.uid).subscribe((user: User) => {
+          this.student = user;
+          this.getMarks()
+        });
+      }else{
+        this.getMarks()
+      }
+
+
+
+    })
+
   }
+
+  async getStudent() {
+    return this.studentService.studentProfile.subscribe((value:any  ) => {
+      this.student = value;
+    });
+  }
+
+  async getMarks(){
+    this.studentService.getMarks(this.student.uid).subscribe((value: any) => {
+        this.marks = value.marks;
+      }
+
+    )
+  }
+
 
 
   showMarks() {
@@ -51,6 +74,6 @@ export class StudentViewComponent implements OnInit {
   }
 
   editMarks() {
-    this.router.navigate(['show'], {relativeTo: this.activatedRoute})
+    this.router.navigate(['show'], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}})
   }
 }

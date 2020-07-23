@@ -11,8 +11,8 @@ import {studentsService} from "../../students.service";
 export class EditStudentMarksComponent implements OnInit {
   marksForm: FormGroup;
   userUID: string;
-  userMarks = []
-
+  userMarks = [];
+  selectedGroup: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private studentService: studentsService,
@@ -24,6 +24,10 @@ export class EditStudentMarksComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((param: Params) => {
+      this.selectedGroup = param.group;
+    });
+
     this.activatedRoute.params.subscribe((params: Params) => {
       this.userUID = params['edit'];
       })
@@ -60,7 +64,7 @@ export class EditStudentMarksComponent implements OnInit {
   onSubmit() {
     this.studentService.saveMarksToDatabase(this.userUID, this.marksForm);
     this.userMarks.length = 0;
-    this.router.navigate(['../'], {relativeTo: this.activatedRoute})
+    this.router.navigate(['/students'], {queryParams: {group: this.selectedGroup}})
   }
 
   addMarkField() {

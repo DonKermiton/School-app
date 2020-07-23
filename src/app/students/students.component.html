@@ -5,7 +5,7 @@
         <label for="Status">Group</label>
         <select id="Status" class="form-control" (change)="changeGroup($event)">
           <option selected disabled hidden>Choose</option>
-          <option [value]="group" *ngFor="let group of groupList" >{{group}}</option>
+          <option [value]="group" [selected]="group === selectedGroup" *ngFor="let group of groupList" >{{group}}</option>
         </select>
       </div>
     </div>
@@ -14,7 +14,7 @@
     <div class="col-xs-12 col-md-6">
       <h5 class="border-bottom text-right">Students</h5>
 
-      <app-students-list *ngFor="let student of users; let i = index" [usersUID]="student" [id]="i" routerLinkActive="active"></app-students-list>
+      <app-students-list *ngFor="let student of users;let i = index" [id]="i" [usersUID]="student"></app-students-list>
 
     </div>
     <div class="col-xs-12 col-md-6">

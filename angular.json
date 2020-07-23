@@ -12,6 +12,20 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+          "allowedCommonJsDependencies": [
+            "lodash",
+            "devextreme-angular",
+            "devextreme",
+            "@firebase",
+            "@angular/fire",
+            "devexpress-richedit",
+            "x-data-spreadsheet",
+            "socket.io-client",
+            "socket.io-parser",
+            "debug"
+          ],
+          "tsConfig": "projects/core/tsconfig.lib.json",
+          "project": "projects/core/ng-package.json",
           "options": {
             "outputPath": "dist/Student-app",
             "index": "src/index.html",

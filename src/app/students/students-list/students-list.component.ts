@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {studentsService} from "../students.service";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {User} from "../../shared/user.model";
@@ -14,7 +14,7 @@ export class StudentsListComponent implements OnInit {
   @Input() usersUID;
   @Input() id;
 
-
+  selectedGroup: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private studentService: studentsService,
@@ -24,13 +24,19 @@ export class StudentsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((param: Params) => {
+      this.selectedGroup = param.group;
+    });
 
-  }
+
+    }
+
+
 
 
   showUser(user: User) {
     this.studentService.studentProfile.next(user);
     console.log(user);
-    this.router.navigate([user.uid], {relativeTo: this.activatedRoute})
+    this.router.navigate([user.uid], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}});
   }
 }
