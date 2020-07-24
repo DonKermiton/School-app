@@ -14,7 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SignInComponent } from './core/sign-in/sign-in.component';
 import { LogInComponent } from './core/log-in/log-in.component';
 import { YourProfileComponent } from './core/your-profile/your-profile.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import { SubPageComponent } from './auth/sub-page/sub-page.component';
 import {canActivate} from "@angular/fire/auth-guard";
 import {AdminGuard} from "./core/admin.guard";
@@ -27,6 +27,7 @@ import { StudentsComponent } from './students/students.component';
 import { StudentsListComponent } from './students/students-list/students-list.component';
 import { StudentViewComponent } from './students/student-view/student-view.component';
 import { EditStudentMarksComponent } from './students/student-view/edit-student-marks/edit-student-marks.component';
+import {CanEditGuard} from "./core/can-edit.guard";
 
 
 
@@ -42,7 +43,7 @@ const appRoute: Routes = [
     ]},
   {path: 'profile/:uid', component: ViewUsersComponent},
   {path: 'students', component: StudentsComponent, children: [
-      {path: ':edit', component: StudentViewComponent, canActivate: [CanReadGuard]},
+      {path: ':edit', component: StudentViewComponent, canActivate: [CanEditGuard]},
       {path: ':edit/show', component: EditStudentMarksComponent, canActivate: [AdminGuard]},
     ]},
 
@@ -79,7 +80,6 @@ const appRoute: Routes = [
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

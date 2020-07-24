@@ -1,25 +1,29 @@
-<div class="container">
-  <form>
-    <div class="row">
-      <div class="form-group text-center">
-        <label for="Status">Group</label>
-        <select id="Status" class="form-control" (change)="changeGroup($event)">
-          <option selected disabled hidden>Choose</option>
-          <option [value]="group" [selected]="group === selectedGroup" *ngFor="let group of groupList" >{{group}}</option>
-        </select>
+<div *ngIf="gate">
+  <div class="container ">
+    <form>
+      <div class="row">
+        <div class="form-group text-center">
+          <label for="Status">Group</label>
+          <select id="Status" class="form-control" (change)="changeGroup($event)">
+            <option selected disabled hidden>Choose</option>
+            <option [value]="group" [selected]="group === selectedGroup"
+                    *ngFor="let group of groupList">{{group}}</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <div class="row  ">
+      <div class="col-xs-12 col-md-6 bg-light">
+        <h5 class="border-bottom text-right">Students</h5>
+
+        <app-students-list *ngFor="let student of users;let i = index" [id]="i"
+                           [usersUID]="student"></app-students-list>
+
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <router-outlet></router-outlet>
       </div>
     </div>
-  </form>
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <h5 class="border-bottom text-right">Students</h5>
 
-      <app-students-list *ngFor="let student of users;let i = index" [id]="i" [usersUID]="student"></app-students-list>
-
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <router-outlet></router-outlet>
-    </div>
   </div>
-
 </div>

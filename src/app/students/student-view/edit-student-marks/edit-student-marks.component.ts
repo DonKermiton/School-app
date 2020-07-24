@@ -57,8 +57,6 @@ export class EditStudentMarksComponent implements OnInit {
 
 
 
-
-
   }
 
   onSubmit() {
@@ -79,5 +77,9 @@ export class EditStudentMarksComponent implements OnInit {
 
   deleteMark(i: number) {
     (<FormArray> this.marksForm.get('marks')).removeAt(i);
+  }
+
+  cancelAdding() {
+    this.router.navigate(['./'], { relativeTo: this.activatedRoute,queryParams: {group: this.selectedGroup}})
   }
 }

@@ -17,6 +17,8 @@ export class StudentsComponent implements OnInit {
     '410',
   ];
 
+  gate = false;
+
   users = [];
   preUsers = [];
 
@@ -29,44 +31,22 @@ export class StudentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.studentService.getGroupIDS().subscribe(value => this.preUsers = value)
+    this.studentService.getGroupIDS().subscribe(value => {
+      this.preUsers = value
+    });
 
     this.actRoute.queryParams.subscribe((param: Params) => {
       this.users.length = 0;
       this.selectedGroup = param.group;
       this.getUserData().then(() => {
         this.users = this.studentService.value;
+        this.gate = true;
       } );
-
-     /* this.preUsers.map(sort => {
-
-         this.studentService.getStudentsData(sort.id);
-         this.users = this.studentService.usersProfile;
-         console.log(this.users);
-       })
-
-     this.studentService.getStudents(this.selectedGroup).subscribe(value => {this.preUsers= value
-       this.preUsers.map(value => {
-         this.studentService.sortUsers(value, this.selectedGroup);
-       }
-       )
-       this.preUsers = this.studentService.value;
- */
-
-
     });
-
-
-    /*this.studentService.getStudentByUID(this.selectedGroup)
-    this.users = this.studentService.value*/
-
   };
 
-  // this.studentService.getStudentByUID(this.selectedGroup).subscribe((value => {this.users.push(value)}));
 
-
-
-  async getUserData(){
+  async getUserData() {
     return this.preUsers.map(value => {
       this.studentService.getUserData(value, this.selectedGroup);
     })
@@ -74,10 +54,8 @@ export class StudentsComponent implements OnInit {
   }
 
 
-
-
   changeGroup(group: Event) {
-    console.log(this.preUsers);
+
     this.router.navigate([], {queryParams: {group: (<HTMLInputElement>group.target).value}})
 
   }

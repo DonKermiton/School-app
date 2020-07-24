@@ -36,7 +36,7 @@ export class StudentsListComponent implements OnInit {
 
   showUser(user: User) {
     this.studentService.studentProfile.next(user);
-    console.log(user);
+
     this.router.navigate([user.uid], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}});
   }
 }
