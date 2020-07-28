@@ -38,8 +38,9 @@ export class AuthService {
     );
   }
 
-  AutoLogin() {
 
+
+  AutoLogin() {
     this.afAuth.authState.subscribe(value => {
       if (value !== null) {
         this.getPersonalData(value);
@@ -47,12 +48,12 @@ export class AuthService {
     });
   }
 
-  createUserViaEmail(email: string, password: string) {
+  createUserViaEmail(email: string, password: string, group: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(user => {
         this.getPersonalData(user.user);
         this.setDeaultUserData(user.user);
-        this.studentService.createStudentData(user.user.uid);
+        this.studentService.createStudentData(user.user.uid, group);
       })
       .catch(error => this.error = error);
 
@@ -141,13 +142,13 @@ export class AuthService {
   }
 
   deleteUser(userUID){
-    console.log(userUID)
+    this.afs.collection('marks').doc(userUID).delete();
    this.afs.collection('users').doc(userUID)
      .delete()
-     .then(e => {
-       firebase.auth().currentUser.delete();
+     .then(() => {
+       firebase.auth().currentUser.delete().catch(console.log);
 
-       this.signOut();
+       this.signOut().catch(console.log);
      }
   );}
 

@@ -13,6 +13,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class LogInComponent implements OnInit {
   LoginForm: FormGroup;
+  isLoading = false;
 
   constructor(public auth: AuthService,
               private router: Router) {
@@ -29,7 +30,9 @@ export class LogInComponent implements OnInit {
 
 
   LoginUser() {
+    this.isLoading = true;
     this.auth.logViaEmail(this.LoginForm.value.email, this.LoginForm.value.password)
+    this.isLoading = false;
   }
 
   viaGoogle() {

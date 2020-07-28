@@ -16,7 +16,7 @@ export class StudentsComponent implements OnInit {
     '402',
     '410',
   ];
-
+  isLoading = false;
   gate = false;
 
   users = [];
@@ -36,12 +36,16 @@ export class StudentsComponent implements OnInit {
     });
 
     this.actRoute.queryParams.subscribe((param: Params) => {
+      console.log(param);
+      this.isLoading = true;
       this.users.length = 0;
       this.selectedGroup = param.group;
       this.getUserData().then(() => {
         this.users = this.studentService.value;
         this.gate = true;
-      } );
+
+        this.isLoading = false;
+      });
     });
   };
 
@@ -53,9 +57,7 @@ export class StudentsComponent implements OnInit {
 
   }
 
-
   changeGroup(group: Event) {
-
     this.router.navigate([], {queryParams: {group: (<HTMLInputElement>group.target).value}})
 
   }

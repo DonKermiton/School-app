@@ -18,7 +18,7 @@
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
 
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" *ngIf="profile">
           <li class="nav-item dropdown ml-5">
             <a class="nav-link dropdown-toggle"
                id="navbarDropdownMenu"
@@ -26,12 +26,18 @@
                data-toggle="dropdown">School</a>
             <div class="dropdown-menu bg-dark text-secondary" aria-labelledby="navbarDropdownMenu">
               <a class="dropdown-item" routerLink="/students">Students</a>
-              <a class="dropdown-item">Groups</a>
+              <a class="dropdown-item" routerLink="/studentPanel">Student Profile</a>
               <a class="dropdown-item">Teaching staff</a>
             </div>
           </li>
 
-
+          <li class="nav-item" *ngIf="auth.canEdit(profile)">
+            <a class="nav-link"
+               style="cursor: pointer"
+               routerLinkActive="active"
+               routerLink="/homework"
+            >Set a homework</a>
+          </li>
         </ul>
         <ul class="navbar-nav ml-auto">
 
@@ -67,7 +73,9 @@
                  routerLink="/profile"
                 routerLinkActive="active">Your profile</a>
               <a class="dropdown-item text-secondary"
-                 *ngIf="auth.canDelete(profile)">Admin Panel</a>
+                 *ngIf="auth.canDelete(profile)"
+                 routerLink="/adminPanel"
+                 routerLinkActive="active">Admin Panel</a>
               <a class="dropdown-item" (click)="auth.signOut()">Logout</a>
             </div>
           </li>

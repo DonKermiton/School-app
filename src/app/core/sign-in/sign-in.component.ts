@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../auth/auth.service";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-sign-in',
@@ -11,11 +10,12 @@ import {Observable} from "rxjs";
 export class SignInComponent implements OnInit {
   SignInForm: FormGroup;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+  }
 
   ngOnInit(): void {
     this.SignInForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email] ),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required]),
       'group': new FormControl('410', [Validators.required]),
     });
@@ -31,11 +31,7 @@ export class SignInComponent implements OnInit {
 
 
   SignInViaEmail() {
-    this.authService.createUserViaEmail(this.SignInForm.value.email, this.SignInForm.value.password);
+    this.authService.createUserViaEmail(this.SignInForm.value.email, this.SignInForm.value.password, this.SignInForm.value.group);
+
   }
-
-
-
-
-
 }

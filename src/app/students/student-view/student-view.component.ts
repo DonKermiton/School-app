@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {User} from "../../shared/user.model";
 import {studentsService} from "../students.service";
-import {async} from "@angular/core/testing";
 
 @Component({
   selector: 'app-student-view',
@@ -22,7 +21,9 @@ export class StudentViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params)=> {
+
+
+    this.activatedRoute.params.subscribe((params: Params) => {
       this.uid = params['edit'];
     })
 
@@ -33,15 +34,18 @@ export class StudentViewComponent implements OnInit {
     const student = this.getStudent();
 
     student.then(() => {
-      if(!this.student) {
+      if (!this.student) {
         this.studentService.getUsers(this.uid).subscribe((user: User) => {
           this.student = user;
           this.getMarks()
         });
-      }else{
+      } else {
         this.getMarks()
       }
 
+      this.studentService.studentProfile.subscribe(() => this.getMarks().catch(() => {
+        console.log('Choose User')
+      }));
 
 
     })
@@ -49,35 +53,41 @@ export class StudentViewComponent implements OnInit {
   }
 
   async getStudent() {
-    return this.studentService.studentProfile.subscribe((value:any  ) => {
+    return this.studentService.studentProfile.subscribe((value: any) => {
       this.student = value;
     });
   }
 
-  async getMarks(){
-    this.studentService.getMarks(this.student.uid).subscribe((value: any) => {
-        this.marks = value.marks;
-      }
-
-    )
-  }
-
-
-
-  showMarks() {
+  async getMarks() {
+    if (this.student) {
+      this.studentService.getMarks(this.student.uid).subscribe((value: any) => {
+          this.marks = value.marks;
+        })
+    }
+}
 
 
-  }
+showMarks()
+{
 
-  deleteMark(index: number) {
 
-  }
+}
 
-  editMarks() {
-    this.router.navigate(['show'], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}})
-  }
+deleteMark(index
+:
+number
+)
+{
 
-  viewProfile() {
-    this.router.navigate([`/profile/${this.student.uid}`])
-  }
+}
+
+editMarks()
+{
+  this.router.navigate(['show'], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}})
+}
+
+viewProfile()
+{
+  this.router.navigate([`/profile/${this.student.uid}`])
+}
 }

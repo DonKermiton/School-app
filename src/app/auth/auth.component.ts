@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "./auth.service";
-import {Subject} from "rxjs";
 
 
 @Component({
@@ -12,13 +10,12 @@ import {Subject} from "rxjs";
 export class AuthComponent implements OnInit {
 
 
-
   constructor(public auth: AuthService) {
   }
 
   ngOnInit(): void {
 
-    }
+  }
 
 
 }

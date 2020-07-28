@@ -1,0 +1,68 @@
+<div class="container">
+<div class="accordion" id="accordionExample"  *ngIf="marks">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
+                aria-expanded="false" aria-controls="collapseOne">
+          Marks
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample"
+        >
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Mark</th>
+            <th scope="col">Desc</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let mark of marks.marks; let i = index;" (click)="getMark(mark)">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{mark.value}}</td>
+            <td>{{mark.desc}}</td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Homework
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" >
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Date</th>
+            <th scope="col">Desc</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr  *ngFor="let e of homework" (click)="assignHomework(e)">
+            <th scope="row" ></th>
+            <td>{{e.marks.file.title}}</td>
+            <td>{{e.marks.file.date}}</td>
+            <td>{{e.marks.file.desc}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -11,15 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/core/can-edit.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/homework/homework.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/edit-student-marks/edit-student-marks.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/student-view/edit-student-marks/edit-student-marks.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/edit-student-marks/edit-student-marks.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/student-view/edit-student-marks/edit-student-marks.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/alert/alert.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/alert/alert.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/students.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/students.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.ts" afterDir="false" />
@@ -43,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RecipeApp/opt-mod-06-finished" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RecipeApp/opt-mod-06-finished/opt-mod-06-finished" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -118,7 +124,13 @@
       <workItem from="1595427459119" duration="13808000" />
       <workItem from="1595460336607" duration="449000" />
       <workItem from="1595487750694" duration="22140000" />
-      <workItem from="1595580406313" duration="3716000" />
+      <workItem from="1595580406313" duration="11156000" />
+      <workItem from="1595614847866" duration="3818000" />
+      <workItem from="1595682581977" duration="4206000" />
+      <workItem from="1595771187597" duration="10555000" />
+      <workItem from="1595841892345" duration="10600000" />
+      <workItem from="1595944127143" duration="4396000" />
+      <workItem from="1595950111241" duration="394000" />
     </task>
     <servers />
   </component>
@@ -138,6 +150,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="0" key="#HTML" timestamp="1595784891175">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="0" key="#HTML/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595784891175" />
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1595334247208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -147,11 +163,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595582468349" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1595580812548">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1595962570181">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="592" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594995265486" />
-    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595580812548" />
+    <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595962570181" />
     <state x="609" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595198949138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -160,22 +176,28 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="767" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595493007075" />
-    <state x="1920" y="0" width="1550" height="841" key="dock-window-1" timestamp="1595240789874">
+    <state x="1920" y="0" width="1550" height="882" key="dock-window-1" timestamp="1595869286378">
       <screen x="1920" y="0" width="1536" height="832" />
     </state>
-    <state x="1920" y="0" width="1550" height="841" key="dock-window-1/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595240789874" />
-    <state x="2324" y="-12" width="1550" height="858" maximized="true" key="dock-window-2" timestamp="1595009627838">
+    <state x="-7" y="-7" width="782" height="838" maximized="true" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1595844968711" />
+    <state x="1920" y="0" width="1550" height="882" key="dock-window-1/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595869286378" />
+    <state x="1920" y="0" width="1548" height="749" key="dock-window-2" timestamp="1595683931518">
       <screen x="1920" y="0" width="1536" height="832" />
     </state>
-    <state x="2324" y="-12" width="1550" height="858" maximized="true" key="dock-window-2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595009627838" />
+    <state x="1920" y="0" width="1548" height="749" key="dock-window-2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595683931518" />
+    <state x="369" y="136" width="1548" height="749" key="dock-window-3" timestamp="1595704009717">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="369" y="136" width="1548" height="749" key="dock-window-3/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595704009717" />
     <state x="493" y="190" key="run.anything.popup" timestamp="1594805981230">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="493" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594805981230" />
     <state x="616" y="240" key="run.anything.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594680577881" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595584046155">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1595844725580">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595584046155" />
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1595844725580" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595784802539" />
   </component>
 </project>

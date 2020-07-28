@@ -31,9 +31,6 @@ export class StudentsListComponent implements OnInit {
 
     }
 
-
-
-
   showUser(user: User) {
     this.studentService.studentProfile.next(user);
 

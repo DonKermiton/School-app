@@ -32,10 +32,10 @@ export class studentsService {
     )
   }
 
-  createStudentData(userUID) {
+  createStudentData(userUID, group) {
     const userRef: AngularFirestoreDocument<studentModel> = this.afs.collection('marks').doc(userUID);
     userUID = {
-      group: '410',
+      group,
       marks: [
         {value: 2, desc: 'dziala'},
         {value: 3, desc: 'test'},
@@ -66,7 +66,7 @@ export class studentsService {
   }
 
   saveMarksToDatabase(uid, marks) {
-    console.log(marks);
+
 
     return this.afs.collection('marks').doc(uid).update(marks.value).catch(console.log);
   }

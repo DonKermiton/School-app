@@ -5,12 +5,14 @@
     <hr>
   </div>
 
-<!--  <div class="row text-danger  justify-content-center" *ngIf="auth.error">
-    <h5 class="text-center">{{auth.error}}</h5>
-  </div>-->
+
+
   <app-alert [message]="auth.error" *ngIf="auth.error" (closeVar)="this.onHandleError()"></app-alert>
 
   <div class="col-xs-12 offset-md-1 col-md-10 offset-md-1">
+    <div *ngIf="isLoading" style="text-align: center;">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
     <form [formGroup]="LoginForm" (ngSubmit)="LoginUser()">
       <div class="row">
         <div class="col-xs-12  col-lg-12">

@@ -12,6 +12,8 @@ import {User} from "../../shared/user.model";
 export class YourProfileComponent implements OnInit {
   profile: User;
   isInEditMode= false;
+  deleteMode = false;
+
 
   constructor(public auth: AuthService,
               private actvRoute: ActivatedRoute) {
@@ -29,7 +31,15 @@ export class YourProfileComponent implements OnInit {
 
 
   deleteUser() {
-      this.auth.deleteUser(this.profile.uid);
+    this.deleteMode = true;
+
+    this.deleteMode = false;
+    this.auth.deleteUser(this.profile.uid);
+    console.log(event);
+  }
+
+  async getInfo(){
 
   }
 }
+
