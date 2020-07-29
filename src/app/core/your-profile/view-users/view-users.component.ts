@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 
 import {AngularFirestore} from "@angular/fire/firestore";
-import {User} from "../../../shared/user.model";
+import {User} from "../../../auth/models/user.model";
 
 
 

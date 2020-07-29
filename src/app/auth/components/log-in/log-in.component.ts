@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../auth/auth.service";
-import {catchError, tap} from "rxjs/operators";
-import {HttpErrorResponse} from "@angular/common/http";
-import {throwError} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
+
+import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-log-in',
@@ -45,6 +43,6 @@ export class LogInComponent implements OnInit {
 
 
   forgotPassword() {
-    this.router.navigate(['/recoverPassword'] )
+    this.router.navigate(['/recoverPassword'])
   }
 }

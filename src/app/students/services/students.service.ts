@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {map, take} from "rxjs/operators";
-import {studentModel} from "../shared/student.model";
+import {studentModel} from "../../shared/student.model";
 import {BehaviorSubject} from "rxjs";
-import {User} from "../shared/user.model";
+import {User} from "../../auth/models/user.model";
 
 
 @Injectable({

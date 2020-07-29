@@ -1,15 +1,13 @@
 import {Injectable} from "@angular/core";
-import {BehaviorSubject, Observable, of, Subject} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
 import {AngularFireAuth} from "@angular/fire/auth";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import {switchMap} from "rxjs/operators";
 import {auth} from 'firebase/app';
 import * as firebase from "firebase";
-import {User} from "../shared/user.model";
-import {studentsService} from "../students/students.service";
-import {studentModel} from "../shared/student.model";
-
+import {User} from "../models/user.model";
+import {studentsService} from "../../students/services/students.service";
 
 
 @Injectable({
@@ -37,7 +35,6 @@ export class AuthService {
       })
     );
   }
-
 
 
   AutoLogin() {
@@ -89,7 +86,7 @@ export class AuthService {
   }
 
 
-  getPersonalData(user){
+  getPersonalData(user) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
     const profile = userRef.valueChanges();
 
@@ -99,25 +96,25 @@ export class AuthService {
 
   }
 
-    setDeaultUserData(user,){
-      const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
-      user = {
-        uid: user.uid,
-        email: user.email,
-        displayName: '',
-        photoURL: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
-        roles: {
-          admin: false,
-          editor: false,
-          sub: true,
-        }
-      };
-      this.router.navigate(['/profile']);
-      return userRef.set(user, { merge: true });
-    }
+  setDeaultUserData(user,) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    user = {
+      uid: user.uid,
+      email: user.email,
+      displayName: '',
+      photoURL: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
+      roles: {
+        admin: false,
+        editor: false,
+        sub: true,
+      }
+    };
+    this.router.navigate(['/profile']);
+    return userRef.set(user, {merge: true});
+  }
 
 
-   updateUserData(user) {
+  updateUserData(user) {
     // Sets user data to firestore on login
 
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
@@ -126,64 +123,64 @@ export class AuthService {
       user = value;
     }, error => console.log(error));
 
-      user = {
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-      };
+    user = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+    };
     this.router.navigate(['/profile']);
-    return userRef.set(user, { merge: true });
+    return userRef.set(user, {merge: true});
   }
 
-  resetPassword(email){
-    this.afAuth.sendPasswordResetEmail(email).then().catch(error => this.error =error);
+  resetPassword(email) {
+    this.afAuth.sendPasswordResetEmail(email).then().catch(error => this.error = error);
 
   }
 
-  deleteUser(userUID){
+  deleteUser(userUID) {
     this.afs.collection('marks').doc(userUID).delete();
-   this.afs.collection('users').doc(userUID)
-     .delete()
-     .then(() => {
-       firebase.auth().currentUser.delete().catch(console.log);
+    this.afs.collection('users').doc(userUID)
+      .delete()
+      .then(() => {
+          firebase.auth().currentUser.delete().catch(console.log);
 
-       this.signOut().catch(console.log);
-     }
-  );}
+          this.signOut().catch(console.log);
+        }
+      );
+  }
 
-  changeEmail(email){
+  changeEmail(email) {
     // firebase.auth().currentUser.updateEmail('pietrucha2112221@gmail.com').catch(console.log);
     return;
   }
 
-  private checkAuth(user: User, allowedRoles: string[]): boolean{
-    if(!user){
+  canRead(user: User): boolean {
+    const allowed = ['admin', 'sub', 'editor'];
+    return this.checkAuth(user, allowed);
+  }
+
+  canEdit(user: User): boolean {
+    const allowed = ['admin', 'editor'];
+    return this.checkAuth(user, allowed);
+  }
+
+  canDelete(user: User): boolean {
+    const allowed = ['admin'];
+    return this.checkAuth(user, allowed);
+  }
+
+  private checkAuth(user: User, allowedRoles: string[]): boolean {
+    if (!user) {
       return false;
-    }else{
-      for(const role of allowedRoles){
-        if(user.roles[role]){
+    } else {
+      for (const role of allowedRoles) {
+        if (user.roles[role]) {
           return true;
         }
       }
       return false
     }
-  }
-
-
-
-
-  canRead(user: User): boolean{
-    const allowed = ['admin', 'sub', 'editor'];
-    return this.checkAuth(user, allowed);
-  }
-  canEdit(user: User): boolean{
-    const allowed = ['admin', 'editor'];
-    return this.checkAuth(user, allowed);
-  }
-  canDelete(user: User): boolean{
-    const allowed = ['admin'];
-    return this.checkAuth(user, allowed);
   }
 
 

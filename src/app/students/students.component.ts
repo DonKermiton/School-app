@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {studentsService} from "./students.service";
+import {studentsService} from "../students/services/students.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {studentModel} from "../shared/student.model";
 import {pipe} from "rxjs";

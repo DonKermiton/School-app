@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../auth/auth.service";
-import {take} from "rxjs/operators";
-import {User} from "../shared/user.model";
+import {User} from "../../../auth/models/user.model";
+import {AuthService} from "../../../auth/services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -25,7 +24,6 @@ export class HeaderComponent implements OnInit {
     this.auth.profileInfo.subscribe(value => {
       this.profile = value;
     })
-
 
 
   }

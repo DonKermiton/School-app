@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {User} from "../../shared/user.model";
-import {studentsService} from "../students.service";
+import {User} from "../../../auth/models/user.model";
+import {studentsService} from "../../services/students.service";
 
 @Component({
   selector: 'app-student-view',

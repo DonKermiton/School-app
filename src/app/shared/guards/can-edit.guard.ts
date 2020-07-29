@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import {AuthService} from "../auth/auth.service";
 import {map, take, tap} from "rxjs/operators";
+import {AuthService} from "../../auth/services/auth.service";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class CanEditGuard implements CanActivate {
+
   constructor(private auth: AuthService) {
   }
 
@@ -16,12 +18,12 @@ export class AdminGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.auth.user$.pipe(
       take(1),
-      map(user=> user && user.roles.admin ? true : false),
-      tap(isAdmin => {
-          if(!isAdmin){
-          console.log('Denied - Admin only')
-          }
-    })
+      map(user=> user && this.auth.canEdit(user) ? true : false),
+      tap(canEdit => {
+        if(!canEdit){
+          console.log('Denied - CanEditOnly only')
+        }
+      })
     )
   }
 

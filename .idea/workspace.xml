@@ -11,25 +11,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/homework/homework.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sub-page/sub-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/admin.guard.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/guards/admin.guard.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/admin.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/guards/admin.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/can-edit.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/guards/can-edit.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/can-read.guard.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/guards/can-read.guard.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/can-read.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/guards/can-read.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/forgot-password/forgot-password.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/forgot-password/forgot-password.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/forgot-password/forgot-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/forgot-password/forgot-password.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/forgot-password/forgot-password.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/forgot-password/forgot-password.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/forgot-password/forgot-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/forgot-password/forgot-password.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/log-in/log-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/student-panel/student-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/student-panel/student-panel.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/edit-profile/edit-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/view-users/view-users.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/view-users/view-users.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/your-profile/your-profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/alert/alert.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/alert/alert.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/alert/alert.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/alert/alert.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/alert/alert.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/alert/alert.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/alert/alert.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/alert/alert.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/alert/alert.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/alert/alert.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/confirm-alert/confirm-alert.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/confirm-alert/confirm-alert.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/confirm-alert/confirm-alert.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/confirm-alert/confirm-alert.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/confirm-alert/confirm-alert.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/confirm-alert/confirm-alert.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/confirm-alert/confirm-alert.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/confirm-alert/confirm-alert.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/loading-spinner/loading-spinner.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/loading-spinner/loading-spinner.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/loading-spinner/loading-spinner.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/loading-spinner/loading-spinner.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/loading-spinner/loading-spinner.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/loading-spinner/loading-spinner.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/loading-spinner/loading-spinner.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/loading-spinner/loading-spinner.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/edit-student-marks/edit-student-marks.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/edit-student-marks/edit-student-marks.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/edit-student-marks/edit-student-marks.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/edit-student-marks/edit-student-marks.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/student-view/student-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students-list/students-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/services/students.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +98,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RecipeApp/opt-mod-06-finished/opt-mod-06-finished" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -62,7 +111,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Angular\Student-app\Student-app\src\app\core" />
+      <recent name="C:\Angular\Student-app\Student-app\src\app\students\services" />
+      <recent name="C:\Angular\Student-app\Student-app\src\app\students\components" />
+      <recent name="C:\Angular\Student-app\Student-app\src\app\shared\components" />
+      <recent name="C:\Angular\Student-app\Student-app\src\app\shared\guards" />
+      <recent name="C:\Angular\Student-app\Student-app\src\app\auth\models" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -130,7 +183,8 @@
       <workItem from="1595771187597" duration="10555000" />
       <workItem from="1595841892345" duration="10600000" />
       <workItem from="1595944127143" duration="4396000" />
-      <workItem from="1595950111241" duration="394000" />
+      <workItem from="1595950111241" duration="4485000" />
+      <workItem from="1596013321873" duration="295000" />
     </task>
     <servers />
   </component>
@@ -154,6 +208,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="0" key="#HTML/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595784891175" />
+    <state x="2466" y="202" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595963493691">
+      <screen x="1920" y="0" width="1536" height="832" />
+    </state>
+    <state x="2466" y="202" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1595963493691" />
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1595334247208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -189,15 +247,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="369" y="136" width="1548" height="749" key="dock-window-3/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595704009717" />
+    <state x="1920" y="0" width="577" height="832" key="find.popup" timestamp="1595964498051">
+      <screen x="1920" y="0" width="1536" height="832" />
+    </state>
+    <state x="1920" y="0" width="577" height="832" key="find.popup/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1595964498051" />
     <state x="493" y="190" key="run.anything.popup" timestamp="1594805981230">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="493" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594805981230" />
     <state x="616" y="240" key="run.anything.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594680577881" />
-    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1595844725580">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2418" y="180" width="672" height="544" key="search.everywhere.popup" timestamp="1595966144789">
+      <screen x="1920" y="0" width="1536" height="832" />
     </state>
     <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1595844725580" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595784802539" />
+    <state x="2418" y="180" width="672" height="544" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1595966144789" />
   </component>
 </project>

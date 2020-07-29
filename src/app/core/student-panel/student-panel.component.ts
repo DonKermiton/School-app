@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../auth/auth.service";
-import {User} from "../../shared/user.model";
-import {studentsService} from "../../students/students.service";
+import {Component, OnInit} from '@angular/core';
+
+import {User} from "../../auth/models/user.model";
+import {studentsService} from "../../students/services/students.service";
 import {homeworkService} from "../../homework/homework.service";
+import {AuthService} from "../../auth/services/auth.service";
 
 @Component({
   selector: 'app-student-panel',
@@ -17,36 +18,36 @@ export class StudentPanelComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private studentService: studentsService,
-              private homeworkService: homeworkService) { }
+              private homeworkService: homeworkService) {
+  }
 
   ngOnInit(): void {
     this.getPersonalData().catch(console.log);
     this.getHomework();
 
 
-
   }
 
-  async getPersonalData(){
-      await this.authService.user$.subscribe((user: User) => {
+  async getPersonalData() {
+    await this.authService.user$.subscribe((user: User) => {
       this.getMarks(user.uid);
     })
   }
 
-   getMarks(uid){
+  getMarks(uid) {
     this.studentService.getMarks(uid).subscribe(mark => {
       this.marks = mark;
       this.getHomework();
     })
   }
 
-    getHomework(){
+  getHomework() {
     this.homeworkService.getHomeworkForGroup(this.marks.group).subscribe(value => {
       this.homework = value;
       console.log(value);
     })
 
-    }
+  }
 
 
   getMark(e: any) {
@@ -54,6 +55,6 @@ export class StudentPanelComponent implements OnInit {
   }
 
   assignHomework(e: any) {
-    
+
   }
 }

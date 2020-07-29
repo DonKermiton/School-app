@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {studentsService} from "../students.service";
+import {studentsService} from "../../services/students.service";
 import {AngularFirestore} from "@angular/fire/firestore";
-import {User} from "../../shared/user.model";
+import {User} from "../../../auth/models/user.model";
 
 
 @Component({

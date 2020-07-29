@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {AngularFirestore} from "@angular/fire/firestore";
-import {AuthService} from "../auth/auth.service";
+
 import {map, take} from "rxjs/operators";
 
 @Injectable({
@@ -9,7 +9,7 @@ import {map, take} from "rxjs/operators";
 
 export class homeworkService {
   constructor(private afs: AngularFirestore,
-              private auth: AuthService) {
+             ) {
   }
 
   saveHomework(file: object){

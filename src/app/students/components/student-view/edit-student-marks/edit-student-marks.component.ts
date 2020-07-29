@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {studentsService} from "../../students.service";
+import {studentsService} from "../../../services/students.service";
 
 @Component({
   selector: 'app-edit-student-marks',
@@ -62,7 +62,7 @@ export class EditStudentMarksComponent implements OnInit {
   onSubmit() {
     this.studentService.saveMarksToDatabase(this.userUID, this.marksForm);
     this.userMarks.length = 0;
-    this.router.navigate(['/students'], {queryParams: {group: this.selectedGroup}})
+    this.router.navigate(['/students-2'], {queryParams: {group: this.selectedGroup}})
   }
 
   addMarkField() {

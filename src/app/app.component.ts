@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {AuthService} from "./auth/auth.service";
+import {AuthService} from "./auth/services/auth.service";
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import {AuthService} from "./auth/auth.service";
 export class AppComponent {
   title = 'Student-app';
 
+  //todo napisać od nowa
   constructor(private auth: AuthService) {
     this.auth.AutoLogin();
   }
