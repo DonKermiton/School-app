@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {User} from "../../auth/models/user.model";
 import {studentsService} from "../../students/services/students.service";
-import {homeworkService} from "../../homework/homework.service";
+import {homeworkService} from "../../homework/services/homework.service";
 import {AuthService} from "../../auth/services/auth.service";
 
 @Component({

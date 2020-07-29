@@ -30,7 +30,7 @@ import {AdminPanelComponent} from './core/admin-panel/admin-panel.component';
 import {StudentPanelComponent} from './core/student-panel/student-panel.component';
 import {LoadingSpinnerComponent} from './shared/components/loading-spinner/loading-spinner.component';
 import {ConfirmAlertComponent} from './shared/components/confirm-alert/confirm-alert.component';
-import {HomeworkComponent} from './homework/homework.component';
+
 
 
 const appRoute: Routes = [
@@ -46,9 +46,9 @@ const appRoute: Routes = [
   {path: 'studentPanel', component: StudentPanelComponent, canActivate: [CanReadGuard]},
   {path: 'profile/:uid', component: ViewUsersComponent},
 
-  {path: 'homework', component: HomeworkComponent, canActivate: [CanEditGuard]},
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
-  { path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule) }
+  {path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule)},
+  {path: 'homework', loadChildren: () => import('./homework/homework.module').then(m => m.HomeworkModule)}
 
 
 ]
@@ -61,21 +61,14 @@ const appRoute: Routes = [
     SignInComponent,
     LogInComponent,
     YourProfileComponent,
-
     EditProfileComponent,
     ForgotPasswordComponent,
     AlertComponent,
     ViewUsersComponent,
-    StudentsListComponent,
-    StudentViewComponent,
-    EditStudentMarksComponent,
     AdminPanelComponent,
     StudentPanelComponent,
     LoadingSpinnerComponent,
     ConfirmAlertComponent,
-    HomeworkComponent,
-
-
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -85,6 +78,9 @@ const appRoute: Routes = [
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
+  ],
+  exports: [
+    LoadingSpinnerComponent
   ],
   bootstrap: [AppComponent]
 })

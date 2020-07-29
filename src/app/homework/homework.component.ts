@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormControl, FormGroup, FormsModule, Validators} from "@angular/forms";
-import {homeworkService} from "./homework.service";
+import {homeworkService} from "../homework/services/homework.service";
 
 @Component({
   selector: 'app-homework',

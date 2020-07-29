@@ -18,7 +18,6 @@
         <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
         <app-students-list *ngFor="let student of users;let i = index" [id]="i"
                            [usersUID]="student"></app-students-list>
-
       </div>
       <div class="col-xs-12 col-md-6">
         <router-outlet></router-outlet>

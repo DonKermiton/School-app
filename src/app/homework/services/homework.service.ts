@@ -37,7 +37,7 @@ export class homeworkService {
 
 
 /*  getHomework(){
-    this.afs.collection('homework').doc('401').collection('homeworks').doc('sdfasdf').valueChanges().subscribe(console.log);
+    this.afs.collection('homework-2').doc('401').collection('homeworks').doc('sdfasdf').valueChanges().subscribe(console.log);
   }*/
 
 }

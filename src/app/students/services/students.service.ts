@@ -23,6 +23,7 @@ export class studentsService {
       map(document => {
         console.log(document);
         return document.map(e => {
+          console.log(e.payload.doc.data());
           const id = e.payload.doc.id;
           const marks = e.payload.doc.data();
 
