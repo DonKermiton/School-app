@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {studentsService} from "../students/services/students.service";
+import {studentsService} from "./services/students.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {studentModel} from "../shared/student.model";
 import {pipe} from "rxjs";
 import {map} from "rxjs/operators";
+import {User} from "../auth/models/user.model";
 
 @Component({
   selector: 'app-students',
@@ -19,42 +20,25 @@ export class StudentsComponent implements OnInit {
   isLoading = false;
   gate = false;
 
-  users = [];
+  users: User[];
   preUsers = [];
 
   selectedGroup: string;
 
-  constructor(private studentService: studentsService,
+  constructor(public studentService: studentsService,
               private router: Router,
-              private actRoute: ActivatedRoute) {
-
-  }
+              private activatedRoute: ActivatedRoute,
+              ) {}
 
   ngOnInit(): void {
-    this.studentService.getGroupIDS().subscribe(value => {
-      this.preUsers = value
-    });
-
-    this.actRoute.queryParams.subscribe((param: Params) => {
-      console.log(param);
-      this.isLoading = true;
-      this.users.length = 0;
-      this.selectedGroup = param.group;
-      this.getUserData().then(() => {
-        this.users = this.studentService.value;
-        this.gate = true;
-
-        this.isLoading = false;
-      });
-    });
-  };
-
-
-  async getUserData() {
-    return this.preUsers.map(value => {
-      this.studentService.getUserData(value, this.selectedGroup);
-    })
-
+    this.activatedRoute.queryParams.subscribe((group:Params) => {
+      console.log(group['group']);
+      if(group['group']) {
+        this.studentService.getStudentsByGroup(group['group']).subscribe()
+      }else{
+        this.studentService.value.length = 0;
+      }
+    } );
   }
 
   changeGroup(group: Event) {

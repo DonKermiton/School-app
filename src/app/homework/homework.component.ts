@@ -17,7 +17,7 @@ export class HomeworkComponent implements OnInit {
 
   selectedGroup: string;
   homeworkForm: FormGroup;
-
+  //TODO All component to rework
   constructor(private actRoute: ActivatedRoute,
               private router: Router,
               private homeworkService: homeworkService) { }

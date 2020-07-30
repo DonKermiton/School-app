@@ -10,7 +10,6 @@ import {AuthService} from "./auth/services/auth.service";
 export class AppComponent {
   title = 'Student-app';
 
-  //todo napisać od nowa
   constructor(private auth: AuthService) {
     this.auth.AutoLogin();
   }

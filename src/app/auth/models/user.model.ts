@@ -10,4 +10,5 @@ export interface User {
   roles?: Roles;
   photoURL?: string;
   displayName?: string;
+  group?: string
 }

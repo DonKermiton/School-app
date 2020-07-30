@@ -19,9 +19,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let e of marks; let i = index" (click)="deleteMark(i)">
-        <td>{{e.value }}</td>
-        <td>{{e.desc  }}</td>
+<!--      <li></li>-->
+
+      <tr *ngFor="let e of (marks| keyvalue) ">
+        <td>{{e.value.value}}</td>
+        <td>{{e.value.desc }}</td>
 
       </tr>
 

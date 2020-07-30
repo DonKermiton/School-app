@@ -49,7 +49,7 @@ export class AuthService {
     this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(user => {
         this.getPersonalData(user.user);
-        this.setDeaultUserData(user.user);
+        this.setDeaultUserData(user.user, group);
         this.studentService.createStudentData(user.user.uid, group);
       })
       .catch(error => this.error = error);
@@ -95,13 +95,15 @@ export class AuthService {
     })
 
   }
+  //TODO create another service to handle actions
 
-  setDeaultUserData(user,) {
+  setDeaultUserData(user, group) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
     user = {
       uid: user.uid,
       email: user.email,
       displayName: '',
+      group,
       photoURL: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
       roles: {
         admin: false,
@@ -139,7 +141,8 @@ export class AuthService {
   }
 
   deleteUser(userUID) {
-    this.afs.collection('marks').doc(userUID).delete();
+    //TODO delete student data to Change
+    // this.afs.collection('marks').doc(userUID).delete();
     this.afs.collection('users').doc(userUID)
       .delete()
       .then(() => {

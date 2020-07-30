@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {studentsService} from "../../../services/students.service";
+import {MarksModel} from "../../../models/marks.model";
 
 @Component({
   selector: 'app-edit-student-marks',
@@ -11,7 +12,7 @@ import {studentsService} from "../../../services/students.service";
 export class EditStudentMarksComponent implements OnInit {
   marksForm: FormGroup;
   userUID: string;
-  userMarks = [];
+  userMarks: MarksModel;
   selectedGroup: string;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -19,8 +20,8 @@ export class EditStudentMarksComponent implements OnInit {
               private router: Router) {
   }
 
-  get controls(){
-    return (<FormArray> this.marksForm.get('marks')).controls;
+  get controls() {
+    return (<FormArray>this.marksForm.get('marks')).controls;
   }
 
   ngOnInit(): void {
@@ -30,56 +31,61 @@ export class EditStudentMarksComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       this.userUID = params['edit'];
-      })
+    })
     this.initForm();
 
   }
 
-  private initForm(){
-    const marksArray = new FormArray([]);
-     this.studentService.getMarks(this.userUID).subscribe((value: any) => {
-       for(const mark of value.marks){
-         this.userMarks.push(mark);
-       }
-       for(const mark of this.userMarks){
-
-         marksArray.push(
-           new FormGroup({
-             value: new FormControl(mark.value,[Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-             desc: new FormControl(mark.desc,Validators.required),
-           })
-         )
-       }
-       this.marksForm = new FormGroup({
-         marks: marksArray,
-       })
-    });
-
-
-
-  }
-
   onSubmit() {
-    this.studentService.saveMarksToDatabase(this.userUID, this.marksForm);
-    this.userMarks.length = 0;
-    this.router.navigate(['/students-2'], {queryParams: {group: this.selectedGroup}})
+    this.studentService.saveMarksToDatabase(this.userUID, this.marksForm.value, this.selectedGroup);
+    // this.userMarks.length = 0;
+    this.router.navigate(['/students'], {queryParams: {group: this.selectedGroup}})
   }
 
   addMarkField() {
-    (<FormArray> this.marksForm.get('marks')).push(
+    (<FormArray>this.marksForm.get('marks')).push(
       new FormGroup({
-        value: new FormControl(null,[Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-        desc: new FormControl(null,Validators.required),
+        value: new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+        desc: new FormControl(null, Validators.required),
 
       })
     )
   }
 
   deleteMark(i: number) {
-    (<FormArray> this.marksForm.get('marks')).removeAt(i);
+    (<FormArray>this.marksForm.get('marks')).removeAt(i);
   }
 
   cancelAdding() {
-    this.router.navigate(['./'], { relativeTo: this.activatedRoute,queryParams: {group: this.selectedGroup}})
+    this.router.navigate(['./'], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}})
+  }
+
+  private initForm() {
+    const marksArray = new FormArray([]);
+    this.studentService.getMarks(this.userUID, this.selectedGroup).subscribe((value: any) => {
+      // console.log(value.data());
+
+      this.userMarks = value.data();
+
+      for(const test in this.userMarks.marks){
+
+        console.log(this.userMarks.marks[test]);
+      }
+
+
+      for (const mark in this.userMarks.marks) {
+        marksArray.push(
+          new FormGroup({
+            value: new FormControl(this.userMarks.marks[mark].value, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+            desc: new FormControl(this.userMarks.marks[mark].desc, Validators.required),
+          })
+        )
+      }
+      this.marksForm = new FormGroup({
+        marks: marksArray,
+      })
+    });
+
+
   }
 }

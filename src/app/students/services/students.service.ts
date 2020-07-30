@@ -1,9 +1,8 @@
 import {Injectable} from "@angular/core";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
-import {map, take} from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {studentModel} from "../../shared/student.model";
 import {BehaviorSubject} from "rxjs";
-import {User} from "../../auth/models/user.model";
 
 
 @Injectable({
@@ -17,6 +16,20 @@ export class studentsService {
   constructor(private afs: AngularFirestore) {
 
   }
+
+
+  getStudentsByGroup(group: string) {
+    this.value.length = 0;
+    return this.afs.collection('students').doc(group).collection('students').snapshotChanges().pipe(
+      map(document => {
+        return document.map(e => {
+
+          return this.afs.collection('users').doc(e.payload.doc.id).get().subscribe(value => this.value.push(value.data()));
+        })
+      })
+    )
+  }
+
 
   getGroupIDS() {
     return this.afs.collection('marks').snapshotChanges().pipe(
@@ -34,41 +47,28 @@ export class studentsService {
   }
 
   createStudentData(userUID, group) {
-    const userRef: AngularFirestoreDocument<studentModel> = this.afs.collection('marks').doc(userUID);
+    const userRef: AngularFirestoreDocument<studentModel> = this.afs.collection('students').doc(group).collection('students').doc(userUID);
     userUID = {
-      group,
-      marks: [
-        {value: 2, desc: 'dziala'},
-        {value: 3, desc: 'test'},
-      ],
+      userUID,
     }
     return userRef.set(userUID, {merge: true});
   }
 
-  getUserData(user: object, group: string) {
-    // @ts-ignore
-    if (user.marks.group === group) {
-      // @ts-ignore
-      this.afs.collection('users').doc(user.id).valueChanges().subscribe((user: User) => {
-          if (user) {
-            this.value.push(user);
-          }
-        }
-      )
-    }
-  }
 
   getUsers(uid: string) {
     return this.afs.collection('users').doc(uid).valueChanges();
   }
 
-  getMarks(uid) {
-    return this.afs.collection('marks').doc(uid).valueChanges();
+  getMarks(uid, group) {
+    let x;
+    this.afs.collection('users').doc(uid).get().subscribe(e => {
+      x = e.data().group
+    })
+    return this.afs.collection('students').doc(group).collection('marks').doc(uid).get();
   }
 
-  saveMarksToDatabase(uid, marks) {
+  saveMarksToDatabase(uid, marks, group) {
 
-
-    return this.afs.collection('marks').doc(uid).update(marks.value).catch(console.log);
+    return this.afs.collection('students').doc(group).collection('marks').doc(uid).set(marks);
   }
 }
