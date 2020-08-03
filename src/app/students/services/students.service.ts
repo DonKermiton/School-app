@@ -11,12 +11,9 @@ import {BehaviorSubject} from "rxjs";
 
 export class studentsService {
   value = [];
-  studentProfile = new BehaviorSubject(null)
-
   constructor(private afs: AngularFirestore) {
 
   }
-
 
   getStudentsByGroup(group: string) {
     this.value.length = 0;
@@ -25,22 +22,6 @@ export class studentsService {
         return document.map(e => {
 
           return this.afs.collection('users').doc(e.payload.doc.id).get().subscribe(value => this.value.push(value.data()));
-        })
-      })
-    )
-  }
-
-
-  getGroupIDS() {
-    return this.afs.collection('marks').snapshotChanges().pipe(
-      map(document => {
-        console.log(document);
-        return document.map(e => {
-          console.log(e.payload.doc.data());
-          const id = e.payload.doc.id;
-          const marks = e.payload.doc.data();
-
-          return {id, marks}
         })
       })
     )

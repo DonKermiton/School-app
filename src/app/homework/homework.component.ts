@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormControl, FormGroup, FormsModule, Validators} from "@angular/forms";
 import {homeworkService} from "../homework/services/homework.service";
+import {Observable, of, Subject} from "rxjs";
+import {homeworkModel} from "./models/homework.model";
 
 @Component({
   selector: 'app-homework',
@@ -9,41 +11,34 @@ import {homeworkService} from "../homework/services/homework.service";
   styleUrls: ['./homework.component.css']
 })
 export class HomeworkComponent implements OnInit {
+  homeworkList: homeworkModel[];
+  selectedGroup = new Subject();
+  group: string;
+
   groupList = [
     '401',
     '402',
     '410',
   ];
 
-  selectedGroup: string;
   homeworkForm: FormGroup;
-  //TODO All component to rework
-  constructor(private actRoute: ActivatedRoute,
-              private router: Router,
-              private homeworkService: homeworkService) { }
+
+  constructor(private homeworkService: homeworkService) { }
 
   ngOnInit(): void {
-    this.actRoute.queryParams.subscribe((params: Params) => {
-      this.selectedGroup = params['group']
-    });
-
-    this.homeworkForm = new FormGroup({
-      group: new FormControl(this.selectedGroup, Validators.required),
-      title: new FormControl(null),
-      date: new FormControl(null, Validators.required),
-      desc: new FormControl(null, Validators.required),
+    this.selectedGroup.subscribe((group:string) => {
+      this.group = group;
+      this.homeworkService.getHomeworks(group).subscribe((doc:any) => {
+        this.homeworkList = doc;
+      })
     })
 
+    this.homeworkForm = new FormGroup({
+      group: new FormControl(Validators.required)
+    })
   }
 
-
-  changeGroup($event: Event) {
-    this.router.navigate([], {queryParams: {group: (<HTMLInputElement>$event.target).value}})
-  }
-
-  addHomework() {
-    // this.homeworkService.getHomeworkForGroup('401');
-    this.homeworkService.saveHomework(this.homeworkForm.value);
-    console.log(this.homeworkForm.value);
+  ChangeGroup(event: Event) {
+    this.selectedGroup.next((<HTMLInputElement>event.target).value);
   }
 }

@@ -11,21 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/piotr.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/students/models/marks.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/homework/models/homework.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/student-panel/student-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/student-panel/student-panel.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/homework/homework.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/services/homework.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/services/homework.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/services/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/services/students.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/students.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +129,12 @@
       <workItem from="1595944127143" duration="4396000" />
       <workItem from="1595950111241" duration="4485000" />
       <workItem from="1596013321873" duration="15555000" />
-      <workItem from="1596095546086" duration="20406000" />
+      <workItem from="1596095546086" duration="21148000" />
+      <workItem from="1596207543744" duration="13050000" />
+      <workItem from="1596296921516" duration="2885000" />
+      <workItem from="1596316872808" duration="675000" />
+      <workItem from="1596366912881" duration="16696000" />
+      <workItem from="1596443920844" duration="6523000" />
     </task>
     <servers />
   </component>
@@ -156,6 +158,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="0" key="#HTML/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595784891175" />
+    <state x="586" y="198" key="#Inspections" timestamp="1596300491084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596300491084" />
     <state x="2466" y="202" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595963493691">
       <screen x="1920" y="0" width="1536" height="832" />
     </state>
@@ -169,11 +175,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595582468349" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1595962570181">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1596410699715">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596410699715" />
     <state x="592" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594995265486" />
     <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595962570181" />
+    <state x="747" y="372" width="426" height="296" key="XPathView.InputDialog.DIMENSION_SERVICE_KEY.SIMPLE" timestamp="1596223653501">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="747" y="372" width="426" height="296" key="XPathView.InputDialog.DIMENSION_SERVICE_KEY.SIMPLE/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596223653501" />
     <state x="609" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595198949138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -204,12 +215,16 @@
     </state>
     <state x="493" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594805981230" />
     <state x="616" y="240" key="run.anything.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594680577881" />
-    <state x="623" y="225" width="840" height="680" key="search.everywhere.popup" timestamp="1596044567412">
+    <state x="623" y="225" width="840" height="680" key="search.everywhere.popup" timestamp="1596398831455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="840" height="680" key="search.everywhere.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596044567412" />
+    <state x="623" y="225" width="840" height="680" key="search.everywhere.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596398831455" />
     <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596014045795" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595784802539" />
     <state x="2418" y="180" width="672" height="544" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1595966144789" />
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
   </component>
 </project>

@@ -1,0 +1,39 @@
+<div class="border" *ngIf="homeworkData">
+  <div class="row justify-content-center">
+    <div class="col-xs-12">
+      <span class="lead">{{homeworkData.title}}</span>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <span class="lead">{{homeworkData.group}}</span>
+    </div>
+
+    <div class="col-xs-12 col-md-4 text-right">
+      <span class="lead">{{homeworkData.date}}</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-12">
+      <span>{{homeworkData.desc}}</span>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 offset-md-4 col-md-4 btn-group "
+         role="group"
+         aria-label="Basic example">
+      <button class="btn btn-secondary">Delete</button>
+      <button class="btn btn-secondary" routerLink="edit">Edit</button>
+    </div>
+  </div>
+
+</div>
+
+
+

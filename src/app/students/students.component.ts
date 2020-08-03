@@ -17,11 +17,8 @@ export class StudentsComponent implements OnInit {
     '402',
     '410',
   ];
-  isLoading = false;
-  gate = false;
 
   users: User[];
-  preUsers = [];
 
   selectedGroup: string;
 

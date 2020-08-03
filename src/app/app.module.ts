@@ -48,7 +48,7 @@ const appRoute: Routes = [
 
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule)},
-  {path: 'homework', loadChildren: () => import('./homework/homework.module').then(m => m.HomeworkModule)}
+  {path: 'homework', loadChildren: () => import('./homework/homework.module').then(m => m.HomeworkModule), canActivate: [CanEditGuard]}
 
 
 ]

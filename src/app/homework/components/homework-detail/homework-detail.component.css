@@ -1,0 +1,9 @@
+input.ng-invalid,
+input.ng-touched {
+  border: 1px solid darkred;
+}
+
+.space{
+  height: 1em;
+  border-bottom: 2px solid slategrey;
+}

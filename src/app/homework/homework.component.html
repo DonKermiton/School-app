@@ -1,60 +1,45 @@
 <div class="container">
-  <form [formGroup]="homeworkForm" (ngSubmit)="addHomework()">
+
+  <form [formGroup]="homeworkForm">
     <div class="row ">
-      <div class="col-xs-12 col-md-3 col-lg-2 shadow justify-content-center">
-        <div class="form-group text-center">
-          <label for="Status">Group</label>
-          <select id="Status" class="form-control" (change)="changeGroup($event)" formControlName="group">
-            <option selected disabled hidden>Choose</option>
-            <option [value]="group"
-                    *ngFor="let group of groupList" [selected]="group === selectedGroup">{{group}}</option>
-          </select>
-        </div>
-        <div class="text-center py-4">
-          <button class="btn btn-primary" type="submit" [disabled]="!homeworkForm.valid">Submit</button>
-        </div>
+      <div class=" form-group text-center">
+        <label for="Status">Group</label>
+        <select id="Status" class="form-control" formControlName="group" (change)="ChangeGroup($event)" >
+          <option selected disabled hidden>Choose</option>
+          <option [value]="group"
+                  *ngFor="let group of groupList"> {{group}}</option>
+        </select>
+      </div>
+    <!--  <div class="form-group text-center px-1">
+        <label for="Date">Date from</label>
+        <input type="date" id="Date" class="form-control">
       </div>
 
-      <div class="row col-xs-12 offset-1 mt-5">
-        <div class="container">
-
-          <div class="row ">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text"
-                     class="form-control"
-                     id="title"
-                     placeholder="title"
-                     formControlName="title">
-            </div>
-          </div>
-          <div class="row ">
-            <div class="form-group">
-              <label for="date">Date</label>
-              <input type="date"
-                     class="form-control"
-                     id="date"
-                     placeholder="title"
-                     formControlName="date">
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group">
-              <label for="desc">Description</label>
-              <textarea
-                class="form-control"
-                id="desc"
-                placeholder="title"
-                formControlName="desc"></textarea>
-            </div>
-          </div>
-
-
-
-
-        </div>
-
+      <div class="col-5 form-group text-center px-3">
+        <label for="Title">title</label>
+        <input type="text" id="title" class="form-control">
       </div>
+      <div class="offset-3 align-self-center ">
+        <button class="btn btn-outline-success">Search</button>
+      </div>-->
     </div>
   </form>
+
+
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-4 ">
+
+      <div class="text-center">
+      <button class="btn btn-outline-primary" type="button" routerLink="add">Assign Homework</button>
+      </div>
+
+      <app-homework-list *ngFor="let homework of homeworkList" [group]="group" [homework]="homework" routerLinkActive="active"></app-homework-list>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-8 ">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
 </div>

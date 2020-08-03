@@ -1,0 +1,46 @@
+<div class="shadow">
+  <form [formGroup]="HomeworkEdit" (ngSubmit)="onSubmit()">
+    <div class="text-right">
+      <button class="btn btn-danger text-uppercase " type="button">X</button>
+    </div>
+    <div class="row">
+      <div class="offset-md-2 offset-lg-3 col-xs-12 col-md-8 col-lg-6 form-group">
+        <label for="title">title</label>
+        <input type="text" id="title" class="form-control" formControlName="title">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="offset-md-2 offset-lg-3 col-xs-12 col-md-8 col-lg-6 form-group">
+        <label for="status">Group</label>
+        <select id="status" class="form-control" formControlName="group">
+          <option selected disabled hidden>Choose</option>
+          <option [value]="group"
+                  *ngFor="let group of groupList">{{group}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="offset-md-2 offset-lg-3 col-xs-12 col-md-8 col-lg-6 form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" class="form-control" formControlName="date">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="offset-md-2 offset-lg-3 col-xs-12 col-md-8 col-lg-6 form-group">
+        <label for="desc">desc</label>
+        <textarea id="desc" class="form-control" formControlName="desc"></textarea>
+      </div>
+    </div>
+
+    <div class="h-100"></div>
+    <div class="row">
+      <div class="offset-md-2 offset-lg-3 col-xs-12 col-md-8 col-lg-6 text-center">
+        <button class="btn btn-success text-uppercase" type="submit">save</button>
+      </div>
+    </div>
+
+  </form>
+</div>

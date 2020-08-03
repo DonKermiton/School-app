@@ -12,17 +12,23 @@ import {AuthService} from "../../services/auth.service";
 export class LogInComponent implements OnInit {
   LoginForm: FormGroup;
   isLoading = false;
+  accounts: logInInterface[] = [
+    {type: 'admin', email: 'pietrucha2112@interia.pl', password: 'Windows7'}
+  ]
 
   constructor(public auth: AuthService,
               private router: Router) {
   }
 
-  ngOnInit(): void {
-    this.LoginForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required])
-    });
+  email: string;
+  password: string;
 
+  ngOnInit(): void {
+
+    this.LoginForm = new FormGroup({
+      'email': new FormControl(this.email, [Validators.required, Validators.email]),
+      'password': new FormControl(this.password, [Validators.required])
+    });
 
   }
 
@@ -41,8 +47,18 @@ export class LogInComponent implements OnInit {
     this.auth.error = null;
   }
 
-
   forgotPassword() {
     this.router.navigate(['/recoverPassword'])
   }
+
+  clickLogin(email: string, password: string) {
+    this.auth.logViaEmail(email, password);
+  }
+}
+
+export interface logInInterface {
+  type: string;
+  email: string;
+  password: string;
+
 }
