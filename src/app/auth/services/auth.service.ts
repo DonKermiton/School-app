@@ -79,6 +79,10 @@ export class AuthService {
 
   }
 
+ public get userUID(){
+    return firebase.auth().currentUser.uid;
+  }
+
 
   async signOut() {
     await this.afAuth.signOut();

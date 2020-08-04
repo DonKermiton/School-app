@@ -29,6 +29,8 @@ export class HomeworkEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
     this.route.params.subscribe((params: Params) => {
       this.inEdit = params['detail'] != null;
       console.log(this.inEdit)
@@ -37,6 +39,8 @@ export class HomeworkEditComponent implements OnInit {
         this.group = params['group'];
         this.homeworkService.getHomeworkByID(this.id, this.group).subscribe((value:any) => {
           this.homeworkDetails = value.data();
+
+
         });
         }
 

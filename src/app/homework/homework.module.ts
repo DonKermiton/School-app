@@ -9,13 +9,16 @@ import {CanEditGuard} from "../shared/guards/can-edit.guard";
 import { HomeworkEditComponent } from './components/homework-edit/homework-edit.component';
 
 
+
 const routes: Routes = [
   {path: '', component: HomeworkComponent, children: [
       {path: 'add', component: HomeworkEditComponent},
       {path: ':group/:detail', component: HomeworkDetailComponent},
       {path: ':group/:detail/edit', component: HomeworkEditComponent},
 
-    ]}
+
+    ]},
+
 ];
 
 @NgModule({

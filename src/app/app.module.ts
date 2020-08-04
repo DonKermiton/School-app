@@ -21,15 +21,15 @@ import {EditProfileComponent} from './core/your-profile/edit-profile/edit-profil
 import {ForgotPasswordComponent} from './auth/components/log-in/forgot-password/forgot-password.component';
 import {AlertComponent} from './shared/components/alert/alert.component';
 import {ViewUsersComponent} from './core/your-profile/view-users/view-users.component';
-import {StudentsListComponent} from './students/components/students-list/students-list.component';
-import {StudentViewComponent} from './students/components/student-view/student-view.component';
-import {EditStudentMarksComponent} from './students/components/student-view/edit-student-marks/edit-student-marks.component';
+
 import {CanEditGuard} from "./shared/guards/can-edit.guard";
 import {AdminPanelComponent} from './core/admin-panel/admin-panel.component';
 
 import {StudentPanelComponent} from './core/student-panel/student-panel.component';
 import {LoadingSpinnerComponent} from './shared/components/loading-spinner/loading-spinner.component';
 import {ConfirmAlertComponent} from './shared/components/confirm-alert/confirm-alert.component';
+import {SubmitHomeworkComponent} from "./core/student-panel/submit-homework/submit-homework.component";
+import { SubmitHomeworkEditComponent } from './core/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component';
 
 
 
@@ -44,6 +44,7 @@ const appRoute: Routes = [
   },
   {path: 'adminPanel', component: AdminPanelComponent, canActivate: [AdminGuard]},
   {path: 'studentPanel', component: StudentPanelComponent, canActivate: [CanReadGuard]},
+  {path: 'submitHomework', component: SubmitHomeworkComponent, canActivate: [CanReadGuard]},
   {path: 'profile/:uid', component: ViewUsersComponent},
 
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
@@ -69,6 +70,8 @@ const appRoute: Routes = [
     StudentPanelComponent,
     LoadingSpinnerComponent,
     ConfirmAlertComponent,
+    SubmitHomeworkComponent,
+    SubmitHomeworkEditComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

@@ -53,11 +53,11 @@
           </tr>
           </thead>
           <tbody>
-          <tr  *ngFor="let e of homework" (click)="assignHomework(e)">
+          <tr *ngFor="let e of homework" (click)="addResolveToHomework(e)">
             <th scope="row" ></th>
-            <td>{{e.marks.file.title}}</td>
-            <td>{{e.marks.file.date}}</td>
-            <td>{{e.marks.file.desc}}</td>
+            <td>{{e.data.title}}</td>
+            <td>{{e.data.date}}</td>
+            <td>{{e.data.desc}}</td>
           </tr>
           </tbody>
         </table>

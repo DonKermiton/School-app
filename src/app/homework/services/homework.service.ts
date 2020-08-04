@@ -44,5 +44,16 @@ export class homeworkService {
     this.afs.collection('students').doc(group).collection('homeworks').doc(id).update(submitForm).catch(console.log);
   }
 
+  saveStudentResponse(homework: string, group: string, homeworkID: string, studentsUID :string){
+    const test = {
+      [studentsUID]: {
+        homework,
+      }
+    }
+
+
+
+    this.afs.collection('students').doc(group).collection('homeworkAnswers').doc(homeworkID).set(test, {merge: true}).catch(console.log);
+  }
 
 }

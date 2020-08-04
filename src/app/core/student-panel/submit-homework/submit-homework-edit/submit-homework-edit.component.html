@@ -1,0 +1,12 @@
+<form [formGroup]="homeworkAnswer" (ngSubmit)="saveHomework()">
+  <div class="text-right">
+    <button class="btn btn-success" type="submit">Submit</button>
+  </div>
+  <div class="form-group">
+    <label for="Answer"></label>
+    <textarea id="Answer" class="form-control" formControlName="text"></textarea>
+    <div class="text-right"  >
+      <span [ngClass]="homeworkAnswer.value.text.length > 2500 ? 'bg-danger': '' ">{{homeworkAnswer.value.text.length}} /2500</span>
+    </div>
+  </div>
+</form>
