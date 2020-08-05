@@ -4,6 +4,7 @@ import {FormControl, FormGroup, FormsModule, Validators} from "@angular/forms";
 import {homeworkService} from "../homework/services/homework.service";
 import {Observable, of, Subject} from "rxjs";
 import {homeworkModel} from "./models/homework.model";
+import {mergeMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-homework',
@@ -26,12 +27,14 @@ export class HomeworkComponent implements OnInit {
   constructor(private homeworkService: homeworkService) { }
 
   ngOnInit(): void {
-    this.selectedGroup.subscribe((group:string) => {
-      this.group = group;
-      this.homeworkService.getHomeworks(group).subscribe((doc:any) => {
-        this.homeworkList = doc;
-      })
-    })
+   this.selectedGroup.pipe(
+     mergeMap(((value: string) => {
+       this.group = value;
+       return this.homeworkService.getHomeworks(value);
+     }))
+   ).subscribe((doc: any) => {
+     this.homeworkList = doc;
+   })
 
     this.homeworkForm = new FormGroup({
       group: new FormControl(Validators.required)

@@ -4,6 +4,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {homeworkService} from "../../services/homework.service";
 import {homeworkModel} from "../../models/homework.model";
 import {async} from "rxjs/internal/scheduler/async";
+import {mergeMap} from "rxjs/operators";
 
 
 @Component({
@@ -29,36 +30,35 @@ export class HomeworkEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.params.pipe(
+      mergeMap((params: Params) => {
+        this.inEdit = params['detail'] != null;
+        if(this.inEdit) {
+          this.id = params['detail'];
+          this.group = params['group'];
+          return this.homeworkService.getHomeworkByID(this.id, this.group)
+        }})
+    ).subscribe((value:any) => {
+      this.homeworkDetails = value.data();
 
-
-    this.route.params.subscribe((params: Params) => {
-      this.inEdit = params['detail'] != null;
-      console.log(this.inEdit)
-      if(this.inEdit){
-        this.id = params['detail'];
-        this.group = params['group'];
-        this.homeworkService.getHomeworkByID(this.id, this.group).subscribe((value:any) => {
-          this.homeworkDetails = value.data();
-
-        });
-        }
-
-
+      this.HomeworkEdit.controls['title'].patchValue(this.homeworkDetails.title)
+      this.HomeworkEdit.controls['group'].patchValue(this.homeworkDetails.group)
+      this.HomeworkEdit.controls['date'].patchValue(this.homeworkDetails.date)
+      this.HomeworkEdit.controls['desc'].patchValue(this.homeworkDetails.desc)
     })
-
 
     this.initForm();
 
   }
 
-   private  initForm(){
-
+   private initForm(){
       this.HomeworkEdit = new FormGroup({
         title: new FormControl(null, Validators.required),
         group: new FormControl(null, Validators.required),
         date: new FormControl(null, Validators.required),
         desc: new FormControl(null),
       })
+
 
   }
 

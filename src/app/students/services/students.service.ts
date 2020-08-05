@@ -20,7 +20,6 @@ export class studentsService {
     return this.afs.collection('students').doc(group).collection('students').snapshotChanges().pipe(
       map(document => {
         return document.map(e => {
-
           return this.afs.collection('users').doc(e.payload.doc.id).get().subscribe(value => this.value.push(value.data()));
         })
       })
@@ -29,8 +28,6 @@ export class studentsService {
 
   createStudentData(userUID, group) {
     const userRef: AngularFirestoreDocument<studentModel> = this.afs.collection('students').doc(group).collection('students').doc(userUID);
-
-
     userUID = {
       userUID,
     }

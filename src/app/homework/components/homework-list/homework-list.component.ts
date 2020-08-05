@@ -10,7 +10,7 @@ export class HomeworkListComponent implements OnInit {
   @Input() homework;
   @Input() group;
 
-  constructor(private homeworkService: homeworkService) {
+  constructor() {
   }
 
   ngOnInit(): void {

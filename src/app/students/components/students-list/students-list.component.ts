@@ -27,13 +27,9 @@ export class StudentsListComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((param: Params) => {
       this.selectedGroup = param.group;
     });
-
-
     }
 
   showUser(user: User) {
-
-
     this.router.navigate([user.uid], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}});
   }
 }

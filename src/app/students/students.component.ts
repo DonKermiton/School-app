@@ -3,7 +3,7 @@ import {studentsService} from "./services/students.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {studentModel} from "../shared/student.model";
 import {pipe} from "rxjs";
-import {map} from "rxjs/operators";
+import {map, mergeMap} from "rxjs/operators";
 import {User} from "../auth/models/user.model";
 
 @Component({
@@ -18,6 +18,7 @@ export class StudentsComponent implements OnInit {
     '410',
   ];
 
+
   users: User[];
 
   selectedGroup: string;
@@ -29,14 +30,16 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((group:Params) => {
-      console.log(group['group']);
       if(group['group']) {
         this.studentService.getStudentsByGroup(group['group']).subscribe()
       }else{
         this.studentService.value.length = 0;
       }
     } );
+
+
   }
+
 
   changeGroup(group: Event) {
     this.router.navigate([], {queryParams: {group: (<HTMLInputElement>group.target).value}})
