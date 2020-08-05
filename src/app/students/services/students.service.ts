@@ -29,10 +29,19 @@ export class studentsService {
 
   createStudentData(userUID, group) {
     const userRef: AngularFirestoreDocument<studentModel> = this.afs.collection('students').doc(group).collection('students').doc(userUID);
+
+
     userUID = {
       userUID,
     }
     return userRef.set(userUID, {merge: true});
+  }
+  createStudentMarks(userUID, group){
+    const userMarksRef: AngularFirestoreDocument =  this.afs.collection('students').doc(group).collection('marks').doc(userUID);
+    userUID = {
+
+    }
+    return userMarksRef.set(userUID);
   }
 
 

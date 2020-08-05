@@ -50,10 +50,12 @@ export class homeworkService {
         homework,
       }
     }
-
-
-
     this.afs.collection('students').doc(group).collection('homeworkAnswers').doc(homeworkID).set(test, {merge: true}).catch(console.log);
+  }
+
+  getStudentResponse(group: string, homeworkID: string, studentsUID :string){
+    return this.afs.collection('students').doc(group).collection('homeworkAnswers').doc(homeworkID).get();
+
   }
 
 }

@@ -13,16 +13,21 @@
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/auth/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/services/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/student-panel/student-panel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/student-panel/student-panel.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/student-panel/student-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/student-panel/student-panel.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-detail/homework-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-detail/homework-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/student-panel/submit-homework/submit-homework.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/student-panel/submit-homework/submit-homework.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/student-panel/submit-homework/submit-homework.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/student-panel/submit-homework/submit-homework.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-edit/homework-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-edit/homework-edit.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-edit/homework-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-edit/homework-edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/homework/services/homework.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/services/homework.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/services/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/services/students.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +57,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="C:\Angular\Student-app\Student-app\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -143,6 +149,8 @@
       <workItem from="1596443920844" duration="22051000" />
       <workItem from="1596533083015" duration="10220000" />
       <workItem from="1596571560579" duration="492000" />
+      <workItem from="1596572845611" duration="389000" />
+      <workItem from="1596573306828" duration="16826000" />
     </task>
     <servers />
   </component>
@@ -160,6 +168,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/JiPP2020L" />
+    </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="0" key="#HTML" timestamp="1595784891175">
@@ -189,6 +202,10 @@
     <state x="740" y="274" key="FileChooserDialogImpl/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596550434937" />
     <state x="592" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594995265486" />
     <state x="740" y="274" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595962570181" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1596573479843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596573479843" />
     <state x="747" y="372" width="426" height="296" key="XPathView.InputDialog.DIMENSION_SERVICE_KEY.SIMPLE" timestamp="1596223653501">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {homeworkService} from "../../../homework/services/homework.service";
 import {homeworkModel} from "../../../homework/models/homework.model";
-import {FormGroup} from "@angular/forms";
 import {AuthService} from "../../../auth/services/auth.service";
-import * as firebase from "firebase";
+import {intervalToDuration, isFuture} from 'date-fns'
+import {interval} from "rxjs";
+import {mergeMap, tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-submit-homework',
@@ -15,32 +16,54 @@ export class SubmitHomeworkComponent implements OnInit {
   homeworkID: string;
   homeworkGroup: string;
   homeworkData: homeworkModel;
-
+  homeworkAnswer: any;
+  time: Duration;
 
   constructor(private activatedRoute: ActivatedRoute,
               private homeworkService: homeworkService,
-              private authService: AuthService) { }
+              private authService: AuthService) {
+
+  }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((params: Params) => {
-      this.homeworkID = params['id']
-      this.homeworkGroup = params['group']
-      this.getHomework().catch(console.log);
-
-    })
-  }
-
-
-
-  async getHomework(){
-      return this.homeworkService.getHomeworkByID(this.homeworkID, this.homeworkGroup).subscribe((homework:any) => {
+    this.activatedRoute.queryParams.pipe(
+      tap((params: Params) => {
+        this.homeworkID = params['id'];
+        this.homeworkGroup = params['group']
+      }),
+      mergeMap(() => this.homeworkService.getHomeworkByID(this.homeworkID, this.homeworkGroup)),
+      mergeMap((homework: any) => {
         this.homeworkData = homework.data();
-        console.log(this.homeworkData);
-      });
-  }
+        return this.homeworkService.getStudentResponse(this.homeworkGroup, this.homeworkID, this.authService.userUID)
+      })
 
+    ).subscribe(homeworkAnswer => {
+      if(homeworkAnswer.get(this.authService.userUID)) {
+        this.homeworkAnswer = homeworkAnswer.get(this.authService.userUID).homework;
+      }
+    })
+      this.remainingTime()
+    }
+
+
+
+
+
+  remainingTime() {
+//emit value in sequence every 1 second
+    const source = interval(1000);
+
+     source.subscribe(val => {
+      this.time = intervalToDuration({
+        start: new Date(),
+        end: new Date(this.homeworkData.date)
+      })
+    });
+  }
 
   saveHomework($event: string) {
     this.homeworkService.saveStudentResponse($event, this.homeworkGroup, this.homeworkID, this.authService.userUID);
   }
+
+
 }

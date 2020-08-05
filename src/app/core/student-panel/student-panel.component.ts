@@ -7,6 +7,9 @@ import {AuthService} from "../../auth/services/auth.service";
 import {MarksModel} from "../../students/models/marks.model";
 import {homeworkModel} from "../../homework/models/homework.model";
 import {Router} from "@angular/router";
+import {pipe} from "rxjs";
+import {mergeMap, tap} from "rxjs/operators";
+import {studentModel} from "../../shared/student.model";
 
 @Component({
   selector: 'app-student-panel',
@@ -18,6 +21,7 @@ export class StudentPanelComponent implements OnInit {
   marks: MarksModel;
   uid: string
   homework: homeworkModel[];
+  isDownloaded: boolean;
 
   constructor(private authService: AuthService,
               private studentService: studentsService,
@@ -26,30 +30,27 @@ export class StudentPanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPersonalData().catch(console.log);
-  }
+    let uid, group;
+    this.authService.user$.pipe(
+      tap((User: User) => {
+        uid = User.uid;
+        group = User.group;
+      }),
+      mergeMap(() =>   this.studentService.getMarks(uid, group)),
+      mergeMap((marks: any) => {
+        console.log(marks)
+        this.marks = marks.data();
+        console.log(  this.marks)
+        return this.homeworkService.getHomeworks(group)
+      })
 
-  async getPersonalData() {
-    await this.authService.user$.subscribe((user: User) => {
-      this.getMarks(user.uid, user.group);
-      this.getHomework(user.group)
-    })
-  }
-
-  getMarks(uid: string, group: string) {
-    this.studentService.getMarks(uid, group).subscribe(mark => {
-      this.marks = mark.data()
-    })
-  }
-
-  getHomework(group: string){
-    this.homeworkService.getHomeworks(group).subscribe((homework:any) => {
+    ).subscribe((homework: any) => {
       this.homework = homework;
+      this.isDownloaded = true;
     })
   }
-
 
   addResolveToHomework(e: any) {
-    this.router.navigate(['/submitHomework'], {queryParams: {id: e.docID, group: e.data.group}})
+    this.router.navigate(['studentPanel/submitHomework'], {queryParams: {id: e.docID, group: e.data.group}})
   }
 }

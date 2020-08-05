@@ -51,6 +51,7 @@ export class AuthService {
         this.getPersonalData(user.user);
         this.setDeaultUserData(user.user, group);
         this.studentService.createStudentData(user.user.uid, group);
+        this.studentService.createStudentMarks(user.user.uid, group);
       })
       .catch(error => this.error = error);
 

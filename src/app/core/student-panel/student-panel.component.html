@@ -1,5 +1,6 @@
+
 <div class="container">
-<div class="accordion" id="accordionExample"  *ngIf="marks">
+<div class="accordion" id="accordionExample"  *ngIf="isDownloaded">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
@@ -22,7 +23,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let mark of marks.marks; let i = index;" (click)="getMark(mark)">
+          <tr *ngFor="let mark of marks.marks; let i = index;" >
             <th scope="row">{{i + 1}}</th>
             <td>{{mark.value}}</td>
             <td>{{mark.desc}}</td>

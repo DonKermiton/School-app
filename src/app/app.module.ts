@@ -44,7 +44,7 @@ const appRoute: Routes = [
   },
   {path: 'adminPanel', component: AdminPanelComponent, canActivate: [AdminGuard]},
   {path: 'studentPanel', component: StudentPanelComponent, canActivate: [CanReadGuard]},
-  {path: 'submitHomework', component: SubmitHomeworkComponent, canActivate: [CanReadGuard]},
+  {path: 'studentPanel/submitHomework', component: SubmitHomeworkComponent, canActivate: [CanReadGuard]},
   {path: 'profile/:uid', component: ViewUsersComponent},
 
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},

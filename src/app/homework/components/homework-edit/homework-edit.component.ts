@@ -40,7 +40,6 @@ export class HomeworkEditComponent implements OnInit {
         this.homeworkService.getHomeworkByID(this.id, this.group).subscribe((value:any) => {
           this.homeworkDetails = value.data();
 
-
         });
         }
 
