@@ -58,4 +58,8 @@ export class homeworkService {
 
   }
 
+  checkHomeworkStatus(uid: string, group){
+   return this.afs.collection('students').doc(group).collection('homeworkAnswers').doc(uid).get();
+  }
+
 }

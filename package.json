@@ -11,7 +11,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~10.0.2",
+    "@angular/animations": "^10.0.8",
+    "@angular/cdk": "^9.2.4",
     "@angular/common": "~10.0.2",
     "@angular/compiler": "~10.0.2",
     "@angular/core": "~10.0.2",
@@ -24,6 +25,7 @@
     "date-fns": "^2.15.0",
     "firebase": "^7.16.0",
     "jquery": "^3.5.1",
+    "ngx-popper": "^7.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

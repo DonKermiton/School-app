@@ -30,6 +30,10 @@ import {LoadingSpinnerComponent} from './shared/components/loading-spinner/loadi
 import {ConfirmAlertComponent} from './shared/components/confirm-alert/confirm-alert.component';
 import {SubmitHomeworkComponent} from "./core/student-panel/submit-homework/submit-homework.component";
 import { SubmitHomeworkEditComponent } from './core/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component';
+import {OverlayModule} from "@angular/cdk/overlay";
+import { TooltipDirective } from './shared/directives/tooltip.directive';
+import {tooltipComponent} from "./shared/components/tooltip/tooltip.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -55,6 +59,7 @@ const appRoute: Routes = [
 ]
 
 @NgModule({
+
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -72,6 +77,8 @@ const appRoute: Routes = [
     ConfirmAlertComponent,
     SubmitHomeworkComponent,
     SubmitHomeworkEditComponent,
+    TooltipDirective,
+    tooltipComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -80,12 +87,19 @@ const appRoute: Routes = [
     RouterModule.forRoot(appRoute, {useHash: true}),
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule,
+    BrowserAnimationsModule,
   ],
+
   exports: [
     LoadingSpinnerComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    tooltipComponent,
+  ],
+
 })
 export class AppModule {
 }

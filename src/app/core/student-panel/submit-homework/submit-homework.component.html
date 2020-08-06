@@ -42,7 +42,7 @@
       </div>
       <div class="row border-bottom">
         <div class="col-3 border-right">
-          <span>Remaining time</span>
+          <span >{{checkIsPast() ? 'Delay time' : 'Remaining time'}}</span>
         </div>
         <div class="col-9 text-center">
           <span *ngIf="time">{{ time.days}}d/{{ time.hours}}h/{{ time.minutes}}m/{{ time.seconds}}m</span>

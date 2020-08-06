@@ -1,0 +1,30 @@
+
+.def-text::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  transition: .3s;
+
+  background-color: gray;
+
+}
+
+.mark {
+  padding: .3em .6em;
+  cursor: pointer;
+  background-color: red;
+}
+
+
+.def-text:hover::after {
+  height: 100%;
+}
+
+.homework-element{
+  border: 1px solid orange;
+}
+

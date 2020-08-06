@@ -56,9 +56,7 @@ export class EditStudentMarksComponent implements OnInit {
     (<FormArray>this.marksForm.get('marks')).removeAt(i);
   }
 
-  cancelAdding() {
-    this.router.navigate(['./'], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}})
-  }
+
 
   private initForm() {
     const marksArray = new FormArray([]);

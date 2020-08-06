@@ -7,15 +7,16 @@ import {AuthService} from "../../auth/services/auth.service";
 import {MarksModel} from "../../students/models/marks.model";
 import {homeworkModel} from "../../homework/models/homework.model";
 import {Router} from "@angular/router";
-import {pipe} from "rxjs";
 import {mergeMap, tap} from "rxjs/operators";
-import {studentModel} from "../../shared/student.model";
+import {TimeService} from "../../shared/service/time.service";
 
 @Component({
   selector: 'app-student-panel',
   templateUrl: './student-panel.component.html',
   styleUrls: ['./student-panel.component.css']
 })
+
+
 export class StudentPanelComponent implements OnInit {
   student: User;
   marks: MarksModel;
@@ -26,7 +27,8 @@ export class StudentPanelComponent implements OnInit {
   constructor(private authService: AuthService,
               private studentService: studentsService,
               private homeworkService: homeworkService,
-              private router: Router) {
+              private router: Router,
+              private timeService: TimeService) {
   }
 
   ngOnInit(): void {
@@ -36,21 +38,23 @@ export class StudentPanelComponent implements OnInit {
         uid = User.uid;
         group = User.group;
       }),
-      mergeMap(() =>   this.studentService.getMarks(uid, group)),
+      mergeMap(() => this.studentService.getMarks(uid, group)),
       mergeMap((marks: any) => {
-        console.log(marks)
         this.marks = marks.data();
-        console.log(  this.marks)
         return this.homeworkService.getHomeworks(group)
       })
-
     ).subscribe((homework: any) => {
       this.homework = homework;
       this.isDownloaded = true;
+      console.log(this.timeService.isInPast(new Date()))
     })
   }
+
 
   addResolveToHomework(e: any) {
     this.router.navigate(['studentPanel/submitHomework'], {queryParams: {id: e.docID, group: e.data.group}})
   }
+
 }
+
+

@@ -1,69 +1,54 @@
-
-<div class="container">
-<div class="accordion" id="accordionExample"  *ngIf="isDownloaded">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
-                aria-expanded="false" aria-controls="collapseOne">
-          Marks
-        </button>
-      </h2>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample"
-        >
-      <div class="card-body">
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Mark</th>
-            <th scope="col">Desc</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let mark of marks.marks; let i = index;" >
-            <th scope="row">{{i + 1}}</th>
-            <td>{{mark.value}}</td>
-            <td>{{mark.desc}}</td>
-          </tr>
-
-          </tbody>
-        </table>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 def-text">
+      <div class="row justify-content-center ">
+        <span class="lead border-bottom">Marks</span>
       </div>
+      <div class="col-12 mt-4 " *ngIf="marks; else spinner">
+        <span class="mark mx-1 " *ngFor="let mark of marks.marks; let i = index"
+              [ngClass]="mark.value === '1' ? 'bg-success' : 'bg-danger'"
+              appTooltip="{{mark.desc}}"
+        >{{mark.value}}</span>
+
+      </div>
+
+
+      <ng-template #spinner>
+        <div class="row justify-content-center">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+      </ng-template>
+
+      <div class="tooltip ">Hover over me
+        <span class="tooltiptext">Tooltip text</span>
+      </div>
+
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Homework
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" >
-      <div class="card-body">
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Date</th>
-            <th scope="col">Desc</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let e of homework" (click)="addResolveToHomework(e)">
-            <th scope="row" ></th>
-            <td>{{e.data.title}}</td>
-            <td>{{e.data.date}}</td>
-            <td>{{e.data.desc}}</td>
-          </tr>
-          </tbody>
-        </table>
+    <div class="col-xs-12 col-md-6 def-text">
+      <div class="row justify-content-center">
+        <span class="lead border-bottom">Homework's</span>
+
+      </div>
+      <div class="col-12 mt-4" *ngIf="homework; else spinner">
+        <div class=" bg-secondary" *ngFor="let e of homework; let i = index" (click)="addResolveToHomework(e)" >
+          <div class="bg-light homework-element mt-1">
+            <li class="media my-4" style="cursor: pointer">
+              <div class="media-body px-3 py-1">
+                <h5 class="mt-0 mb-1">{{e.data.title}}</h5>
+                <span>{{e.data.desc}}</span>
+
+              </div>
+              <span [ngClass]="timeService.isInPast(e.data.date) ? 'bg-danger' : 'bg-light'">{{e.data.date}}</span>
+
+            </li>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
+
+
+
+

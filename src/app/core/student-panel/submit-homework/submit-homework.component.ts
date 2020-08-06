@@ -6,6 +6,7 @@ import {AuthService} from "../../../auth/services/auth.service";
 import {intervalToDuration, isFuture} from 'date-fns'
 import {interval} from "rxjs";
 import {mergeMap, tap} from "rxjs/operators";
+import {TimeService} from "../../../shared/service/time.service";
 
 @Component({
   selector: 'app-submit-homework',
@@ -21,7 +22,8 @@ export class SubmitHomeworkComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private homeworkService: homeworkService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private timeService: TimeService) {
 
   }
 
@@ -46,8 +48,9 @@ export class SubmitHomeworkComponent implements OnInit {
     }
 
 
-
-
+  checkIsPast(){
+    return this.timeService.isInPast(new Date(this.homeworkData.date));
+  }
 
   remainingTime() {
 //emit value in sequence every 1 second
