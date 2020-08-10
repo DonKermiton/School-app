@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 
-import {User} from "../../auth/models/user.model";
-import {studentsService} from "../../students/services/students.service";
-import {homeworkService} from "../../homework/services/homework.service";
-import {AuthService} from "../../auth/services/auth.service";
-import {MarksModel} from "../../students/models/marks.model";
-import {homeworkModel} from "../../homework/models/homework.model";
+import {User} from "../../../auth/models/user.model";
+import {studentsService} from "../../../students/services/students.service";
+import {homeworkService} from "../../../homework/services/homework.service";
+import {AuthService} from "../../../auth/services/auth.service";
+import {MarksModel} from "../../../students/models/marks.model";
+import {homeworkModel} from "../../../homework/models/homework.model";
 import {Router} from "@angular/router";
 import {mergeMap, tap} from "rxjs/operators";
-import {TimeService} from "../../shared/service/time.service";
+import {TimeService} from "../../../shared/service/time.service";
 
 @Component({
   selector: 'app-student-panel',
@@ -52,8 +52,9 @@ export class StudentPanelComponent implements OnInit {
 
 
   addResolveToHomework(e: any) {
-    this.router.navigate(['studentPanel/submitHomework'], {queryParams: {id: e.docID, group: e.data.group}})
+    this.router.navigate(['core/studentPanel/submitHomework'], {queryParams: {id: e.docID, group: e.data.group}})
   }
+
 
 }
 

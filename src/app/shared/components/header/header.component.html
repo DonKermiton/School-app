@@ -1,94 +1,47 @@
-<header>
-  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark ">
-
-      <a class="navbar-brand"
-          routerLink="">
-        <img src="https://freesvg.org/img/logo_school.png" alt="Logo" width="30" height="30" class="d-inline-block align-top">
-      </a>
-
-      <button class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarMenu"
-              aria-controls="navbarMenu"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
-
-        <ul class="navbar-nav mr-auto" *ngIf="profile">
-          <li class="nav-item dropdown ml-5">
-            <a class="nav-link dropdown-toggle"
-               id="navbarDropdownMenu"
-               role="button"
-               data-toggle="dropdown">School</a>
-            <div class="dropdown-menu bg-dark text-secondary" aria-labelledby="navbarDropdownMenu">
-              <a class="dropdown-item" routerLink="/students">Students</a>
-              <a class="dropdown-item" routerLink="/studentPanel">Student Profile</a>
-              <a class="dropdown-item">Teaching staff</a>
-            </div>
-          </li>
-
-          <li class="nav-item" *ngIf="auth.canEdit(profile)">
-            <a class="nav-link"
-               style="cursor: pointer"
-               routerLinkActive="active"
-               routerLink="/homework"
-            >Set a homework</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-
-          <li class="nav-item" *ngIf="!isAuth">
-            <a class="nav-link"
-               style="cursor: pointer"
-               routerLinkActive="active"
-               routerLink="/auth/logIn"
-            >Log in</a>
-          </li>
-          <li class="nav-item" *ngIf="!isAuth">
-            <a class="nav-link"
-               style="cursor: pointer"
-               routerLinkActive="active"
-               routerLink="/auth/signIn"
-            >Sign in</a>
-          </li>
-
-
-          <li class="nav-item dropdown " *ngIf="isAuth && profile">
-            <a class="nav-link dropdown-toggle img-profile"
-               id="navbarDropdownProfileMenu"
-               role="button"
-               data-toggle="dropdown"
-               >
-              <img [src]="profile.photoURL" [alt]="profile.displayName"
-                   class="rounded-circle" width="30"
-                   height="30"/>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right bg-dark text-secondary "
-                 aria-labelledby="navbarDropdownProfileMenu">
-              <a class="dropdown-item text-secondary"
-                 routerLink="/profile"
-                routerLinkActive="active">Your profile</a>
-              <a class="dropdown-item text-secondary"
-                 *ngIf="auth.canDelete(profile)"
-                 routerLink="/adminPanel"
-                 routerLinkActive="active">Admin Panel</a>
-              <a class="dropdown-item" (click)="auth.signOut()">Logout</a>
-            </div>
-          </li>
-
-
-
-
-        </ul>
-
-
-
-    </div>
-
-
-  </nav>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <button class="btn btn-primary" id="menu-toggle" (click)="sideMenuAction()"><i class="fa fa-bars"> </i></button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <ng-container *ngIf="!isAuth">
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="auth/logIn"
+             routerLinkActive="active">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="auth/signIn"
+             routerLinkActive="active">Sign in</a>
+        </li>
+      </ng-container>
+      <li class="hr-vertical"></li>
+      <li class="nav-item dropdown border-left" *ngIf="profile">
+        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          <span class="px-3 mr-2 d-none d-lg-inline text-gray-600 small">{{profile.displayName}}</span>
+          <img [src]="profile.photoURL" [alt]="profile.displayName"
+               class="rounded-circle" width="30"
+               height="30"
+               style="border: 1px solid #224abe"
+          />
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/profile" routerLinkActive="active">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            Your profile</a>
+          <a class="dropdown-item" *ngIf="auth.canDelete(profile)"
+             routerLink="/adminPanel"
+             routerLinkActive="active">Admin panel</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-danger" (click)="auth.signOut()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

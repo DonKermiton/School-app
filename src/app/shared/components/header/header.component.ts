@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from "../../../auth/models/user.model";
 import {AuthService} from "../../../auth/services/auth.service";
 
@@ -8,7 +8,8 @@ import {AuthService} from "../../../auth/services/auth.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isAuth = false;
+  @Output() sideMenu = new EventEmitter<void>();
+  isAuth = true;
   profile: User;
 
   constructor(public auth: AuthService) {
@@ -25,7 +26,12 @@ export class HeaderComponent implements OnInit {
       this.profile = value;
     })
 
-
   }
+
+  sideMenuAction(){
+    console.log('dziala')
+    this.sideMenu.emit();
+  }
+
 
 }

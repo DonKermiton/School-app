@@ -1,3 +1,22 @@
 input.ng-invalid.ng-touched{
   border: 1px solid red;
 }
+
+.bg-login-image{
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.forestbaptistchurch.org%2Fwp-content%2Fuploads%2F2019%2F09%2FCollege-Students.jpg&f=1&nofb=1");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.btn-google{
+  background-color: #ea4335;
+  color: white;
+}
+
+.input-group-prepend span{
+  width: 2.5rem;
+  background-color: #72A0C1;
+  color: black;
+  border:0 !important;
+}

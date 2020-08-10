@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
-import {homeworkService} from "../../../homework/services/homework.service";
-import {homeworkModel} from "../../../homework/models/homework.model";
-import {AuthService} from "../../../auth/services/auth.service";
+import {homeworkService} from "../../../../homework/services/homework.service";
+import {homeworkModel} from "../../../../homework/models/homework.model";
+import {AuthService} from "../../../../auth/services/auth.service";
 import {intervalToDuration, isFuture} from 'date-fns'
 import {interval} from "rxjs";
 import {mergeMap, tap} from "rxjs/operators";
-import {TimeService} from "../../../shared/service/time.service";
+import {TimeService} from "../../../../shared/service/time.service";
 
 @Component({
   selector: 'app-submit-homework',

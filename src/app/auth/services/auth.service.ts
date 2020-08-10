@@ -24,6 +24,7 @@ export class AuthService {
     private afs: AngularFirestore,
     private router: Router,
     private studentService: studentsService,
+
   ) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -45,8 +46,8 @@ export class AuthService {
     });
   }
 
-  createUserViaEmail(email: string, password: string, group: string) {
-    this.afAuth.createUserWithEmailAndPassword(email, password)
+   createUserViaEmail(email: string, password: string, group: string) {
+      this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(user => {
         this.getPersonalData(user.user);
         this.setDeaultUserData(user.user, group);
@@ -61,7 +62,7 @@ export class AuthService {
     this.afAuth.signInWithEmailAndPassword(email, password)
       .then(e => {
         this.getPersonalData(e.user);
-
+        this.router.navigate(['students']);
         // console.log(e.additionalUserInfo); // nie usuwaj
         // this.handleAuth(e.credential,);
       }).catch(error => {

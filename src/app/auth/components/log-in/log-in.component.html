@@ -1,74 +1,60 @@
-<div class="col-xs-12 offset-md-1 col-md-10 offset-lg-3 col-lg-6   mt-5 border shadow rounded bg-light text-success">
-  <h3 class="text-center text-uppercase lead mt-3">login form</h3>
-
-  <div class="offset-3 col-6">
-    <hr>
-  </div>
-
-
-
+<div class="container">
   <app-alert [message]="auth.error" *ngIf="auth.error" (closeVar)="this.onHandleError()"></app-alert>
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
 
-  <div class="col-xs-12 offset-md-1 col-md-10 offset-md-1">
-    <div *ngIf="isLoading" style="text-align: center;">
-      <app-loading-spinner></app-loading-spinner>
-    </div>
-    <form [formGroup]="LoginForm" (ngSubmit)="LoginUser()">
-      <div class="row">
-        <div class="col-xs-12  col-lg-12">
-          <div class="form-group">
-            <label for="Email">Email address</label>
-            <input type="email"
-                   class="form-control"
-                   id="Email"
-                   placeholder="name@example.com"
-                   formControlName="email"
-            >
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                </div>
+                <form [formGroup]="LoginForm" (ngSubmit)="LoginUser()">
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..."  formControlName="email">
+                  </div>
+                  <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password"  formControlName="password">
+                  </div>
+                  <button class="btn btn-primary btn-user btn-block" type="submit" [disabled]="!LoginForm.valid">
+                    Login
+                  </button>
+                  <hr>
+                  <a class="btn btn-google btn-user btn-block " >
+                    <i class="fa fa-google fa-fw"></i> Login with Google
+                  </a>
+                  <a class="btn btn-warning btn-user btn-block text-white" (click)="clickLogin('pietrucha2112@interia.pl', 'Windows7')">
+                    <i class="fa fa-unlock" aria-hidden="true"></i>
+                    Login as Admin
+                  </a>
+
+
+                </form>
+                <hr>
+                <div class="text-center">
+                  <a class="small" >Forgot Password?</a>
+                </div>
+                <div class="text-center">
+                  <a class="small" >Create an Account!</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 col-lg-12">
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password"
-                   class="form-control"
-                   id="password"
-                   formControlName="password"
-                   required>
-          </div>
-        </div>
-      </div>
 
-      <div class="row mt-2">
-        <div class="col-6">
-          <button class="btn btn-outline-success shadow" type="submit" [disabled]="!LoginForm.valid">Log in</button>
-<!--          <button class="btn btn-outline-danger shadow" type="button" (click)="viaGoogle()">Log in with Google</button>-->
-        </div>
-        <div class="col-6">
-          <p class="text-right center text-primary mt-1">
-            <a (click)="forgotPassword()" style="cursor: pointer;">Forgot Password ?</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="mb-3"></div>
-
-    </form>
-
-  </div>
-
-  <div class="row  justify-content-center">
-   <span>Accounts</span>
-  </div>
-
-  <div class="row border-top" *ngFor="let account of accounts" (click)="clickLogin(account.email, account.password)" style="cursor: pointer">
-    <div class=" col-xs-12 col-md-4 text-center">
-      <span>{{account.type}}</span>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <span>{{account.email}}</span>
-      <span class="ml-3">{{account.password}}</span>
     </div>
 
   </div>
