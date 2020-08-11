@@ -8,6 +8,9 @@ import {AdminGuard} from "../shared/guards/admin.guard";
 import {StudentsListComponent} from "./components/students-list/students-list.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {AppModule} from "../app.module";
+import {LoadingSpinnerComponent} from "../shared/components/loading-spinner/loading-spinner.component";
+
 
 
 const routes: Routes = [
@@ -20,15 +23,20 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [StudentsComponent,
+  declarations: [
+    StudentsComponent,
     StudentsListComponent,
     StudentViewComponent,
-    EditStudentMarksComponent],
+    EditStudentMarksComponent,
+
+    ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     HttpClientModule,
+
+
 
   ],
 

@@ -21,7 +21,7 @@ export class StudentsComponent implements OnInit {
 
   users: User[];
 
-  selectedGroup: string;
+  selectedGroup = ''
 
   constructor(public studentService: studentsService,
               private router: Router,

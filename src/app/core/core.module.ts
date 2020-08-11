@@ -8,14 +8,16 @@ import {StudentPanelComponent} from "./components/student-panel/student-panel.co
 import {CanReadGuard} from "../shared/guards/can-read.guard";
 import {SubmitHomeworkComponent} from "./components/student-panel/submit-homework/submit-homework.component";
 import {ViewUsersComponent} from "./components/your-profile/view-users/view-users.component";
+import {YourProfileComponent} from "./components/your-profile/your-profile.component";
 
 
 const routes: Routes = [
-  { path: '', component: CoreComponent, children: [
-    {path: 'adminPanel', component: AdminPanelComponent, canActivate: [AdminGuard]},
-      {path: 'studentPanel', component: StudentPanelComponent, canActivate: [CanReadGuard]},
-      {path: 'studentPanel/submitHomework', component: SubmitHomeworkComponent, canActivate: [CanReadGuard]},
-      {path: 'profile/:uid', component: ViewUsersComponent},]},
+  { path: '', component: CoreComponent },
+  {path: 'adminPanel', component: AdminPanelComponent, canActivate: [AdminGuard]},
+  {path: 'studentPanel', component: StudentPanelComponent, canActivate: [CanReadGuard]},
+  {path: 'studentPanel/submitHomework', component: SubmitHomeworkComponent, canActivate: [CanReadGuard]},
+  {path: 'profile', component: YourProfileComponent},
+  {path: 'profile/:uid', component: ViewUsersComponent},
 
 ];
 

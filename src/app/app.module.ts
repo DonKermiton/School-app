@@ -36,7 +36,7 @@ import {tooltipComponent} from "./shared/components/tooltip/tooltip.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { SideMenuComponent } from './shared/components/side-menu/side-menu.component';
 import { LayoutLoggedComponentComponent } from './shared/layout-logged-component/layout-logged-component.component';
-import {LogInInterceptorInterceptor} from "./auth/interceptors/log-in-interceptor.interceptor";
+import {LogInInterceptorInterceptor} from "./core/interceptors/log-in-interceptor.interceptor";
 
 
 
@@ -44,14 +44,6 @@ import {LogInInterceptorInterceptor} from "./auth/interceptors/log-in-intercepto
 const appRoute: Routes = [
   {path: 'welcome', component: WelcomePageComponent},
   {path: 'recoverPassword', component: ForgotPasswordComponent},
-
-  {
-    path: 'profile', component: YourProfileComponent, canActivate: [CanReadGuard], children: [
-      {path: 'edit', component: EditProfileComponent, canActivate: [CanReadGuard]},
-    ]
-  },
-
-
 
   {path: '', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule), canActivate: [CanEditGuard], component: LayoutLoggedComponentComponent},
@@ -61,7 +53,6 @@ const appRoute: Routes = [
 ]
 
 @NgModule({
-
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -99,7 +90,6 @@ const appRoute: Routes = [
   exports: [
     LoadingSpinnerComponent
   ],
-  bootstrap: [AppComponent],
   entryComponents: [
     tooltipComponent,
   ],
@@ -109,7 +99,8 @@ const appRoute: Routes = [
       useClass: LogInInterceptorInterceptor,
       multi: true,
     }
-  ]
+  ],
+  bootstrap: [AppComponent],
 
 })
 export class AppModule {

@@ -1,21 +1,21 @@
-<div class="mx-5 " >
-    <div class="row">
-      <div class="form-group text-center">
-        <label for="Status">Group</label>
-        <select id="Status" class="form-control" (change)="changeGroup($event)">
-          <option selected disabled hidden>Choose</option>
-          <option [value]="group" [selected]="group === selectedGroup"
-                  *ngFor="let group of groupList">{{group}}</option>
-        </select>
-      </div>
+<div class="mx-5 ">
+  <div class="row">
+    <div class="form-group text-center">
+      <label for="Status">Group</label>
+      <select id="Status" class="form-control" (change)="changeGroup($event)">
+        <option selected disabled hidden>Choose</option>
+        <option [value]="group" [selected]="group === selectedGroup"
+                *ngFor="let group of groupList">{{group}}</option>
+      </select>
     </div>
+  </div>
 
   <div class="row  ">
     <div class="col-xs-12 col-md-6 bg-light">
       <h5 class="border-bottom text-right">Students</h5>
-
       <app-students-list *ngFor="let student of (studentService.value);let i = index" [id]="i"
                          [usersUID]="student"></app-students-list>
+
     </div>
     <div class="col-xs-12 col-md-6">
       <router-outlet></router-outlet>

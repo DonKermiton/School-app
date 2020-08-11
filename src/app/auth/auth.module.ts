@@ -6,7 +6,7 @@ import {LogInComponent} from "./components/log-in/log-in.component";
 import {SignInComponent} from "./components/sign-in/sign-in.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {LogInInterceptorInterceptor} from "./interceptors/log-in-interceptor.interceptor";
+import {LogInInterceptorInterceptor} from "../core/interceptors/log-in-interceptor.interceptor";
 
 
 const routes: Routes = [
