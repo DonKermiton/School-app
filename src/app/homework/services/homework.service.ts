@@ -72,7 +72,7 @@ export class homeworkService {
    return docRef.pipe(
       map(value => {
 
-        if(value.docs.length !== 0) {
+        if(value.docs.length !== 0 && pageNumber <= value.docs.length) {
           docLength = (value.docs.length)
           return value.docs[value.docs.length - pageNumber];
         }

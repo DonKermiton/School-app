@@ -17,20 +17,15 @@
         <button class="btn btn-primary w-25" (click)="showPopUp(Answers[0].docID)">Rate</button>
         </div>
       </div>
-
     </ng-container>
 
-
-
     <app-add-mark *ngIf="addMark" (closePopUp)="closePopUp()" (addedMark)="saveMark($event)"></app-add-mark>
-
     <div class="arrow border rounded-circle" (click)="hideMenu = !hideMenu" [ngClass]="!hideMenu ? 'toggled' : ''">
       <span class="fa fa-caret-right fa-2x"></span>
     </div>
-
   </div>
 
-  <span *ngIf="Answers == null && !gate ">No one's sent homework yet.</span>
+  <span *ngIf="Answers == null  && !gate && homeworkAnswers.length === 0">No one's sent homework yet.</span>
   <div class="homework-list" [ngClass]="hideMenu ? 'toggled' : ''">
     <div class="list-group list-group-flush group-links ">
       <a class="list-group-item list-group-item-action " *ngFor="let homework of homeworkAnswers; let i = index"

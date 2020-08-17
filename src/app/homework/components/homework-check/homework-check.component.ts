@@ -50,7 +50,7 @@ export class HomeworkCheckComponent implements OnInit {
       }),
       mergeMap((data:any) => {
         if(data) {
-          this.pageNbr = data[0].docLength
+          this.pageNbr = data[0].docLength;
         }else{this.gate = true}
           this.Answers = data;
           console.log(this.Answers)
@@ -80,7 +80,6 @@ export class HomeworkCheckComponent implements OnInit {
   }
 
   changePage(nbr: number){
-
     this.router.navigate([`/homework/list/410/X4V9QS1NGYS1JhILJDOu/check/${+this.pageNumber+nbr}`] , { relativeTo: this.route } );
   }
 }

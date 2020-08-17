@@ -12,30 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/your-profile/your-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/your-profile/your-profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/core.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/interceptors/log-in-interceptor.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/interceptors/log-in-interceptor.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-detail/homework-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-detail/homework-detail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-detail/homework-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-detail/homework-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-edit/homework-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-edit/homework-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/homework/services/homework.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/services/homework.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/loading-spinner/loading-spinner.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/loading-spinner/loading-spinner.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/side-menu/side-menu.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/side-menu/side-menu.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/side-menu/side-menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/side-menu/side-menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/services/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/services/students.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/students.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +151,7 @@
       <workItem from="1597435276209" duration="1209000" />
       <workItem from="1597573423458" duration="4939000" />
       <workItem from="1597587131746" duration="2330000" />
-      <workItem from="1597684690338" duration="3909000" />
+      <workItem from="1597684690338" duration="4950000" />
     </task>
     <servers />
   </component>
