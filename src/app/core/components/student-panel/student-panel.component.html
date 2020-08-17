@@ -7,7 +7,7 @@
       <div class="col-12 mt-4 " *ngIf="marks; else spinner">
         <span class="mark mx-1 " *ngFor="let mark of marks.marks; let i = index"
               [ngClass]="mark.value === '1' ? 'bg-danger' : 'bg-success'"
-              appTooltip="{{mark.desc}}"
+              appTooltip="{{mark.desc}} - {{mark.date}} - {{mark.add}}"
         >{{mark.value}}</span>
       </div>
 

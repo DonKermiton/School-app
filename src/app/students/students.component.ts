@@ -12,6 +12,7 @@ import {User} from "../auth/models/user.model";
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
+
   groupList = [
     '401',
     '402',
@@ -29,6 +30,7 @@ export class StudentsComponent implements OnInit {
               ) {}
 
   ngOnInit(): void {
+
     this.activatedRoute.queryParams.subscribe((group:Params) => {
       if(group['group']) {
         this.studentService.getStudentsByGroup(group['group']).subscribe()
@@ -37,9 +39,7 @@ export class StudentsComponent implements OnInit {
       }
     } );
 
-
   }
-
 
   changeGroup(group: Event) {
     this.router.navigate([], {queryParams: {group: (<HTMLInputElement>group.target).value}})

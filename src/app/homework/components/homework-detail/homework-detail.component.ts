@@ -47,4 +47,7 @@ export class HomeworkDetailComponent implements OnInit {
 
   }
 
+  deleteHomework() {
+    this.homeworkService.deleteHomework(this.group, this.id);
+  }
 }

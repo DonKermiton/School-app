@@ -31,7 +31,7 @@ export class SubmitHomeworkEditComponent implements OnInit {
 
 
   saveHomework() {
-    this.router.navigate(['/studentPanel'])
+    // this.router.navigate(['/studentPanel'])
     this.homework.emit(this.homeworkAnswer.value.text);
   }
 }

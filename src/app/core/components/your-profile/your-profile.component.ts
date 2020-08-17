@@ -39,8 +39,5 @@ export class YourProfileComponent implements OnInit {
     console.log(event);
   }
 
-  async getInfo(){
-
-  }
 }
 

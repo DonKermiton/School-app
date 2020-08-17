@@ -1,0 +1,64 @@
+.homework-data {
+  flex-basis: 100%;
+  margin-left: 0;
+  transition: margin .3s;
+
+}
+
+.homework-data.toggled {
+  margin-left: -100%;
+}
+
+.homework-list {
+  flex-basis: 100%;
+  margin-right: 0;
+  transition: margin .3s;
+}
+
+.homework-list.toggled {
+  margin-right: -100%;
+}
+
+.arrow {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+
+  width: 2rem;
+  height: 2rem;
+
+  cursor: pointer;
+  text-align: center;
+  transition: .3s;
+
+  vertical-align: middle;
+
+}
+
+.arrow.toggled {
+  right: 15vw;
+
+  transform: translate(50%, -50%) rotate(180deg);;
+}
+
+@media (min-width: 1024px) {
+  .homework-data.toggled {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  .homework-data {
+    flex-basis: 100%;
+  }
+
+  .homework-list.toggled {
+    margin-right: -100%;
+  }
+
+  .homework-list {
+    flex-basis: 20%;
+
+  }
+
+
+}

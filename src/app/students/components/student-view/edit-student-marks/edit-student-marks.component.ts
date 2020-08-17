@@ -38,6 +38,7 @@ export class EditStudentMarksComponent implements OnInit {
 
   onSubmit() {
     this.studentService.saveMarksToDatabase(this.userUID, this.marksForm.value, this.selectedGroup);
+    console.log(this.marksForm.value.marks);
     // this.userMarks.length = 0;
     this.router.navigate(['/students'], {queryParams: {group: this.selectedGroup}})
   }

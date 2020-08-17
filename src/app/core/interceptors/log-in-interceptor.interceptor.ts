@@ -19,7 +19,7 @@ export class LogInInterceptorInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
+    console.log('dziala')
     return this.auth.idToken.pipe(
       mergeMap((token: any) => {
         console.log(token);

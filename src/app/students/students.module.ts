@@ -8,14 +8,13 @@ import {AdminGuard} from "../shared/guards/admin.guard";
 import {StudentsListComponent} from "./components/students-list/students-list.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {AppModule} from "../app.module";
-import {LoadingSpinnerComponent} from "../shared/components/loading-spinner/loading-spinner.component";
+import {SharedModule} from "../shared/shared.module";
 
 
 
 const routes: Routes = [
   {
-    path: '', component: StudentsComponent, children: [
+    path: 'list', component: StudentsComponent, children: [
       {path: ':edit', component: StudentViewComponent, canActivate: [AdminGuard]},
       {path: ':edit/show', component: EditStudentMarksComponent, canActivate: [AdminGuard]},]
   },
@@ -35,7 +34,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     HttpClientModule,
-
+    SharedModule,
 
 
   ],

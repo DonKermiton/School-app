@@ -1,0 +1,27 @@
+<div class="backdrop">
+  <div class="marks-box">
+    <h5 class="border-bottom py-3">Add Mark</h5>
+
+    <form [formGroup]="addMarkForm" (ngSubmit)="onSubmit()">
+      <div class="row py-5" >
+        <div class="col-xs-12 col-md-2">
+          <div class="form-group">
+            <label for="value">Mark</label>
+            <input type="text" id="value" class="form-control" formControlName="value">
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-8">
+          <div class="form-group">
+            <label for="Description">Description</label>
+            <input type="text" id="Description" class="form-control" formControlName="desc">
+          </div>
+        </div>
+      </div>
+      <div class="alert-box-actions">
+        <button class="btn btn-primary" (click)="onClose()">Close</button>
+        <button class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </form>
+
+  </div>
+</div>

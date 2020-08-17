@@ -3,6 +3,9 @@ import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestor
 import {map} from "rxjs/operators";
 import {studentModel} from "../../shared/student.model";
 import {BehaviorSubject} from "rxjs";
+import {stringify} from "querystring";
+import * as firebase from "firebase";
+import {AngularFireAuth} from "@angular/fire/auth";
 
 
 @Injectable({
@@ -11,11 +14,13 @@ import {BehaviorSubject} from "rxjs";
 
 export class studentsService {
   value = [];
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore,
+              private fireAuth: AngularFireAuth) {
 
   }
 
   getStudentsByGroup(group: string) {
+
     this.value.length = 0;
     return this.afs.collection('students').doc(group).collection('students').snapshotChanges().pipe(
       map(document => {
@@ -55,7 +60,27 @@ export class studentsService {
   }
 
   saveMarksToDatabase(uid, marks, group) {
-
     return this.afs.collection('students').doc(group).collection('marks').doc(uid).set(marks);
   }
+
+  addMark(group: string, uid: string, marks: any, userName: string){
+
+    marks = {
+      desc: marks.desc,
+      value: marks.value,
+      date: new Date().toLocaleString(),
+      add: userName,
+    }
+
+    this.afs.collection('students').doc(group).collection('marks').doc(uid).update({
+      marks: firebase.firestore.FieldValue.arrayUnion(marks)
+    })
+  }
+
+  addHomeworkMark(group: string, id: string, studentID: string, mark: string){
+    console.log(mark);
+    this.afs.collection('students').doc(group).collection('homeworks').doc(id).collection('homeworkAnswers').doc(studentID).set({mark}, {merge: true})
+  }
+
+
 }

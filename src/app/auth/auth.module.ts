@@ -5,8 +5,8 @@ import { AuthComponent } from './auth.component';
 import {LogInComponent} from "./components/log-in/log-in.component";
 import {SignInComponent} from "./components/sign-in/sign-in.component";
 import {ReactiveFormsModule} from "@angular/forms";
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {LogInInterceptorInterceptor} from "../core/interceptors/log-in-interceptor.interceptor";
+import {HttpClientModule} from "@angular/common/http";
+
 
 
 const routes: Routes = [
@@ -16,11 +16,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [AuthComponent,
+  LogInComponent,
+  SignInComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 
 })

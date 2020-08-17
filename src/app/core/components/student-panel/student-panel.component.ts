@@ -28,7 +28,7 @@ export class StudentPanelComponent implements OnInit {
               private studentService: studentsService,
               private homeworkService: homeworkService,
               private router: Router,
-              private timeService: TimeService) {
+              public timeService: TimeService) {
   }
 
   ngOnInit(): void {
