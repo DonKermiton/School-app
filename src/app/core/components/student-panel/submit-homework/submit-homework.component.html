@@ -1,62 +1,52 @@
-<div class="container border">
-  <div class="row justify-content-center">
-    <div class="col-xs-12">
-      <span>{{homeworkID}}</span>
+<div id="wrapper" class="d-flex flex-column overflow-hidden">
+  <div id="homework-detail" class="border-bottom" [ngClass]="descriptionMenu ? '' : 'toggle'" *ngIf="homeworkData">
+    <div class="text-center">
+      <span>{{homeworkData.title}}</span>
+    </div>
+    <div class="d-flex homework-data" >
+      <div class="minor-data border-right" >
+        <div class="homework-date" >
+         <div *ngIf="time">
+            {{ time.days}}d/{{ time.hours}}h/{{ time.minutes}}m/{{ time.seconds}}m
+          </div>
+          <div class="full-date">
+            {{homeworkData.date}}
+          </div>
+
+          <!--  <div class="col-xs-12 col-md-6 col-lg-4">
+              <div class="border-right">
+                <span >{{checkIsPast() ? 'Delay time' : 'Remaining time'}}</span>
+                {{ time.days}}d/{{ time.hours}}h/{{ time.minutes}}m/{{ time.seconds}}m
+              </div>
+              <div class="text-center" *ngIf="time">
+
+              </div>
+            </div>-->
+        </div>
+      </div>
+        <div class="desc-data">
+          {{homeworkData.desc}}
+
+        </div>
+
     </div>
   </div>
 
-  <div class="row" *ngIf="homeworkData">
-    <div class="col-xs-12 col-md-6 col-lg-4 border">
-      <div class="row border-bottom">
-        <div class="col-3 border-right">
-          <span>Title</span>
+  <div class="text-center bg-info homework-info-arrow" (click)="descriptionMenu = !descriptionMenu" *ngIf="time">
+    <i class="fa fa-caret-down " [ngClass]="descriptionMenu ? 'fa-rotate-180' : ''"></i>
+  </div>
+  <div id="homeworkAnswer" >
+      <form [formGroup]="homeworkAnswerForm" (ngSubmit)="saveHomework()">
+        <div  class="text-right">
+          <button class="btn btn-success" type="submit">Submit</button>
         </div>
-        <div class="col-9 text-center">
-          <span>{{homeworkData.title}}</span>
+        <div class="form-group">
+          <label for="Answer"></label>
+          <textarea id="Answer" class="form-control" formControlName="text" rows="20"></textarea>
+          <div class="text-right">
+          </div>
         </div>
-      </div>
-
-      <div class="row border-bottom">
-        <div class="col-3 border-right">
-          <span>Group</span>
-        </div>
-        <div class="col-9 text-center">
-          <span>{{homeworkData.group}}</span>
-        </div>
-      </div>
-      <div class="row border-bottom">
-        <div class="col-3 border-right">
-          <span>Date</span>
-        </div>
-        <div class="col-9 text-center">
-          <span>{{homeworkData.date}}</span>
-        </div>
-      </div>
-      <div class="row border-bottom">
-        <div class="col-3 border-right text-wrap">
-          <span>Description </span>
-        </div>
-        <div class="col-9 text-center">
-          <span>{{homeworkData.desc}}</span>
-        </div>
-      </div>
-      <div class="row border-bottom">
-        <div class="col-3 border-right">
-          <span >{{checkIsPast() ? 'Delay time' : 'Remaining time'}}</span>
-        </div>
-        <div class="col-9 text-center">
-          <span *ngIf="time">{{ time.days}}d/{{ time.hours}}h/{{ time.minutes}}m/{{ time.seconds}}m</span>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-xs-12 col-md-6 col-lg-8 border">
-      <app-submit-homework-edit [homeworkText]="homeworkAnswer"  [group]="homeworkGroup" (homework)="saveHomework($event)"></app-submit-homework-edit>
-        {{homeworkAnswer}}
-     </div>
+      </form>
 
   </div>
 </div>
-
-
-

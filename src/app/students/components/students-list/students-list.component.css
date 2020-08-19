@@ -2,3 +2,11 @@
   padding-top: 0;
   padding-bottom: 0;
 }
+
+.test{
+  transition: 1s
+}
+
+.uid-box{
+  word-wrap: break-word;
+}

@@ -20,7 +20,6 @@ export class studentsService {
   }
 
   getStudentsByGroup(group: string) {
-
     this.value.length = 0;
     return this.afs.collection('students').doc(group).collection('students').snapshotChanges().pipe(
       map(document => {
@@ -60,11 +59,11 @@ export class studentsService {
   }
 
   saveMarksToDatabase(uid, marks, group) {
-    return this.afs.collection('students').doc(group).collection('marks').doc(uid).set(marks);
+    console.log(marks)
+     this.afs.collection('students').doc(group).collection('marks').doc(uid).set(marks);
   }
 
   addMark(group: string, uid: string, marks: any, userName: string){
-
     marks = {
       desc: marks.desc,
       value: marks.value,
@@ -77,9 +76,8 @@ export class studentsService {
     })
   }
 
-  addHomeworkMark(group: string, id: string, studentID: string, mark: string){
-    console.log(mark);
-    this.afs.collection('students').doc(group).collection('homeworks').doc(id).collection('homeworkAnswers').doc(studentID).set({mark}, {merge: true})
+  addHomeworkMark(group: string, id: string, studentID: string){
+    this.afs.collection('students').doc(group).collection('homeworks').doc(id).collection('homeworkAnswers').doc(studentID).set({rated: true}, {merge: true})
   }
 
 

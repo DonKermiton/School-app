@@ -1,0 +1,99 @@
+#homework-detail {
+  flex-basis: 20vh;
+  background-color: #fff;
+  background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+  linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+  transition: margin .3s;
+}
+
+#homework-detail.toggle {
+  margin-top: -20vh;
+
+}
+
+#homework-detail.toggle .desc-data {
+  display: none;
+
+}
+
+.homework-data {
+  flex-direction: column;
+}
+
+.minor-data {
+  flex-basis: 10vw;
+}
+
+.desc-data {
+  flex-basis: 60%;
+  word-break: break-word;
+  white-space: pre-line
+}
+
+.homework-date {
+  display: flex;
+  align-content: space-between;
+
+}
+
+.homework-date > div {
+  flex-basis: 50%;
+}
+
+.full-date {
+  text-align: right;
+}
+
+.homework-info-arrow{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+@media (min-width: 1024px) {
+  #homework-detail {
+    max-height: 20vh;
+    overflow-y: scroll;
+  }
+  #homework-detail.toggle {
+    margin: 0;
+    flex-basis: 0;
+  }
+
+  #homework-detail.toggle .homework-data * {
+    display: none;
+  }
+
+  .homework-data {
+    flex-direction: row;
+  }
+
+  .desc-data {
+    flex-basis: 80%;
+  }
+
+  .homework-date {
+    display: block;
+    text-align: left ;
+  }
+
+  .full-date {
+    text-align: left;
+  }
+
+  .homework-info-arrow{
+    position: static;
+    width: 5%;
+    margin: 0 47.5%;
+  }
+
+
+
+}
+
+
+
+

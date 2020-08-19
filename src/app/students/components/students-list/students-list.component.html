@@ -1,16 +1,13 @@
-<div *ngIf="usersUID">
-<div class="bg-white " >
-  <li class="media my-4 rounded" (click)="showUser(usersUID )" style="cursor: pointer" >
-  <span class="mt-3">{{id +1}}</span>
-    <div class="media-body px-3 py-1">
-      <h5 class="mt-0 mb-1">{{usersUID.displayName}}</h5>
-      {{usersUID.uid}}
-    </div>
-    <img [src]="usersUID.photoURL" class="mr-3" alt="" width="30" height="30">
-
-  </li>
-
-</div>
-<hr>
+<div *ngIf="usersUID" >
+  <div class="list-group list-group-flush group-links border-bottom mb-1">
+    <a class="list-group-item list-group-item-action "
+        (click)="showUser(usersUID)">
+      <div class="d-flex">
+        <span class="flex-fill">{{usersUID.displayName}}</span>
+        <img [src]="usersUID.photoURL" alt="" width="30" height="30">
+      </div>
+      <div class="text-muted uid-box">{{usersUID.uid}}</div>
+    </a>
+  </div>
 
 </div>

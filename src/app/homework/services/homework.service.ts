@@ -42,7 +42,8 @@ export class homeworkService {
   saveStudentResponse(homework: string, group: string, homeworkID: string, studentsUID: string) {
     const field = {
       homework,
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString(),
+      rated: false,
     }
 
     // this.afs.collection('students').doc(group).collection('homeworkAnswers').doc(homeworkID).set(test, {merge: true}).catch(console.log);
@@ -50,7 +51,7 @@ export class homeworkService {
   }
 
   getStudentResponse(group: string, homeworkID: string, studentsUID: string) {
-    return this.afs.collection('students').doc(group).collection('homeworkAnswers').doc(homeworkID).get();
+    return this.afs.collection('students').doc(group).collection('homeworks').doc(homeworkID).collection('homeworkAnswers').doc('1P85Thn7WNUKBFOCcGCncDjv0ty2').get()
 
   }
 

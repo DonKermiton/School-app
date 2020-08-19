@@ -52,6 +52,7 @@ export class StudentViewComponent implements OnInit {
     })
   }
 
+
   editMarks()
   {
     this.router.navigate(['show'], {relativeTo: this.activatedRoute, queryParams: {group: this.selectedGroup}})

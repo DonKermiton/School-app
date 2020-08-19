@@ -4,17 +4,23 @@
       <span>{{Answers[0].docID}}</span>
     </div>
 
-    <div  class="d-flex justify-content-between border-bottom">
+    <div class="d-flex justify-content-between border-bottom">
       <button class="btn btn-primary" [disabled]="pageNumber <= 1" (click)="changePage(-1)">-</button>
       <span>{{pageNumber}}/ {{pageNbr}}</span>
       <button class="btn btn-primary" [disabled]="pageNbr <= pageNumber" (click)="changePage(+1)">+</button>
     </div>
     <ng-container *ngIf="Answers">
       <div>
-        <div class="mx-5 my-2">{{Answers[0].data.homework}} </div>
+        <div class="mx-5 my-2" >
+          <span style="white-space: pre-line">{{Answers[0].data.homework}}</span>
+        </div>
+
         <hr>
         <div class="text-center">
-        <button class="btn btn-primary w-25" (click)="showPopUp(Answers[0].docID)">Rate</button>
+          <div class="mx-5 my-2" *ngIf="Answers[0].data.rated === true">Rated</div>
+          <button class="btn btn-primary w-25" (click)="showPopUp(Answers[0].docID)"
+                  [disabled]="Answers[0].data.rated === true">Rate
+          </button>
         </div>
       </div>
     </ng-container>
@@ -26,10 +32,12 @@
   </div>
 
   <span *ngIf="Answers == null  && !gate && homeworkAnswers.length === 0">No one's sent homework yet.</span>
+
   <div class="homework-list" [ngClass]="hideMenu ? 'toggled' : ''">
     <div class="list-group list-group-flush group-links ">
       <a class="list-group-item list-group-item-action " *ngFor="let homework of homeworkAnswers; let i = index"
-         [routerLink]="'../' + (i+1)" routerLinkActive="active" (click)="hideMenu = true">
+         [routerLink]="'../' + (i+1)" routerLinkActive="active" (click)="hideMenu = true"
+         [ngClass]="homework.data.rated ? 'bg-success text-white' : ''">
         <span>{{homework.docID}}</span>
       </a>
     </div>

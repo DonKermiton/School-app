@@ -44,11 +44,13 @@ export class EditStudentMarksComponent implements OnInit {
   }
 
   addMarkField() {
+
     (<FormArray>this.marksForm.get('marks')).push(
       new FormGroup({
         value: new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
         desc: new FormControl(null, Validators.required),
-
+        add: new FormControl(null),
+        date: new FormControl(new Date().toLocaleString()),
       })
     )
   }
@@ -77,6 +79,8 @@ export class EditStudentMarksComponent implements OnInit {
           new FormGroup({
             value: new FormControl(this.userMarks.marks[mark].value, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
             desc: new FormControl(this.userMarks.marks[mark].desc, Validators.required),
+            add: new FormControl(this.userMarks.marks[mark].add),
+            date: new FormControl(this.userMarks.marks[mark].date),
           })
         )
       }

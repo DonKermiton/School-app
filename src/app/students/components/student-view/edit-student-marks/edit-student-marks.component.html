@@ -1,34 +1,35 @@
-<div class="row shadow bg-light">
-
-  <form *ngIf="marksForm" [formGroup]="marksForm" (ngSubmit)="onSubmit()">
-    <div class="text-center">
-    <span>{{userUID}}</span>
-    </div>
-  <div class="col-xs-12" formArrayName="marks">
-      <div class="row mt-2" *ngFor="let mark of controls; let i = index" [formGroupName]="i">
-        <div class="col-1 text-right mt-2">
+<div class="row">
+  <form [formGroup]="marksForm" (ngSubmit)="onSubmit()" *ngIf="marksForm">
+    <div class="col-xs-12" formArrayName="marks">
+      <div class="row" *ngFor="let mark of controls; let i = index" [formGroupName]="i">
+        <div class="col-xs-12 col-lg-1 text-center ">
           {{i + 1}}
         </div>
-        <div class="col-2">
+        <div class="col-xs-12 col-lg-2">
           <input type="text" class="form-control" formControlName="value">
         </div>
-        <div class="col-7">
+
+        <div class="col-xs-12 col-lg-8">
           <input type="text" class="form-control" formControlName="desc">
+
         </div>
-        <div class="col-2 ">
+
+        <div class="col-xs-12 col-lg-1 text-center">
           <button class="btn btn-danger" type="button" (click)="deleteMark(i)">X</button>
-
         </div>
+
       </div>
-    <div class="text-center mt-2">
-      <button class="btn btn-outline-primary w-25 text-uppercase"  type="button" (click)="addMarkField()">Add mark</button>
+      <div class="text-center mt-2">
+        <button class="btn btn-outline-primary w-25 text-uppercase"  type="button" (click)="addMarkField()">Add mark</button>
+
+      </div>
+      <div class="text-right">
+        <button class="btn btn-outline-success" type="submit" >Save</button>
+
+      </div>
 
     </div>
-    <div class="text-right">
-    <button class="btn btn-outline-success" type="submit" [disabled]="!marksForm.valid">Save</button>
 
-    </div>
 
-  </div>
   </form>
 </div>

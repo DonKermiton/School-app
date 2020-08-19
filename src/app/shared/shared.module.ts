@@ -11,7 +11,7 @@ import {StudentPanelComponent} from "../core/components/student-panel/student-pa
 import {LoadingSpinnerComponent} from "./components/loading-spinner/loading-spinner.component";
 import {ConfirmAlertComponent} from "./components/confirm-alert/confirm-alert.component";
 import {SubmitHomeworkComponent} from "../core/components/student-panel/submit-homework/submit-homework.component";
-import {SubmitHomeworkEditComponent} from "../core/components/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component";
+
 import {TooltipDirective} from "./directives/tooltip.directive";
 import {tooltipComponent} from "./components/tooltip/tooltip.component";
 import {SideMenuComponent} from "./components/side-menu/side-menu.component";
@@ -36,7 +36,6 @@ const routes: Routes = [
     LoadingSpinnerComponent,
     ConfirmAlertComponent,
     SubmitHomeworkComponent,
-    SubmitHomeworkEditComponent,
     TooltipDirective,
     tooltipComponent,
     SideMenuComponent,

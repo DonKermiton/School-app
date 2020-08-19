@@ -11,6 +11,7 @@ import {YourProfileComponent} from "./components/your-profile/your-profile.compo
 import {EditProfileComponent} from "./components/your-profile/edit-profile/edit-profile.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {ViewUsersComponent} from "./components/your-profile/view-users/view-users.component";
 
 
 const routes: Routes = [
@@ -18,9 +19,9 @@ const routes: Routes = [
   {path: 'adminPanel', component: AdminPanelComponent, canActivate: [AdminGuard]},
   {path: 'studentPanel', component: StudentPanelComponent, canActivate: [CanReadGuard]},
   {path: 'studentPanel/submitHomework', component: SubmitHomeworkComponent, canActivate: [CanReadGuard]},
+  {path: 'profile/:uid', component: ViewUsersComponent, canActivate: [CanReadGuard]},
   {path: 'profile', component: YourProfileComponent, children: [
     {path: 'edit', component: EditProfileComponent},]},
-
 
 
 ];

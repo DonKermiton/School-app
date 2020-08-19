@@ -3,10 +3,11 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {homeworkService} from "../../../../homework/services/homework.service";
 import {homeworkModel} from "../../../../homework/models/homework.model";
 import {AuthService} from "../../../../auth/services/auth.service";
-import {intervalToDuration, isFuture} from 'date-fns'
+import {intervalToDuration} from 'date-fns'
 import {interval} from "rxjs";
 import {mergeMap, tap} from "rxjs/operators";
 import {TimeService} from "../../../../shared/service/time.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-submit-homework',
@@ -17,8 +18,11 @@ export class SubmitHomeworkComponent implements OnInit {
   homeworkID: string;
   homeworkGroup: string;
   homeworkData: homeworkModel;
-  homeworkAnswer: any;
+  homeworkAnswerForm: FormGroup;
   time: Duration;
+  descriptionMenu = true;
+  homeworkAnswer: homeworkAnswerModel;
+
 
   constructor(private activatedRoute: ActivatedRoute,
               private homeworkService: homeworkService,
@@ -33,30 +37,28 @@ export class SubmitHomeworkComponent implements OnInit {
         this.homeworkID = params['id'];
         this.homeworkGroup = params['group']
       }),
+
       mergeMap(() => this.homeworkService.getHomeworkByID(this.homeworkID, this.homeworkGroup)),
       mergeMap((homework: any) => {
         this.homeworkData = homework.data();
         return this.homeworkService.getStudentResponse(this.homeworkGroup, this.homeworkID, this.authService.userUID)
       })
-
-    ).subscribe(homeworkAnswer => {
-      if(homeworkAnswer.get(this.authService.userUID)) {
-        this.homeworkAnswer = homeworkAnswer.get(this.authService.userUID).homework;
+    ).subscribe((homeworkAnswer: any) => {
+      if (homeworkAnswer.exists) {
+        this.homeworkAnswer = homeworkAnswer.data();
+        this.homeworkAnswerForm.controls[`text`].patchValue(this.homeworkAnswer.homework);
       }
     })
-      this.remainingTime()
-    }
+    this.remainingTime();
 
-
-  checkIsPast(){
-    return this.timeService.isInPast(new Date(this.homeworkData.date));
+    this.initForm();
   }
 
   remainingTime() {
-//emit value in sequence every 1 second
+
     const source = interval(1000);
 
-     source.subscribe(val => {
+    source.subscribe(val => {
       this.time = intervalToDuration({
         start: new Date(),
         end: new Date(this.homeworkData.date)
@@ -64,9 +66,21 @@ export class SubmitHomeworkComponent implements OnInit {
     });
   }
 
-  saveHomework($event: string) {
-    this.homeworkService.saveStudentResponse($event, this.homeworkGroup, this.homeworkID, this.authService.userUID);
+  saveHomework() {
+    console.log(this.homeworkAnswer)
+    this.homeworkService.saveStudentResponse(this.homeworkAnswerForm.value.text, this.homeworkGroup, this.homeworkID, this.authService.userUID);
   }
 
+  private initForm() {
+    this.homeworkAnswerForm = new FormGroup({
+      text: new FormControl(null, [Validators.required, Validators.maxLength(2500)])
+    })
+  }
 
+}
+
+export interface homeworkAnswerModel {
+  date: Date;
+  homework: string;
+  rated: boolean;
 }
