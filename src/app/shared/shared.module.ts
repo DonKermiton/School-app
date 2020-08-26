@@ -19,6 +19,7 @@ import {LayoutLoggedComponentComponent} from "./layout-logged-component/layout-l
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AddMarkComponent } from './components/add-mark/add-mark.component';
 import {HttpClientModule} from "@angular/common/http";
+import {TooltipModule} from "ng2-tooltip-directive";
 
 
 const routes: Routes = [
@@ -41,13 +42,13 @@ const routes: Routes = [
     SideMenuComponent,
     LayoutLoggedComponentComponent,
     AddMarkComponent],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    RouterModule.forChild(routes),
-
-  ],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        RouterModule.forChild(routes),
+        TooltipModule,
+    ],
 
 
   entryComponents: [

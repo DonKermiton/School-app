@@ -12,30 +12,41 @@
   <component name="ChangeListManager">
     <list default="true" id="74637362-6811-4b3c-954e-7e94d477ad90" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework-edit/submit-homework-edit.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/log-in/log-in.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/components/sign-in/sign-in.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/student-panel.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/components/student-panel/submit-homework/submit-homework.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/core.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-check/homework-check.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/components/homework-list/homework-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/homework/homework.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/homework.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/homework/services/homework.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/homework/services/homework.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/add-mark/add-mark.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/add-mark/add-mark.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/layout-logged-component/layout-logged-component.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/layout-logged-component/layout-logged-component.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/layout-logged-component/layout-logged-component.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/layout-logged-component/layout-logged-component.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/shared.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/student.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/student.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/edit-student-marks/edit-student-marks.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/student-view/student-view.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/components/students-list/students-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/services/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/services/students.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/students/students.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/students/students.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/students/students.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +185,14 @@
       <workItem from="1597587131746" duration="2330000" />
       <workItem from="1597684690338" duration="10307000" />
       <workItem from="1597740417613" duration="17114000" />
-      <workItem from="1597830535575" duration="3460000" />
+      <workItem from="1597830535575" duration="5103000" />
+      <workItem from="1598000010994" duration="1418000" />
+      <workItem from="1598029824356" duration="859000" />
+      <workItem from="1598195145325" duration="16636000" />
+      <workItem from="1598258312267" duration="11800000" />
+      <workItem from="1598292255596" duration="4989000" />
+      <workItem from="1598306484571" duration="12000" />
+      <workItem from="1598343610171" duration="13115000" />
     </task>
     <servers />
   </component>
@@ -262,17 +280,17 @@
     </state>
     <state x="0" y="0" width="722" height="1040" key="find.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596997814421" />
     <state x="1920" y="0" width="577" height="832" key="find.popup/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1595964498051" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1597142650474">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1598221816269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1597142650474" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1598221816269" />
     <state x="493" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594805981230" />
     <state x="616" y="240" key="run.anything.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1594680577881" />
-    <state x="623" y="225" width="840" height="680" key="search.everywhere.popup" timestamp="1597849236021">
+    <state x="623" y="225" width="840" height="680" key="search.everywhere.popup" timestamp="1598381213700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="840" height="680" key="search.everywhere.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1597849236021" />
-    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596014045795" />
+    <state x="623" y="225" width="840" height="680" key="search.everywhere.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1598381213700" />
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1598276020639" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1595784802539" />
     <state x="2418" y="180" width="672" height="544" key="search.everywhere.popup/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1595966144789" />
   </component>

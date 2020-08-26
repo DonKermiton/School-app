@@ -1,34 +1,36 @@
-<div class="container">
 
-  <form [formGroup]="homeworkForm">
-    <div class="row ">
-      <div class=" form-group text-center">
-        <label for="Status">Group</label>
-        <select id="Status" class="form-control" formControlName="group" (change)="ChangeGroup($event)" >
-          <option selected disabled hidden>Choose</option>
-          <option [value]="group"
-                  *ngFor="let group of groupList"> {{group}}</option>
-        </select>
+
+  <div id="filter-wrapper" class="overflow-hidden" [ngClass]="showFilters ? 'heightMax': 'heightZero'">
+    <form [formGroup]="homeworkSortForm" (ngSubmit)="filterHomework()">
+      <div class="row text-center border">
+        <div class="col-xs-12 col-md-4 col-lg-2">
+          <label for="Status">Group</label>
+          <select id="Status" class="custom-select " formControlName="group">
+            <option selected></option>
+            <option [value]="group" [selected]="group === selectedGroup"
+                    *ngFor="let group of groupList">{{group}}</option>
+          </select>
+        </div>
+        <div class="col-xs-12 col-md-7 col-lg-9 ">
+          <label for="displayName">Title</label>
+          <input type="text" id="displayName" class="form-control" formControlName="title">
+        </div>
+
+        <div class="col-xs-12 col-md-1 col-lg-1 text-center d-flex align-items-end ">
+          <button class="w-100 btn btn-outline-success" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
       </div>
-    <!--  <div class="form-group text-center px-1">
-        <label for="Date">Date from</label>
-        <input type="date" id="Date" class="form-control">
-      </div>
+    </form>
+  </div>
 
-      <div class="col-5 form-group text-center px-3">
-        <label for="Title">title</label>
-        <input type="text" id="title" class="form-control">
-      </div>
-      <div class="offset-3 align-self-center ">
-        <button class="btn btn-outline-success">Search</button>
-      </div>-->
-    </div>
-  </form>
-
-
+  <div class="row d-flex justify-content-center py-2 showMenu border" (click)="showFilters = !showFilters" [ngClass]="showFilters ? 'fa fa-rotate-180' : ''">
+    <i class="fa fa-caret-down"></i>
+  </div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-lg-4 ">
+    <div class="col-xs-12 col-md-12 ">
 
       <div class="text-center">
       <button class="btn btn-outline-primary" type="button" routerLink="add">Assign Homework</button>
@@ -38,8 +40,7 @@
     </div>
 
     <div class="col-xs-12 col-md-6 col-lg-8 ">
-      <router-outlet></router-outlet>
+
     </div>
 
   </div>
-</div>

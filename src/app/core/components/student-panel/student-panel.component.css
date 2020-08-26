@@ -18,7 +18,8 @@
 }
 
 .mark {
-  padding: .3em .6em;
+  width: .3rem;
+  height: .3rem;
   cursor: pointer;
   background-color: red;
 }

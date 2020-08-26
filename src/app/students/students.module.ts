@@ -11,13 +11,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "../shared/shared.module";
 
 
-
 const routes: Routes = [
-  {
-    path: 'list', component: StudentsComponent, children: [
-      {path: ':edit', component: StudentViewComponent, canActivate: [AdminGuard]},
-      {path: ':edit/show', component: EditStudentMarksComponent, canActivate: [AdminGuard]},]
-  },
+  {path: 'list', component: StudentsComponent,},
+  {path: 'list/:edit', component: StudentViewComponent, canActivate: [AdminGuard]},
+  {path: 'list/:edit/show', component: EditStudentMarksComponent, canActivate: [AdminGuard]},
 
 ];
 
@@ -28,7 +25,7 @@ const routes: Routes = [
     StudentViewComponent,
     EditStudentMarksComponent,
 
-    ],
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

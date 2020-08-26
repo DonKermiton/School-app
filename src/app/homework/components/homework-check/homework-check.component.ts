@@ -32,13 +32,12 @@ export class HomeworkCheckComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
     this.authService.user$.pipe(
       tap((user) => {
         this.userDisplayName = user.displayName;
       })
     ).subscribe()
+
     this.route.params.pipe(
       mergeMap((params: Params) => {
         this.gate = true;
@@ -58,10 +57,10 @@ export class HomeworkCheckComponent implements OnInit {
         console.log(this.Answers)
         return this.homeworkService.getAllHomeworkAnswers(this.group, this.detail)
       })
-    ).subscribe((data: homeworkAnswerInterface[]) => {
-
+    ).subscribe((data:any) => {
       this.gate = false;
         this.homeworkAnswers = data;
+        console.log(this.homeworkAnswers)
       }
     )
   }

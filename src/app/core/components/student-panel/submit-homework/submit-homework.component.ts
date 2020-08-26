@@ -67,7 +67,6 @@ export class SubmitHomeworkComponent implements OnInit {
   }
 
   saveHomework() {
-    console.log(this.homeworkAnswer)
     this.homeworkService.saveStudentResponse(this.homeworkAnswerForm.value.text, this.homeworkGroup, this.homeworkID, this.authService.userUID);
   }
 

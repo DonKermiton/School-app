@@ -3,6 +3,8 @@ import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {studentsService} from "../../../services/students.service";
 import {MarksModel} from "../../../models/marks.model";
+import validate = WebAssembly.validate;
+import {studentModel} from "../../../../shared/student.model";
 
 @Component({
   selector: 'app-edit-student-marks',
@@ -12,7 +14,7 @@ import {MarksModel} from "../../../models/marks.model";
 export class EditStudentMarksComponent implements OnInit {
   marksForm: FormGroup;
   userUID: string;
-  userMarks: MarksModel;
+  userMarks: any;
   selectedGroup: string;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -63,26 +65,26 @@ export class EditStudentMarksComponent implements OnInit {
 
   private initForm() {
     const marksArray = new FormArray([]);
-    this.studentService.getMarks(this.userUID, this.selectedGroup).subscribe((value: any) => {
-      // console.log(value.data());
+    this.studentService.getMarks(this.userUID, this.selectedGroup).subscribe((marks: any) => {
+      console.log(marks.marks);
+      if(marks) {
+        this.userMarks = marks.marks;
 
-      this.userMarks = value.data();
-
-      for(const test in this.userMarks.marks){
-
-        console.log(this.userMarks.marks[test]);
-      }
+        for (const test in this.userMarks.marks) {
+          console.log(this.userMarks.marks[test]);
+        }
 
 
-      for (const mark in this.userMarks.marks) {
-        marksArray.push(
-          new FormGroup({
-            value: new FormControl(this.userMarks.marks[mark].value, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-            desc: new FormControl(this.userMarks.marks[mark].desc, Validators.required),
-            add: new FormControl(this.userMarks.marks[mark].add),
-            date: new FormControl(this.userMarks.marks[mark].date),
-          })
-        )
+        for (const mark in this.userMarks) {
+          marksArray.push(
+            new FormGroup({
+              value: new FormControl(this.userMarks[mark].value, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+              desc: new FormControl(this.userMarks[mark].desc, Validators.required),
+              add: new FormControl(this.userMarks[mark].add),
+              date: new FormControl(this.userMarks[mark].date),
+            })
+          )
+        }
       }
       this.marksForm = new FormGroup({
         marks: marksArray,

@@ -19,6 +19,7 @@ import {LogInInterceptorInterceptor} from "./core/interceptors/log-in-intercepto
 import {LayoutLoggedComponentComponent} from "./shared/layout-logged-component/layout-logged-component.component";
 import {CoreModule} from "./core/core.module";
 import {CanReadGuard} from "./shared/guards/can-read.guard";
+import {TooltipModule} from "ng2-tooltip-directive";
 
 
 const appRoute: Routes = [
@@ -60,6 +61,7 @@ const appRoute: Routes = [
     FormsModule,
     OverlayModule,
     BrowserAnimationsModule,
+    TooltipModule
   ],
 
 

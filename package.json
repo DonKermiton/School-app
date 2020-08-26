@@ -26,6 +26,7 @@
     "firebase": "^7.16.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "ng2-tooltip-directive": "^2.9.22",
     "ngx-popper": "^7.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",

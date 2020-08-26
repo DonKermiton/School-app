@@ -5,7 +5,7 @@
   </div>
 
   <div class="col-xs-12 offset-md-1 col-md-10 offset-md-1">
-    <app-alert [message]="authService.error" *ngIf="authService.error" (closeVar)="this.onHandleError()"></app-alert>
+
     <form [formGroup]="SignInForm" (ngSubmit)="SignInUser()">
       <div class="row">
         <div class="col-xs-12  col-lg-12">

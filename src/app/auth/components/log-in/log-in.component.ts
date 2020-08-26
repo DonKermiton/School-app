@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {User} from "../../models/user.model";
 
 @Component({
   selector: 'app-log-in',
@@ -15,15 +16,20 @@ export class LogInComponent implements OnInit {
   accounts: logInInterface[] = [
     {type: 'admin', email: 'pietrucha2112@interia.pl', password: 'Windows7'}
   ]
-
-  constructor(public auth: AuthService,
-              private router: Router) {
-  }
-
   email: string;
   password: string;
 
+  constructor(public auth: AuthService,
+              private router: Router) {
+    this.auth.user$.subscribe((user: User) => {
+      if (user) {
+        this.router.navigate(['/core/profile']);
+      }
+    });
+  }
+
   ngOnInit(): void {
+
 
     this.LoginForm = new FormGroup({
       'email': new FormControl(this.email, [Validators.required, Validators.email]),

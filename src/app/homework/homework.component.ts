@@ -1,8 +1,8 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {FormControl, FormGroup, FormsModule, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {homeworkService} from "../homework/services/homework.service";
-import {Observable, of, Subject} from "rxjs";
+import {Subject} from "rxjs";
 import {homeworkModel} from "./models/homework.model";
 import {mergeMap} from "rxjs/operators";
 
@@ -15,33 +15,54 @@ export class HomeworkComponent implements OnInit {
   homeworkList: homeworkModel[];
   selectedGroup = new Subject();
   group: string;
+  title: string;
 
+  showFilters = false;
   groupList = [
     '401',
     '402',
     '410',
   ];
 
-  homeworkForm: FormGroup;
+  homeworkSortForm: FormGroup;
 
-  constructor(private homeworkService: homeworkService) { }
+  constructor(private homeworkService: homeworkService,
+              private router: Router,
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-   this.selectedGroup.pipe(
-     mergeMap(((value: string) => {
-       this.group = value;
-       return this.homeworkService.getHomeworks(value);
-     }))
-   ).subscribe((doc: any) => {
-     this.homeworkList = doc;
-   })
 
-    this.homeworkForm = new FormGroup({
-      group: new FormControl(Validators.required)
+    this.route.queryParams.pipe(
+      mergeMap((params: Params) => {
+        if (params['group'] || params['title']) {
+         this.showFilters = true;
+        }
+        this.title = params['title']
+        this.group = params['group'];
+        return this.homeworkService.getHomeworks(this.group, params['title']);
+      })).subscribe((doc: any) => {
+      this.homeworkList = doc;
+      this.homeworkSortForm.controls['group'].patchValue(this.group)
+      this.homeworkSortForm.controls['title'].patchValue(this.title)
+    })
+
+    this.homeworkSortForm = new FormGroup({
+      group: new FormControl(),
+      title: new FormControl(),
     })
   }
 
   ChangeGroup(event: Event) {
     this.selectedGroup.next((<HTMLInputElement>event.target).value);
+  }
+
+  filterHomework() {
+    this.router.navigate([], {
+      queryParams: {
+        group: this.homeworkSortForm.value.group,
+        title: this.homeworkSortForm.value.title,
+      }
+    })
   }
 }

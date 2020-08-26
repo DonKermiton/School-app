@@ -1,0 +1,31 @@
+#wrapper{
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.dropdown-item{
+  cursor: pointer;
+}
+
+.row div{
+  padding-bottom: 1rem;
+}
+
+.showMenu{
+  background-color: azure;
+
+}
+
+#filter-wrapper{
+  transition: .3s linear;
+
+  background-color: #f8f9fa;
+}
+
+#filter-wrapper.heightMax{
+  height: auto;
+}
+
+#filter-wrapper.heightZero{
+  max-height: 0vh;
+}

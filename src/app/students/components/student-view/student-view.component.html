@@ -1,40 +1,55 @@
 <div *ngIf="student">
   <div class="shadow rounded bg-light wrap-text">
-    <div class="row">
-      <div class="col-xs-12 col-md-12 col-lg-4">
+
+    <div class="row align-items-center">
+      <div class="col-xs-12 col-md-5 col-lg-2">
         <img [src]="student.photoURL" [alt]="student.displayName" height="100">
       </div>
-      <div class="col-xs-12 col-md-12">
-        <h5 [routerLink]="'/core/profile/'+ student.uid" style="cursor: pointer;">{{student.email}}</h5>
-        <span class="lead">{{student.displayName}}</span>
 
+      <div class="col-xs-12 col-md-4 col-lg-7">
+        <h5 class="text-info" [routerLink]="'/core/profile/'+ student.uid"
+            style="cursor: pointer;">{{student.email}}</h5>
+        <span class="lead text-warning">{{student.displayName}}</span>
       </div>
-    </div>
-    <hr>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th scope="col">Mark</th>
-        <th scope="col">Desc</th>
-      </tr>
-      </thead>
-      <tbody>
-<!--      <li></li>-->
 
-      <tr *ngFor="let e of (marks| keyvalue) ">
-        <td>{{e.value.value}}</td>
-        <td>{{e.value.desc }}</td>
+      <div class="col-xs-12 col-md-3 col-lg-3">
+        <span>Average: {{averageMark}}</span>
+      </div>
 
-      </tr>
 
-      </tbody>
-
-    </table>
-    <div class="row justify-content-end mr-3">
-      <button class="btn btn-outline-success" (click)="editMarks()">Edit</button>
-      <button class="btn btn-outline-success" >Add</button>
     </div>
   </div>
 
+  <hr>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Mark</th>
+      <th scope="col">Desc</th>
+      <th scope="col">Added by</th>
+      <th scope="col">Date</th>
 
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let e of (marks| keyvalue) ">
+      <td>{{e.value.value}}</td>
+      <td>{{e.value.desc }}</td>
+      <td *ngIf="e.value.add;else noData">{{e.value.add}}</td>
+      <td *ngIf="e.value.date; else noData">{{e.value.date}}</td>
+      <ng-template #noData>
+        <td>--</td>
+      </ng-template>
+
+    </tr>
+    </tbody>
+
+  </table>
+  <div class="row justify-content-end mr-3">
+    <button class="btn btn-outline-success" (click)="editMarks()">{{!marks ? 'Add' : 'Edit'}}</button>
+    <button class="btn btn-outline-success" (click)="showPopUp()" *ngIf="marks">Add</button>
+  </div>
 </div>
+
+<app-add-mark *ngIf="addMark" (closePopUp)="closePopUp()" (addedMark)="saveMark($event)"></app-add-mark>
+

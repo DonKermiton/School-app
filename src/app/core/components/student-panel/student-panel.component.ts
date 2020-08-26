@@ -9,6 +9,7 @@ import {homeworkModel} from "../../../homework/models/homework.model";
 import {Router} from "@angular/router";
 import {mergeMap, tap} from "rxjs/operators";
 import {TimeService} from "../../../shared/service/time.service";
+import {TooltipOptions} from 'ng2-tooltip-directive';
 
 @Component({
   selector: 'app-student-panel',
@@ -23,6 +24,13 @@ export class StudentPanelComponent implements OnInit {
   uid: string
   homework: homeworkModel[];
   isDownloaded: boolean;
+
+
+  options: TooltipOptions = {
+    'trigger': 'click',
+    'z-index': 2500,
+    'displayTouchscreen': true,
+  }
 
   constructor(private authService: AuthService,
               private studentService: studentsService,
@@ -40,8 +48,9 @@ export class StudentPanelComponent implements OnInit {
       }),
       mergeMap(() => this.studentService.getMarks(uid, group)),
       mergeMap((marks: any) => {
-        this.marks = marks.data();
-        return this.homeworkService.getHomeworks(group)
+        this.marks = marks
+        console.log(this.marks)
+        return this.homeworkService.getHomeworks(group, '')
       })
     ).subscribe((homework: any) => {
       this.homework = homework;

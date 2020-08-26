@@ -5,11 +5,13 @@
         <span class="lead border-bottom">Marks</span>
       </div>
       <div class="col-12 mt-4 " *ngIf="marks; else spinner">
-        <span class="mark mx-1 " *ngFor="let mark of marks.marks; let i = index"
+        <span class="mx-1 mark" *ngFor="let mark of marks.marks; let i = index"
               [ngClass]="mark.value === '1' ? 'bg-danger' : 'bg-success'"
-              appTooltip="{{mark.desc}} - {{mark.date}} - {{mark.add}}"
-        >{{mark.value}}</span>
+              tooltip="<p>{{mark.desc}} - {{mark.date}} - {{mark.add}}</p>" [options]="options">
+          {{mark.value}}
+        </span>
       </div>
+
 
     </div>
     <div class="col-xs-12 col-md-6 def-text">
@@ -17,7 +19,7 @@
         <span class="lead border-bottom">Homework's</span>
       </div>
       <div class="col-12 mt-4" *ngIf="homework; else spinner">
-        <div class=" bg-secondary" *ngFor="let e of homework; let i = index" (click)="addResolveToHomework(e)" >
+        <div class=" bg-secondary" *ngFor="let e of homework; let i = index" (click)="addResolveToHomework(e)">
           <div class="bg-light homework-element mt-1">
             <li class="media my-4" style="cursor: pointer">
               <div class="media-body px-3 py-1">
@@ -41,9 +43,7 @@
   </div>
 </ng-template>
 
-<div class="tooltip ">Hover over me
-  <span class="tooltiptext">Tooltip text</span>
-</div>
+
 
 
 

@@ -34,11 +34,15 @@
   <span *ngIf="Answers == null  && !gate && homeworkAnswers.length === 0">No one's sent homework yet.</span>
 
   <div class="homework-list" [ngClass]="hideMenu ? 'toggled' : ''">
+    <div *ngIf="!gate">
+      <input id="showRated" type="checkbox" >
+      <label for="showRated">Hide Rated</label>
+    </div>
     <div class="list-group list-group-flush group-links ">
-      <a class="list-group-item list-group-item-action " *ngFor="let homework of homeworkAnswers; let i = index"
+      <a class="list-group-item list-group-item-action " *ngFor="let homework of homeworkAnswers ; let i = index"
          [routerLink]="'../' + (i+1)" routerLinkActive="active" (click)="hideMenu = true"
-         [ngClass]="homework.data.rated ? 'bg-success text-white' : ''">
-        <span>{{homework.docID}}</span>
+        >
+        <span>{{i}}</span>
       </a>
     </div>
   </div>

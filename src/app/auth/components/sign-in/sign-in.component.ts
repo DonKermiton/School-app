@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
+import {User} from "../../models/user.model";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,10 +13,18 @@ import {AuthService} from "../../services/auth.service";
 export class SignInComponent implements OnInit {
   SignInForm: FormGroup;
 
-  constructor(public authService: AuthService) {
+  constructor(public auth: AuthService,
+              private router: Router) {
+    this.auth.user$.subscribe((user: User)=> {
+      if(user){
+        this.router.navigate(['/core/profile']);
+      }
+    });
   }
 
   ngOnInit(): void {
+
+
     this.SignInForm = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required]),
@@ -27,12 +37,12 @@ export class SignInComponent implements OnInit {
   }
 
   onHandleError() {
-    this.authService.error = null;
+    this.auth.error = null;
   }
 
 
   SignInViaEmail() {
-    this.authService.createUserViaEmail(this.SignInForm.value.email, this.SignInForm.value.password, this.SignInForm.value.group);
+    this.auth.createUserViaEmail(this.SignInForm.value.email, this.SignInForm.value.password, this.SignInForm.value.group);
 
   }
 }
